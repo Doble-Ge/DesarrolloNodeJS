@@ -75,8 +75,6 @@ export class ExpedienteMensuraComponent implements OnInit {
       },
       err => console.error(err)
     )
-    console.log(typeof(this.CaratulaInyectada.caratulaNota.nroOrigen))
-    console.log(typeof(this.CaratulaInyectada.caratulaNota.motivo))
   }
 
   pasarParametroNota(caratulaRecibida: CaratulaNota){
@@ -101,6 +99,13 @@ export class ExpedienteMensuraComponent implements OnInit {
     this.CaratulaInyectada.caratulaOficio.hora = this.d.getHours()
     this.CaratulaInyectada.caratulaOficio.minuto = this.d.getMinutes()
     alert("Se creo la caratula")
+    console.log(this.CaratulaInyectada.caratulaOficio)
+    this.CaratulaInyectada.guardarCaratulaOficio(this.CaratulaInyectada.caratulaOficio).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
   }
 
   pasarParametroOficios(caratulaRecibida: CaratulaOficio){

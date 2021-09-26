@@ -8,43 +8,43 @@ const Oficio = sequelize.define('oficio',{
         type: Sequelize.INTEGER,
         primaryKey: true
     },
-    motivo_oficio: {
-        type: Sequelize.INTEGER
+    motivo: {
+        type: Sequelize.TEXT
     },
-    asunto_oficio: {
+    caratula_asunto: {
         type: Sequelize.TEXT    
     },
-    termino_oficio: {
-        type: Sequelize.DATE
+    fechaTermino: {
+        type: Sequelize.TEXT
     },
-    fechavenc_oficio: {
-        type: Sequelize.DATE
-    },
-    observacion_oficio: {
+    detalle_observacion: {
         type: Sequelize.TEXT
     },
     tramite_id: {
         type: Sequelize.INTEGER
     },
-    nro_interno: {
+    numeroInterno: {
         type: Sequelize.TEXT    
     },
     anio: {
         type: Sequelize.INTEGER
     },
-    agente_interviniente: {
+    agenteInterviniente: {
         type: Sequelize.TEXT
     },
     fecha: {
         type: Sequelize.TEXT
     },
-    fecha_inicio: {
+    fechaIngreso: {
         type: Sequelize.TEXT
     },
-    exp_origen: {
+    expedienteOrigen: {
         type: Sequelize.TEXT
     },
     diligenciador: {
+        type: Sequelize.TEXT
+    },
+    asunto_caratula: {
         type: Sequelize.TEXT
     }
    

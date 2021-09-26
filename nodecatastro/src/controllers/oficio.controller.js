@@ -13,28 +13,28 @@ export async function getOficio(req,res) {
 }
 
 export async function crearOficio(req, res) {
-    const {motivo_oficio,asunto_oficio,termino_oficio,fechavenc_oficio,observacion_oficio,
-        nro_interno,anio,agente_interviniente,fecha,fecha_inicio,exp_origen,diligenciador} = req.body;
+    const {motivo,caratula_asunto,fechaTermino,detalle_observacion,
+        numeroInterno,anio,agenteInterviniente,fecha,fechaIngreso,expedienteOrigen,diligenciador,asunto_caratula} = req.body;
     try {
 
         let nuevoOficio = await Oficio.create({
-            motivo_oficio,
-            asunto_oficio,
-            termino_oficio,
-            fechavenc_oficio,
-            observacion_oficio,
-            nro_interno,
+            motivo,
+            caratula_asunto,
+            fechaTermino,
+            detalle_observacion,
+            numeroInterno,
             anio,
-            agente_interviniente,
+            agenteInterviniente,
             fecha,
-            fecha_inicio,
-            exp_origen,
-            diligenciador
+            fechaIngreso,
+            expedienteOrigen,
+            diligenciador,
+            asunto_caratula
             
         }, {
-            fields:['motivo_oficio', 'asunto_oficio', 'termino_oficio', 'fechavenc_oficio', 
-            'observacion_oficio','nro_interno','anio','agente_interviniente','fecha',
-        'fecha_inicio','exp_origen','diligenciador']
+            fields:['motivo', 'caratula_asunto', 'fechaTermino', 'detalle_observacion', 
+            'numeroInterno','anio','agenteInterviniente','fecha',
+            'fechaIngreso','expedienteOrigen','diligenciador', 'asunto_caratula']
         });
         if (nuevoOficio) {
             return res.json({

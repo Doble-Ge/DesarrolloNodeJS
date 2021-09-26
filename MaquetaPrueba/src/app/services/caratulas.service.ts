@@ -23,4 +23,8 @@ export class CaratulasService {
    guardarCaratulaNota(caratula: CaratulaNota): Observable<CaratulaNota> {
     return this.http.post<CaratulaNota>(this.API_URL + '/nota', caratula)
    }
+
+   guardarCaratulaOficio(caratula: CaratulaOficio): Observable<CaratulaOficio> {
+     return this.http.post<CaratulaOficio>(this.API_URL + '/oficio', caratula)
+   }
 }
