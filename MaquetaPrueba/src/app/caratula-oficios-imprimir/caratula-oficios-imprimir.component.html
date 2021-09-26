@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Print Oficio</title>
+</head>
+<body>
+	<div class="contenedor">
+		<div class="fila" id="titulo">
+			<div class="col-2">
+				<div class="center">
+					<div class="col-2">
+						<img src="http://190.112.64.77:32819/tierras/tierras/expediente_catastro/img/LRescudo.png">
+						<p class="larioja">LA RIOJA</p>
+						<p class="subtitulo">Dirección General de Catastro</p>
+						<p class="subtitulo"><span>LEY 3.778</span></p>
+					</div>
+					<div class="col-3 valoracion">
+						<span>G02.05</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-2">
+				<div class="center">
+					<div class="col-2">
+						<div class="border-l-2 border-b-2"><span>NÚMERO</span></div>
+						<div class="border-l-2 border-b-2 renglon-1 ci"><span> <b>{{caratulaOficios.numeroInterno}}</b> </span></div>
+					</div>
+					<div class="col-2">
+						<div class="border-l-2 border-b-2"><span>AÑO</span></div>
+						<div class="border-l-2 border-b-2 renglon-1 ci"><span> <b>{{caratulaOficios.anio}}</b> </span></div>
+					</div>
+					<div class="col-1">
+						<div><h1>OFICIO</h1></div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="fila" id="motivo">
+			<div class="center">
+				<div class="col-10">
+					<div><span>MOTIVO</span></div>
+				</div>
+				<div class="col-5">
+					<div class="border-l-1">
+						<div class="border-b-1 item"><span>PEDIDO DE INFORME</span></div>
+						<div class="valor"> 
+							<div *ngIf="caratulaOficios.motivo == 'PedidoDeInforme'">
+								<img src='http://190.112.64.77:32819/tierras/tierras/expediente_catastro/img/tick.png' width='20px;' />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-5">
+					<div class="border-l-1">
+						<div class="border-b-1 item"><span>COPIA DE PLANO</span></div>
+						<div class="valor">
+							<div *ngIf="caratulaOficios.motivo == 'CopiaDePlano'">
+								<img src='http://190.112.64.77:32819/tierras/tierras/expediente_catastro/img/tick.png' width='20px;' />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-4">
+					<div class="border-l-1">
+						<div class="border-b-1 item"><span>INSCRIPCIÓN DEFINITIVA</span></div>
+						<div class="valor">
+							<div *ngIf="caratulaOficios.motivo == 'InscripcionDefinitiva'">
+								<img src='http://190.112.64.77:32819/tierras/tierras/expediente_catastro/img/tick.png' width='20px;' />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-4">
+					<div class="border-l-1">
+						<div class="border-b-1 item"><span>OTRO</span></div>
+						<div class="valor"> 
+							<div *ngIf="caratulaOficios.motivo == 'Otro'">
+								<img src='http://190.112.64.77:32819/tierras/tierras/expediente_catastro/img/tick.png' width='20px;' />
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="fila" id="caratula">
+			<div>
+				<div class="col-1">
+					<div class="border-b-1 title">Encabezado</div>
+					<div class="renglon-1 border-b-1 relative"><span class="">EXPEDIENTE ORIGEN: <b>{{caratulaOficios.expedienteOrigen}}</b> </span></div>
+					<div class="renglon-3 border-b-1 relative"><span class="">ASUNTO / CARÁTULA: <b>{{caratulaOficios.caratula_asunto}}</b> </span></div>
+				</div>
+				<div class="col-2">
+					<div class="renglon-1 border-r-1 relative"><span class="">TÉRMINO: <b>{{caratulaOficios.fechaTermino}}</b> </span></div>
+				</div>
+				<div class="col-2">
+					<div class="renglon-1 relative"><span class="">FECHA: <b>{{caratulaOficios.fechaIngreso}}</b> </span></div>
+				</div>
+				<div class="col-1">
+					<div class="renglon-3 border-t-1 relative"><span class="">DILIGENCIADOR: (Matricula y teléfono optativo)  <b>{{caratulaOficios.diligenciador}}</b> </span></div>
+				</div>
+				
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="fila" id="movimientos">
+			<div>
+				<div class="col-1">
+					<div class="border-b-1 title">Movimiento Interno</div>
+				</div>
+				<div class="col-4">
+					<div class="renglon-1 border-r-1 center"><span>AREA</span></div>
+				</div>
+				<div class="col-6">
+					<div class="renglon-1 border-r-1" style="position: relative;">
+						<div class="center border-b-1"><div style="height: 17px;">INGRESO</div></div>
+						<div class="col-3 center"><div class="border-r-1" style="height: 17px;">Día</div></div>
+						<div class="col-3 center"><div class="border-r-1" style="height: 17px;">Mes</div></div>
+						<div class="col-3 center"><div style="height: 17px;">Año</div></div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="renglon-1 border-r-1" style="position: relative;">
+						<div class="center border-b-1"><div style="height: 17px;">SALIDA</div></div>
+						<div class="col-3 center"><div class="border-r-1" style="height: 17px;">Día</div></div>
+						<div class="col-3 center"><div class="border-r-1" style="height: 17px;">Mes</div></div>
+						<div class="col-3 center"><div style="height: 17px;">Año</div></div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div class="col-12">
+					<div class="renglon-1 border-r-1 center"><span>HORA</span></div>
+				</div>
+				<div class="col-12">
+					<div class="renglon-1 border-r-1 center"><span>FOLIOS</span></div>
+				</div>
+				<div class="col-4">
+					<div class="renglon-1 center"><span>CONTROL DEL AGENTE ADM.</span></div>
+				</div>
+						<div class="col-4">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-t-1"></div>
+						</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="fila">
+			<div class="col-1">
+				<div class="border-b-1 title">Observaciones</div>
+				<div class="renglon-3" style="padding: 5px;"><pre>{{caratulaOficios.detalle_observacion}}</pre></div>
+			</div>
+	
+			<div class="col-2">
+				<div class="firma border-r-1 border-t-1"></div>
+				<div class="firma-descripcion border-r-1 center pb-5">
+					MESA DE ENTRADA
+				</div>
+			</div>
+			<div class="col-2">
+				<div class="firma border-l-1 border-t-1"></div>
+				<div class="firma-descripcion border-l-1 center pb-5">
+					RETIRADO POR (Firma y aclaración)
+				</div>
+			</div>
+			<div class="col-2"><div class="renglon-1 border-r-1 border-t-1"><span style="padding: 5px;"> <b>{{caratulaOficios.fecha}}  {{caratulaOficios.hora}}:{{caratulaOficios.minuto}}</b> </span></div></div>
+			<div class="col-2"><div class="renglon-1 border-l-1 border-t-1"></div></div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<ngx-qrcode
+		[elementType] = "elementType"
+		[value] = "value"
+		cssClass = "aclass"
+		[errorCorrectionLevel] = "errorCorrectionLevel">
+	</ngx-qrcode>
+</body>
+</html>

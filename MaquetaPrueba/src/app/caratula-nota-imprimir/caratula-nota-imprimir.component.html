@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Print Nota</title>
+	
+</head>
+<body>
+	<div class="contenedor">
+		<div class="fila" id="titulo">
+			<div class="col-2">
+				<div class="center">
+					<div class="col-2">
+						<img src="http://190.112.64.77:32819/tierras/tierras/expediente_catastro/img/LRescudo.png">
+						<p class="larioja">LA RIOJA</p>
+						<p class="subtitulo">Dirección General de Catastro</p>
+						<p class="subtitulo"><span>LEY 3.778</span></p>
+					</div>	
+					<div class="col-3 valoracion">
+						<span>G02.05</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-2">
+				<div class="center">
+					<div class="col-2">
+						<div class="border-l-2 border-b-2"><span>NÚMERO</span></div>
+						<div class="border-l-2 border-b-2 renglon-1 ci"><span> <b>{{caratulaNota.numeroInterno}}</b> </span></div>
+					</div>
+					<div class="col-2">
+						<div class="border-l-2 border-b-2"><span>AÑO</span></div>
+						<div class="border-l-2 border-b-2 renglon-1 ci"><span> <b>{{caratulaNota.anio}}</b> </span></div>
+					</div>
+					<div class="col-1">
+						<div><h1>NOTA</h1></div>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="fila" id="motivo">
+			<div class="center">
+				<div class="col-8">
+					<div><span>MOTIVO</span></div>
+				</div>
+				<div class="col-8">
+					<div class="border-l-1">
+						<div class="border-b-1 item"><span>Titularidad de Parcela</span></div>
+						<div class="valor">
+                            <div *ngIf="caratulaNota.motivo == 'TitularidadDeParcela'">
+                                <img src='http://190.112.64.77:32819/tierras/tierras/expediente_catastro/img/tick.png' width='20px;' />
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				<div class="col-11">
+					<div class="border-l-1">
+						<div class="border-b-1 item"><span>Valuación</span></div>
+						<div class="valor">
+                            <div *ngIf="caratulaNota.motivo == 'Valuacion'">
+                                <img src='http://190.112.64.77:32819/tierras/tierras/expediente_catastro/img/tick.png' width='20px;' />
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				<div class="col-8">
+					<div class="border-l-1">
+						<div class="border-b-1 item"><span>Antecedente Fiscal</span></div>
+						<div class="valor">
+                            <div *ngIf="caratulaNota.motivo == 'AntecedenteFiscal'">
+                                <img src='http://190.112.64.77:32819/tierras/tierras/expediente_catastro/img/tick.png' width='20px;' />
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				<div class="col-8">
+					<div class="border-l-1">
+						<div class="border-b-1 item"><span>Aprobación Definitiva</span></div>
+						<div class="valor">
+                            <div *ngIf="caratulaNota.motivo == 'AprobacionDefinitiva'">
+                                <img src='http://190.112.64.77:32819/tierras/tierras/expediente_catastro/img/tick.png' width='20px;' />
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				<div class="col-8">
+					<div class="border-l-1">
+						<div class="border-b-1 item"><span>Ampliación de Termino</span></div>
+						<div class="valor">
+                            <div *ngIf="caratulaNota.motivo == 'AmpliacionDeTermino'">
+                                <img src='http://190.112.64.77:32819/tierras/tierras/expediente_catastro/img/tick.png' width='20px;' />
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				<div class="col-11">
+					<div class="border-l-1">
+						<div class="border-b-1 item"><span>Oposición</span></div>
+						<div class="valor">
+                            <div *ngIf="caratulaNota.motivo == 'Oposicion'">
+                                <img src='http://190.112.64.77:32819/tierras/tierras/expediente_catastro/img/tick.png' width='20px;' />
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				<div class="col-10">
+					<div class="border-l-1">
+						<div class="border-b-1 item"><span>Copia de Plano</span></div>
+						<div class="valor"> 
+                            <div *ngIf="caratulaNota.motivo == 'CopiaDePlano'">
+                                <img src='http://190.112.64.77:32819/tierras/tierras/expediente_catastro/img/tick.png' width='20px;' />
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				<div class="col-11">
+					<div class="border-l-1">
+						<div class="border-b-1 item"><span>Otro</span></div>
+						<div class="valor">
+                            <div *ngIf="caratulaNota.motivo == 'Otro'">
+                                <img src='http://190.112.64.77:32819/tierras/tierras/expediente_catastro/img/tick.png' width='20px;' />
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="fila" id="caratula">
+			<div>
+				<div class="col-1">
+					<div class="border-b-1 title">Carátula</div>
+					<div class="renglon-2 border-b-1 relative"><span class="">INICIADOR: <b> {{caratulaNota.iniciador}}</b></span></div>
+					<!--<div class="renglon-1 border-b-1 relative"><span class="">DNI: <b>123254</b> </span></div>-->
+					<div class="renglon-1 border-b-1 relative"><span class="">N° ORIGEN: <b>{{caratulaNota.nroOrigen}}</b> </span></div>
+					<div class="renglon-2 border-b-1 relative"><div style="padding: 5px;">ASUNTO: <b>{{caratulaNota.asunto}}</b> </div></div>
+					<div class="col-2">
+						<div class="renglon-1 border-r-1 relative"><span class="">FECHA DE INGRESO: <b>{{caratulaNota.fechaIngreso}}</b> </span></div>
+					</div>
+					<div class="col-2">
+						<div class="renglon-1 relative"><span class="">FECHA DE VENCIMIENTO: <b>{{caratulaNota.fechaVencimiento}}</b> </span></div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="fila" id="movimientos">
+			<div>
+				<div class="col-1">
+					<div class="border-b-1 title">Movimiento Interno</div>
+				</div>
+				<div class="col-4">
+					<div class="renglon-1 border-r-1 center"><span>AREA</span></div>
+				</div>
+				<div class="col-6">
+					<div class="renglon-1 border-r-1" style="position: relative;">
+						<div class="center border-b-1"><div style="height: 17px;">INGRESO</div></div>
+						<div class="col-3 center"><div class="border-r-1" style="height: 17px;">Día</div></div>
+						<div class="col-3 center"><div class="border-r-1" style="height: 17px;">Mes</div></div>
+						<div class="col-3 center"><div style="height: 17px;">Año</div></div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="renglon-1 border-r-1" style="position: relative;">
+						<div class="center border-b-1"><div style="height: 17px;">SALIDA</div></div>
+						<div class="col-3 center"><div class="border-r-1" style="height: 17px;">Día</div></div>
+						<div class="col-3 center"><div class="border-r-1" style="height: 17px;">Mes</div></div>
+						<div class="col-3 center"><div style="height: 17px;">Año</div></div>
+						<div class="clearfix"></div>
+					</div>
+				</div>
+				<div class="col-12">
+					<div class="renglon-1 border-r-1 center"><span>HORA</span></div>
+				</div>
+				<div class="col-12">
+					<div class="renglon-1 border-r-1 center"><span>FOLIOS</span></div>
+				</div>
+				<div class="col-4">
+					<div class="renglon-1 center"><span>CONTROL DEL AGENTE ADM.</span></div>
+				</div>
+                
+						<div class="col-4">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-t-1"></div>
+						</div>
+
+						<div class="col-4">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-6">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-12">
+							<div class="renglon-1 border-r-1 border-t-1"></div>
+						</div>
+						<div class="col-4">
+							<div class="renglon-1 border-t-1"></div>
+						</div>
+				
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		<div class="fila">
+			<div class="col-1">
+				<div class="border-b-1 title">Observaciones</div>
+				<div class="renglon-3" style="padding: 5px;"><pre>{{caratulaNota.detalle_observacion}}</pre></div>
+				<div class="col-2">
+					<div class="renglon-1"></div>
+				</div>
+				<div class="col-2">
+					<div class="">CANTIDAD DE PARCELAS: <b>{{caratulaNota.cantidadParcelas}}</b> </div>
+				</div>
+			</div>
+	
+			<div class="col-2">
+				<div class="firma border-r-1 border-t-1"></div>
+				<div class="firma-descripcion border-r-1 center pb-5">
+					MESA DE ENTRADA
+				</div>
+			</div>
+			<div class="col-2">
+				<div class="firma border-l-1 border-t-1"></div>
+				<div class="firma-descripcion border-l-1 center pb-5">
+					RETIRADO POR (Firma y aclaración)
+				</div>
+			</div>
+			<div class="col-2"><div class="renglon-1 border-r-1 border-t-1"><span style="padding: 5px;"> <b>{{caratulaNota.fechaIngreso}}  {{caratulaNota.hora}}:{{caratulaNota.minuto}}</b> </span></div></div>
+			<div class="col-2"><div class="renglon-1 border-l-1 border-t-1"></div></div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<ngx-qrcode
+		[elementType] = "elementType"
+		[value] = "value"
+		cssClass = "aclass"
+		[errorCorrectionLevel] = "errorCorrectionLevel">
+	</ngx-qrcode>
+</body>
+</html>

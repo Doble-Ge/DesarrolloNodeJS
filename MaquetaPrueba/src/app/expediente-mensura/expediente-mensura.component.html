@@ -1,0 +1,381 @@
+<div class='container borde border-danger'>
+    <br>
+    <button (click) = "seleccionarTipoCaratula(1)" class = 'btn btn-danger'>Notas</button>
+    <button (click) = "seleccionarTipoCaratula(2)" class = 'btn btn-danger'>Mensuras</button>
+    <button (click) = "seleccionarTipoCaratula(3)" class = 'btn btn-danger'>Oficios</button>
+    <button (click) = "seleccionarTipoCaratula(4)" class = 'btn btn-danger'>Expedientes Externos</button>
+    
+    <div *ngIf = "tipoCaratula == 'Notas'">
+        <h1>Carga Nota</h1>
+        <form action="">
+            <div class="form-group">
+                <label>Numero Interno:</label>
+                <input type="text" name="numeroInternoN" [(ngModel)] = "CaratulaInyectada.caratulaNota.numeroInterno" class = "form-control">
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Año:</label>
+                <input type="number" name="añoN" [(ngModel)] = "CaratulaInyectada.caratulaNota.anio" class = "form-control">
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Agente Interviniente:</label>
+                <input type="text" name="agenteIntervinienteN" [(ngModel)] = "CaratulaInyectada.caratulaNota.agenteInterviniente" class = "form-control">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Caratula/Asunto/Comitente:</label>
+                <input type="text" name="caratula_asuntoN" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaNota.caratula_asunto" placeholder="Caratula/Asunto/Comitente">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Detalle/Observacion:</label>
+                <input type="text" name="detalleN" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaNota.detalle_observacion" placeholder="Detalle/Observacion">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Fecha:</label>
+                <input type="date" name="fechaN" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaNota.fecha" placeholder="fecha">
+            </div>
+            <br>
+            <h6>*Campos Obligatorios</h6>
+            <div class='form-group'>
+                <label>Motivo:</label>
+                <select class="form-select" name="motivo" [(ngModel)] = "CaratulaInyectada.caratulaNota.motivo">
+                    <option value="TitularidadDeParcela">Titularidad de parcela</option>
+                    <option value="Valuacion">Valuación</option>
+                    <option value="AntecedenteFiscal">Antecedente fiscal</option>
+                    <option value="AprobacionDefinitiva">Aprobación definitiva</option>
+                    <option value="AmpliacionDeTermino">Ampliación de término</option>
+                    <option value="Oposicion">Oposición</option>
+                    <option value="CopiaDePlano">Copia de plano</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Iniciador:</label>
+                <input type="text" name="iniciador" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaNota.iniciador">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>DNI Iniciador:</label>
+                <input type="text" name="dniIniciador" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaNota.dni_iniciador" >
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>N° de Origen:</label>
+                <input type="text" name="numOrigenN" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaNota.nroOrigen" placeholder="N° de Origen">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Asunto:</label>
+                <input type="text" name="asunto" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaNota.caratula_asunto" >
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Fecha de Ingreso:</label>
+                <input type="date" name="fechaIngresoN" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaNota.fechaIngreso" placeholder="fecha">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Fecha de Vencimiento:</label>
+                <input type="date" name="fechaVencimientoN" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaNota.fechaVencimiento" placeholder="fecha">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Cantidad de parcelas:</label>
+                <input type="number" name="cantidadParcelasN" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaNota.cantidadParcelas">
+            </div>
+            <br>
+            <button class="btn btn-danger" target="_blank" (click)="generarCaratulaNota()">Generar</button>
+            <button class="btn btn-danger" target="_blank" (click)="pasarParametroNota(CaratulaInyectada.caratulaNota)">Imprimir</button>
+        </form>
+    </div>
+    
+    <div *ngIf = "tipoCaratula == 'Mensuras'">
+        <h1>Carga Mensura</h1>
+        <form action="">
+            <div class='form-group'>
+                <label>Numero Interno:</label>
+                <input type="text" name="numeroInterno" [(ngModel)] = "CaratulaInyectada.caratulaExp.numeroInterno" class = "form-control">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Año:</label>
+                <input type="number" name="año" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExp.anio" placeholder="Año*">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Agente Intervinente:</label>
+                <input type="text" name="agenteInterviniente" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExp.agenteInterviniente" placeholder="Agente Interviniente">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Caratula/Asunto/Comitente:</label>
+                <input type="text" name="caratula_asunto" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExp.caratula_asunto" placeholder="Caratula/Asunto/Comitente">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Detalle/Observacion:</label>
+                <input type="text" name="detalle" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExp.detalle_observacion" placeholder="Detalle/Observacion">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Fecha de Ingreso:</label>
+                <input type="date" name="fecha" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExp.fechaIngreso" placeholder="fecha">
+            </div>
+            <br>
+            <h6>*Campos Obligatorios</h6>
+            <div class='form-group'>
+                <label>N° de Origen:</label>
+                <input type="text" name="numOrigen" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExp.numOrigen" placeholder="N° de Origen">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Tipo de parcela</label>
+                <select class="form-select" name="tipoParcela" [(ngModel)] = "CaratulaInyectada.caratulaExp.tipoParcela">
+                    <option value="urbano">Urbano</option>
+                    <option value="rural">Rural</option>
+                </select>
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Departamento:</label>
+                <select class="form-select" name="dpto" [(ngModel)] = "CaratulaInyectada.caratulaExp.departamento">
+                    <option value="Capital">1-Capital</option>
+                    <option value="Sanagasta">2-Sanagasta</option>
+                    <option value="Castro Barros">3-Castro Barros</option>
+                    <option value="Arauco">4-Arauco</option>
+                    <option value="San Blas de Los Sauces">5-San Blas de Los Sauces</option>
+                    <option value="Famatina">6-Famatina</option>
+                    <option value="Chilecito">7-Chilecito</option>
+                    <option value="Villa Union">8-Villa Unión</option>
+                    <option value="Gral. Lamadrid">9-Gral. Lamadrid</option>
+                    <option value="Vinchina">10-Vinchina</option>
+                    <option value="Independencia">11-Independencia</option>
+                    <option value="Chamical">12-Chamical</option>
+                    <option value="Gral. Belgrano">13-Gral. Belgrano</option>
+                    <option value="Gral. Ortiz de Ocampo">14-Gral. Ortiz de Ocampo</option>
+                    <option value="Rosario Vera Peñaloza">15-Rosario Vera Peñaloza</option>
+                    <option value="Gral. San Martin">16-Gral. San Martin</option>
+                    <option value="Gral. Juan Facundo Quiroga">17-Gral. Juan Facundo Quiroga</option>
+                    <option value="Gral. Angel Vicente Peñaloza">18-Gral. Angel Vicente Peñaloza</option>
+                </select>
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Plano de:</label>
+                <input type="text" name="planoDe" class = "form-control">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Profesional:</label>
+                <input type="text" name="profesional" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExp.profesional">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Matricula:</label>
+                <input type="text" name="matricula" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExp.matricula">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Comitente:</label>
+                <input type="text" name="comitente" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExp.comitente">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Disposición Provisoria</label>
+                <label>N°</label>
+                <input type="text" name="numProvUno" class = "form-control">
+                <label>N°</label>
+                <input type="text" name="numProvDos" class = "form-control">
+                <label>N°</label>
+                <input type="text" name="numProvTres" class = "form-control">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Disposición definitiva:</label>
+                <input type="text" name="dispDefinitiva" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExp.disposicionDef">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Archivo N°</label>
+                <input type="number" name="archivonumero" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExp.numeroArchivo">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Folios:</label>
+                <input type="text" name="folios" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExp.folios">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Cantidad de parcelas:</label>
+                <input type="number" name="cantidadParcelas" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExp.cantidadParcelas">
+            </div>
+            <br>
+            <button class="btn btn-danger" target="_blank" (click)="generarCaratula()">Generar</button>
+            <button class="btn btn-danger" target="_blank" (click)="pasarParametro(CaratulaInyectada.caratulaExp)">Imprimir</button>
+        </form>
+        
+
+    </div>
+   
+    <div *ngIf = "tipoCaratula == 'Oficios'">
+        <h1>Carga Oficio</h1>
+        <form action="">
+            <div class="form-group">
+                <label>Numero Interno:</label>
+                <input type="text" name="numeroInternoO" [(ngModel)] = "CaratulaInyectada.caratulaOficio.numeroInterno" class = "form-control">
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Año:</label>
+                <input type="number" name="añoO" [(ngModel)] = "CaratulaInyectada.caratulaOficio.anio" class = "form-control">
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Agente Interviniente:</label>
+                <input type="text" name="agenteIntervinienteO" [(ngModel)] = "CaratulaInyectada.caratulaOficio.agenteInterviniente" class = "form-control">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Caratula/Asunto/Comitente:</label>
+                <input type="text" name="caratula_asuntoO" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaOficio.caratula_asunto" placeholder="Caratula/Asunto/Comitente">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Detalle/Observacion:</label>
+                <input type="text" name="detalleO" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaOficio.detalle_observacion" placeholder="Detalle/Observacion">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Fecha:</label>
+                <input type="date" name="fechaO" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaOficio.fecha" placeholder="fecha">
+            </div>
+            <br>
+            <h6>*Campos Obligatorios</h6>
+            <div class='form-group'>
+                <label>Motivo:</label>
+                <select class="form-select" name="motivo" [(ngModel)] = "CaratulaInyectada.caratulaOficio.motivo">
+                    <option value="PedidoDeInforme">Pedido de informe</option>
+                    <option value="CopiaDePlano">Copia de plano</option>
+                    <option value="InscripcionDefinitiva">Inscripción definitiva</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Expediete Origen:</label>
+                <input type="text" name="expedienteOrigen" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaOficio.expedienteOrigen" >
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Asunto/Carátula:</label>
+                <input type="text" name="asuntoCaratula" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaOficio.caratula_asunto" >
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Fecha de ingreso:</label>
+                <input type="date" name="fechaIngreso" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaOficio.fechaIngreso" >
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Término:</label>
+                <input type="date" name="fechaTermino" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaOficio.fechaTermino" >
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Diligenciador (Mátricula y teléfono optativo):</label>
+                <input type="text" name="diligenciador" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaOficio.diligenciador" >
+            </div>
+            <br>
+            <button class="btn btn-danger" target="_blank" (click)="generarCaratulaOficios()">Generar</button>
+            <button class="btn btn-danger" target="_blank" (click)="pasarParametroOficios(CaratulaInyectada.caratulaOficio)">Imprimir</button>
+        </form>
+    </div>
+
+    <div *ngIf = "tipoCaratula == 'ExpedientesExternos'">
+        <h1>Carga Externos</h1>
+        <form action="">
+            <div class="form-group">
+                <label>Numero Interno:</label>
+                <input type="text" name="numeroInternoE" [(ngModel)] = "CaratulaInyectada.caratulaExterno.numeroInterno" class = "form-control">
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Año:</label>
+                <input type="number" name="añoE" [(ngModel)] = "CaratulaInyectada.caratulaExterno.anio" class = "form-control">
+            </div>
+            <br>
+            <div class="form-group">
+                <label>Agente Interviniente:</label>
+                <input type="text" name="agenteIntervinienteE" [(ngModel)] = "CaratulaInyectada.caratulaExterno.agenteInterviniente" class = "form-control">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Caratula/Asunto/Comitente:</label>
+                <input type="text" name="caratula_asuntoE" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExterno.caratula_asunto" placeholder="Caratula/Asunto/Comitente">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Detalle/Observacion:</label>
+                <input type="text" name="detalleE" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExterno.detalle_observacion" placeholder="Detalle/Observacion">
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Fecha:</label>
+                <input type="date" name="fechaO" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExterno.fecha" placeholder="fecha">
+            </div>
+            <br>
+            <h6>*Campos Obligatorios</h6>
+            <div class='form-group'>
+                <label>Seleccione de dónde proviene el expediente *:</label>
+                <select class="form-select" name="provieneExpediente" [(ngModel)] = "CaratulaInyectada.caratulaExterno.origenExpediente">
+                    <option value="SecretariaDeTierras">Secretaria de Tierras</option>
+                    <option value="Otros">Otros</option>
+                </select>
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Fecha de Iniciación:</label>
+                <input type="date" name="fechaIniciacionO" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExterno.fechaIniciacion" placeholder="fecha">
+            </div>
+            <br>
+            <h6>Origen</h6>
+            <div class='form-group'>
+                <label>Codigo *:</label>
+                <input type="text" name="cod" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExterno.codigoOrigen" >
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Número *:</label>
+                <input type="text" name="nroOrigen" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExterno.numeroOrigen" >
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Año *:</label>
+                <input type="number" name="anioOrigen" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExterno.anioOrigen" >
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Iniciador:</label>
+                <input type="text" name="iniciador" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExterno.iniciador" >
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Asunto Carátula:</label>
+                <input type="text" name="asunto_caratula" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExterno.caratula_asunto" >
+            </div>
+            <br>
+            <div class='form-group'>
+                <label>Cantidad de Parcelas:</label>
+                <input type="number" name="cantParcelas" class = "form-control" [(ngModel)] = "CaratulaInyectada.caratulaExterno.cantidadParcelas" >
+            </div>
+            <br>
+            <button class="btn btn-danger" target="_blank" (click)="generarCaratulaExterno()">Generar</button>
+            <button class="btn btn-danger" target="_blank" (click)="pasarParametroExterno(CaratulaInyectada.caratulaExterno)">Imprimir</button>
+        </form>
+        
+    </div>
+</div>

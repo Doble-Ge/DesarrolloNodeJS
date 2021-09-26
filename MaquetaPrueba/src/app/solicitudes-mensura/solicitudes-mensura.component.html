@@ -1,0 +1,17 @@
+<div class="container">
+    <h1>Solicitud de Mensura</h1>
+    <br>
+    <button routerLink="/agregarNuevaMensura" class="btn btn-danger">Agregar nueva mensura (Agrimensor)</button>
+    <button routerLink="/controlMensura" class="btn btn-danger">Control Mensuras</button>
+    <button routerLink="/generarExpediente" class="btn btn-danger">Generar expediente</button>
+
+    <div>
+        <!--Preguntar de que es la busqueda-->
+        <label>Busqueda:</label>
+        <input type="text" name='busquedaPinchila' class="form-control">
+        <button class="btn btn-dark">Ir</button>
+
+    </div>
+    
+    <router-outlet></router-outlet>
+</div>

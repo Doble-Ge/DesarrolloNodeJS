@@ -1,0 +1,57 @@
+<br>
+
+<div class='container border border-danger'>
+    <h1>Formulario de Registro</h1>
+    <form action="">
+        <br>
+        <div class="form-group">
+            <input type="text" name = "nombre" class = "form-control" [(ngModel)] = "usuario.nombre" placeholder="Nombre">
+        </div>
+        <br>
+        <div class="form-group">
+            
+            <input type = "text" name = "apellido" class = "form-control" [(ngModel)] = "usuario.apellido" placeholder="Apellido">
+        </div>
+        <br>
+        <div class="form-group">
+            <input type = "password" name = "contraseña" class = "form-control" [(ngModel)] = "usuario.password" placeholder="Contraseña">
+        </div>
+        <br>
+        <div class="form-group">            
+            <input type = "text" name = "cuil" class = "form-control" [(ngModel)] = "usuario.cuil" placeholder="CUIL">
+        </div>
+        <br>
+        <div class="form-group">            
+            <input type = "text" name = "mail" class = "form-control" [(ngModel)] = "usuario.email" placeholder="Email">
+        </div>
+        <br>
+        <div class="form-group">
+            <label for = "tipoUsuario">Tipo de Usuario: </label>
+            <select  class="form-select "  name="tipoUser" [(ngModel)] = "usuario.tipoUsuario">
+                <option value="agrimensor">Agrimensor</option>
+                <option value="fiscalia">Fiscalia</option>
+                <option value="estado">Estado</option>
+                <option value="mesaEntrada">Mesa de entrada</option>
+                <option value="legales">Legales</option>
+                <option value="agrimensura">Agrimensura</option>
+                <option value="sistemas">Sistemas</option>
+                <option value="direccion">Dirección</option>
+                <option value="secretaria">Secretaria</option>
+                <option value="disposiciones">Disposiciones</option>
+                <option value="archivo">Archivo</option>
+                <option value="valuaciones">Valuaciones</option>
+            </select>
+    
+        </div>
+        
+        <br>
+
+        <button class = "btn btn-danger" (click) = "agregarUsuario()">Registrarse</button>
+        <br>
+    </form>
+        <br>
+
+</div>
+
+
+<br>
