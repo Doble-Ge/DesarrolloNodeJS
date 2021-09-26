@@ -8,22 +8,22 @@ const Mensura = sequelize.define('mensura',{
         type: Sequelize.INTEGER,
         primaryKey: true
     },
-    n_origen: {
+    numOrigen: {
         type: Sequelize.TEXT
     },
-    tipo_parcela: {
-        type: Sequelize.INTEGER   
+    tipoParcela: {
+        type: Sequelize.TEXT   
     },
-    departamento_mensura: {
-        type: Sequelize.INTEGER
+    departamento: {
+        type: Sequelize.TEXT
     },
-    plano_mensura: {
+    planoDe: {
         type: Sequelize.TEXT
     },
     matricula: {
         type: Sequelize.TEXT
     },
-    comitente_mensura: {
+    comitente: {
         type: Sequelize.TEXT
     },
     plano_provisorio_uno: {
@@ -38,40 +38,40 @@ const Mensura = sequelize.define('mensura',{
     plano_definitivo: {
         type: Sequelize.TEXT
     },
-    archivo_mensura: {
+    numeroArchivo: {
+        type: Sequelize.INTEGER
+    },
+    folios: {
         type: Sequelize.TEXT
     },
-    folio_mensura: {
-        type: Sequelize.TEXT
+    cantidadParcelas: {
+        type: Sequelize.INTEGER
     },
-    cantidad_parcelas_mensura: {
-        type: Sequelize.TEXT
-    },
-    observacion_mensura: {
+    detalle_observacion: {
         type: Sequelize.TEXT
     },
     tramite_id: {
         type: Sequelize.INTEGER
     },
-    n_interno: {
+    numeroInterno: {
         type: Sequelize.TEXT
     },
     anio: {
         type: Sequelize.INTEGER
     },
-    agente_interviniente: {
+    agenteInterviniente: {
         type: Sequelize.TEXT
     },
-    asunto: {
+    caratula_asunto: {
         type: Sequelize.TEXT
     },
-    fecha_inicio: {
+    fechaIngreso: {
         type: Sequelize.TEXT
     },
     profesional: {
         type: Sequelize.TEXT
     },
-    disposicion_def: {
+    disposicionDef: {
         type: Sequelize.TEXT
     },
     

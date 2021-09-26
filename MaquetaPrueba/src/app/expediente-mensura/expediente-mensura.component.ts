@@ -42,6 +42,12 @@ export class ExpedienteMensuraComponent implements OnInit {
     this.CaratulaInyectada.caratulaExp.minuto = this.d.getMinutes() 
     alert("Se creo la caratula")
     console.log(this.CaratulaInyectada.caratulaExp)
+    this.CaratulaInyectada.guardarCaratulaMensura(this.CaratulaInyectada.caratulaExp).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
 
   }
 
@@ -134,6 +140,13 @@ export class ExpedienteMensuraComponent implements OnInit {
     this.CaratulaInyectada.caratulaExterno.hora = this.d.getHours()
     this.CaratulaInyectada.caratulaExterno.minuto = this.d.getMinutes()
     alert("Se creo la caratula")
+    console.log(this.CaratulaInyectada.caratulaExterno)
+    this.CaratulaInyectada.guardarCaratulaExterno(this.CaratulaInyectada.caratulaExterno).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
   }
 
   pasarParametroExterno(caratulaRecibida: CaratulaExterno){

@@ -20,7 +20,8 @@ import { CaratulaOficiosImprimirComponent } from './caratula-oficios-imprimir/ca
 import { CaratulaExternoImprimirComponent } from './caratula-externo-imprimir/caratula-externo-imprimir.component';
 import { CaratulasService } from './services/caratulas.service';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { ConsultaCaratulasComponent } from './consulta-caratulas/consulta-caratulas.component'
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { HttpClientModule } from '@angular/common/http'
     CaratulaMensuraImprimirComponent,
     CaratulaNotaImprimirComponent,
     CaratulaOficiosImprimirComponent,
-    CaratulaExternoImprimirComponent
+    CaratulaExternoImprimirComponent,
+    ConsultaCaratulasComponent
   ],
   imports: [
     BrowserModule,

@@ -13,40 +13,40 @@ export async function getMensura(req,res) {
 }
 
 export async function crearMensura(req, res) {
-    const {n_origen,tipo_parcela,departamento_mensura,plano_mensura,matricula,comitente_mensura,
+    const {numOrigen,tipoParcela,departamento,planoDe,matricula,comitente,
         plano_provisorio_uno,plano_provisorio_dos,plano_provisorio_tres,plano_definitivo,
-        archivo_mensura,folio_mensura,cantidad_parcelas_mensura,observacion_mensura,
-    n_interno,anio,agente_interviniente,asunto,fecha_inicio,profesional,disposicion_def} = req.body;
+        numeroArchivo,folios,cantidadParcelas,detalle_observacion,
+        numeroInterno,anio,agenteInterviniente,caratula_asunto,fechaIngreso,profesional,disposicionDef} = req.body;
     try {
 
         let nuevoMensura = await Mensura.create({
-            n_origen,
-            tipo_parcela,
-            departamento_mensura,
-            plano_mensura,
+            numOrigen,
+            tipoParcela,
+            departamento,
+            planoDe,
             matricula,
-            comitente_mensura,
+            comitente,
             plano_provisorio_uno,
             plano_provisorio_dos,
             plano_provisorio_tres,
             plano_definitivo,
-            archivo_mensura,
-            folio_mensura,
-            cantidad_parcelas_mensura,
-            observacion_mensura,
-            n_interno,
+            numeroArchivo,
+            folios,
+            cantidadParcelas,
+            detalle_observacion,
+            numeroInterno,
             anio,
-            agente_interviniente,
-            asunto,
-            fecha_inicio,
+            agenteInterviniente,
+            caratula_asunto,
+            fechaIngreso,
             profesional,
-            disposicion_def
+            disposicionDef
 
         }, {
-            fields:['n_origen', 'tipo_parcela', 'departamento_mensura', 'plano_mensura', 'matricula'
-            ,'comitente_mensura','plano_provisorio_uno','plano_provisorio_dos','plano_provisorio_tres',
-        'plano_definitivo','archivo_mensura','folio_mensura','cantidad_parcelas_mensura','observacion_mensura',
-    'n_interno','anio','agente_interviniente','asunto','fecha_inicio','profesional','disposicion_def']
+            fields:['numOrigen', 'tipoParcela', 'departamento', 'planoDe', 'matricula',
+            'comitente','plano_provisorio_uno','plano_provisorio_dos','plano_provisorio_tres',
+            'plano_definitivo','numeroArchivo','folios','cantidadParcelas','detalle_observacion',
+            'numeroInterno','anio','agenteInterviniente','caratula_asunto','fechaIngreso','profesional','disposicionDef']
         });
         if (nuevoMensura) {
             return res.json({

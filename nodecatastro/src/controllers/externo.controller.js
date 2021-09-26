@@ -13,29 +13,31 @@ export async function getExterno(req,res) {
 }
 
 export async function crearExterno(req, res) {
-    const {codigo_externo, numero_externo, anyo_externo, iniciador_externo,asunto_externo,
-        cantidad_parcelas_externo,codigo_interno,observacion_externo,agente_interviniente_externo,
-        fecha,fechainicio_externo,origen} = req.body;
+    const {codigoOrigen, numeroOrigen, anio, iniciador,caratula_asunto,
+        cantidadParcelas,numeroInterno,detalle_observacion,agenteInterviniente,
+        fecha,fechaIniciacion,origenExpediente, anioOrigen, asunto_caratula} = req.body;
     try {
 
         let nuevoExterno = await Externo.create({
-            codigo_externo,
-            numero_externo,
-            anyo_externo,
-            iniciador_externo,
-            asunto_externo,
-            cantidad_parcelas_externo,
-            codigo_interno,
-            observacion_externo,
-            agente_interviniente_externo,
+            codigoOrigen,
+            numeroOrigen,
+            anio,
+            iniciador,
+            caratula_asunto,
+            cantidadParcelas,
+            numeroInterno,
+            detalle_observacion,
+            agenteInterviniente,
             fecha,
-            fechainicio_externo,
-            origen
+            fechaIniciacion,
+            origenExpediente,
+            anioOrigen,
+            asunto_caratula
    
         }, {
-            fields:['codigo_externo', 'numero_externo', 'anyo_externo', 'iniciador_externo',
-             'asunto_externo','cantidad_parcelas_externo','codigo_interno','observacion_externo',
-            'agente_interviniente_externo','fecha','fechainicio_externo','origen']
+            fields:['codigoOrigen', 'numeroOrigen', 'anio', 'iniciador',
+             'caratula_asunto','cantidadParcelas','numeroInterno','detalle_observacion',
+            'agenteInterviniente','fecha','fechaIniciacion','origenExpediente', 'anioOrigen', 'asunto_caratula']
         });
         if (nuevoExterno) {
             return res.json({

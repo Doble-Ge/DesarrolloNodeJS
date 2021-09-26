@@ -1,0 +1,27 @@
+<div class="container">
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Iniciador</th>
+            <th scope="col">DNI</th>
+            <th scope="col">Nro Origen</th>
+            <th scope="col">Asunto</th>
+            <th scope="col">Fecha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <div *ngFor = "let caratulaNota of caratulasNota">
+                <th scope="row"> {{ caratulaNota.id }} </th>
+                <td> {{ caratulaNota.iniciador }} </td>
+                <td> {{ caratulaNota.dni_iniciador }} </td>
+                <td> {{ caratulaNota.nroOrigen }} </td>
+                <td> {{ caratulaNota.caratula_asunto }} </td>
+                <td> {{ caratulaNota.fecha }} </td>
+          
+            </div> 
+            </tr>
+        </tbody>
+      </table>
+</div>

@@ -12,6 +12,7 @@ export async function getNota(req,res) {
    
 }
 
+
 export async function crearNota(req, res) {
     const {motivo,nroOrigen,asunto,fechaIngreso,fechaVencimiento,
         cantidadParcelas,detalle_observacion,numeroInterno,agenteInterviniente,caratula_asunto,iniciador,dni_iniciador,

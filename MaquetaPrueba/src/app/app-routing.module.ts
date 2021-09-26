@@ -4,6 +4,7 @@ import { CaratulaExternoImprimirComponent } from './caratula-externo-imprimir/ca
 import { CaratulaMensuraImprimirComponent } from './caratula-mensura-imprimir/caratula-mensura-imprimir.component';
 import { CaratulaNotaImprimirComponent } from './caratula-nota-imprimir/caratula-nota-imprimir.component';
 import { CaratulaOficiosImprimirComponent } from './caratula-oficios-imprimir/caratula-oficios-imprimir.component';
+import { ConsultaCaratulasComponent } from './consulta-caratulas/consulta-caratulas.component';
 import { ContactoModuloComponent } from './contacto-modulo/contacto-modulo.component';
 import { ExpedienteMensuraComponent } from './expediente-mensura/expediente-mensura.component';
 import { LoginModuloComponent } from './login-modulo/login-modulo.component';
@@ -51,6 +52,9 @@ const routes: Routes = [
   },
   {
     path: 'contacto', component: ContactoModuloComponent
+  },
+  {
+    path: 'consultaCaratulas', component: ConsultaCaratulasComponent
   },
 
   {

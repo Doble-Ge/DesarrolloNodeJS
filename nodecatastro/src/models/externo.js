@@ -8,45 +8,51 @@ const Externo = sequelize.define('externo', {
         type: Sequelize.INTEGER,
         primaryKey: true
     },
-    codigo_externo: {
+    codigoOrigen: {
         type: Sequelize.TEXT
     },
-    numero_externo: {
+    numeroOrigen: {
         type: Sequelize.TEXT
     },
-    anyo_externo: {
+    anio: {
         type: Sequelize.INTEGER
     },
-    iniciador_externo: {
+    iniciador: {
         type: Sequelize.TEXT
     },
-    asunto_externo: {
+    caratula_asunto: {
         type: Sequelize.TEXT
     },
-    cantidad_parcelas_externo: {
+    cantidadParcelas: {
+        type: Sequelize.INTEGER
+    },
+    numeroInterno: {
         type: Sequelize.TEXT
     },
-    codigo_interno: {
-        type: Sequelize.TEXT
-    },
-    observacion_externo: {
+    detalle_observacion: {
         type: Sequelize.TEXT
     },
     tramite_id:{
         type:Sequelize.INTEGER
     },
-    agente_interviniente_externo: {
+    agenteInterviniente: {
         type: Sequelize.TEXT
     },
     fecha: {
         type: Sequelize.TEXT
     },
-    fechainicio_externo:{
+    fechaIniciacion:{
         type:Sequelize.TEXT
     },
-    origen:{
+    origenExpediente:{
         type:Sequelize.TEXT
     },
+    anioOrigen: {
+        type:Sequelize.TEXT
+    },
+    asunto_caratula: {
+        type:Sequelize.TEXT
+    }
 
 
 }, {
