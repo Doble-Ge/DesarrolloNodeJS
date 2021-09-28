@@ -31,12 +31,25 @@ export class CaratulasService {
    guardarCaratulaOficio(caratula: CaratulaOficio): Observable<CaratulaOficio> {
      return this.http.post<CaratulaOficio>(this.API_URL + '/oficio', caratula)
    }
+
+   listarCaratulaOficio() : Observable<CaratulaOficio[]>{
+     return this.http.get<CaratulaOficio[]>(this.API_URL + '/oficio')
+   }
+
    //metodos BD caratula externo
    guardarCaratulaExterno(caratula: CaratulaExterno): Observable<CaratulaExterno> {
      return this.http.post<CaratulaExterno>(this.API_URL + '/externo', caratula)
    }
+
+   listarCaratulaExterno(): Observable<CaratulaExterno[]> {
+    return this.http.get<CaratulaExterno[]>(this.API_URL + '/externo')
+   }
+
    //metodos BD caratula mensura
-   guardarCaratulaMensura(caratula: Caratula): Observable<CaratulaExterno> {
-     return this.http.post<CaratulaExterno>(this.API_URL + '/mensura', caratula)
+   guardarCaratulaMensura(caratula: Caratula): Observable<Caratula> {
+     return this.http.post<Caratula>(this.API_URL + '/mensura', caratula)
+   }
+   listarCaratulaMensura(): Observable<Caratula[]> {
+    return this.http.get<Caratula[]>(this.API_URL + '/mensura')
    }
 }

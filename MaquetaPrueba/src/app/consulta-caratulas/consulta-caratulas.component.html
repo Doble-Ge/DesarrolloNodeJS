@@ -1,27 +1,117 @@
 <div class="container">
+    <button (click) = "seleccionarTipoCaratula(1)" class = "btn btn-danger"> Notas </button>
+    <button (click) = "seleccionarTipoCaratula(2)" class = "btn btn-danger"> Mensuras </button>
+    <button (click) = "seleccionarTipoCaratula(3)" class = "btn btn-danger"> Oficios </button>
+    <button (click) = "seleccionarTipoCaratula(4)" class = "btn btn-danger"> Expedientes Externos </button>
+   
+   
+  <div *ngIf = "tipoCaratula == 'Notas'">
     <table class="table table-striped table-hover table-bordered">
-        <thead class="table">
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Iniciador</th>
-            <th scope="col">DNI</th>
-            <th scope="col">Nro Origen</th>
-            <th scope="col">Asunto</th>
-            <th scope="col">Fecha</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <div *ngFor = "let caratulaNota of caratulasNota">
-                <th scope="row"> {{ caratulaNota.id }} </th>
-                <td> {{ caratulaNota.iniciador }} </td>
-                <td> {{ caratulaNota.dni_iniciador }} </td>
-                <td> {{ caratulaNota.nroOrigen }} </td>
-                <td> {{ caratulaNota.caratula_asunto }} </td>
-                <td> {{ caratulaNota.fecha }} </td>
-          
-            </div> 
-            </tr>
-        </tbody>
-      </table>
+      <thead class="table">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Iniciador</th>
+          <th scope="col">DNI</th>
+          <th scope="col">Nro Origen</th>
+          <th scope="col">Asunto</th>
+          <th scope="col">Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let caratulaNota of arr">
+         
+              <th scope="row" (click)="pasarId(caratulaNota.id)"> {{ caratulaNota.id }} </th>
+              <td> {{ caratulaNota.iniciador }} </td>
+              <td> {{ caratulaNota.dni_iniciador }} </td>
+              <td> {{ caratulaNota.nroOrigen }} </td>
+              <td> {{ caratulaNota.caratula_asunto }} </td>
+              <td> {{ caratulaNota.fechaIngreso }} </td>
+    
+        </tr>
+      </tbody>
+    </table>
+   </div>
+
+   <div *ngIf = "tipoCaratula == 'Mensuras'">
+    <table class="table table-striped table-hover table-bordered">
+      <thead class="table">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Agente Interviniente</th>
+          <th scope="col">Profesional</th>
+          <th scope="col">Nro Origen</th>
+          <th scope="col">Asunto</th>
+          <th scope="col">Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let caratulaMensura of arr">
+         
+              <th scope="row"> {{ caratulaMensura.id }} </th>
+              <td> {{ caratulaMensura.agenteInterviniente }} </td>
+              <td> {{ caratulaMensura.profesional }} </td>
+              <td> {{ caratulaMensura.numOrigen }} </td>
+              <td> {{ caratulaMensura.caratula_asunto }} </td>
+              <td> {{ caratulaMensura.fechaIngreso }} </td>
+    
+        </tr>
+      </tbody>
+    </table>
+   </div>
+   
+   <div *ngIf = "tipoCaratula == 'Oficios'">
+    <table class="table table-striped table-hover table-bordered">
+      <thead class="table">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Agente Interviniente</th>
+          <th scope="col">Diligenciador</th>
+          <th scope="col">Nro Interno</th>
+          <th scope="col">Asunto</th>
+          <th scope="col">Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let caratulaOficio of arr">
+         
+              <th scope="row"> {{ caratulaOficio.id }} </th>
+              <td> {{ caratulaOficio.agenteInterviniente }} </td>
+              <td> {{ caratulaOficio.diligenciador }} </td>
+              <td> {{ caratulaOficio.numeroInterno }} </td>
+              <td> {{ caratulaOficio.caratula_asunto }} </td>
+              <td> {{ caratulaOficio.fechaIngreso }} </td>
+    
+        </tr>
+      </tbody>
+    </table>
+   </div>
+
+   <div *ngIf = "tipoCaratula == 'ExpedientesExternos'">
+    <table class="table table-striped table-hover table-bordered">
+      <thead class="table">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Agente Interviniente</th>
+          <th scope="col">Iniciador</th>
+          <th scope="col">Nro Origen</th>
+          <th scope="col">Asunto</th>
+          <th scope="col">Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let caratulaExterno of arr">
+         
+              <th scope="row"> {{ caratulaExterno.id }} </th>
+              <td> {{ caratulaExterno.agenteInterviniente }} </td>
+              <td> {{ caratulaExterno.iniciador }} </td>
+              <td> {{ caratulaExterno.numeroOrigen }} </td>
+              <td> {{ caratulaExterno.caratula_asunto }} </td>
+              <td> {{ caratulaExterno.fechaIniciacion }} </td>
+    
+        </tr>
+      </tbody>
+    </table>
+   </div>
+   
 </div>
+
