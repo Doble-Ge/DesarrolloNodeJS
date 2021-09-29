@@ -314,7 +314,18 @@
 		<div class="fila">
 			<div class="col-1">
 				<div class="border-b-1 title">Observaciones</div>
-				<div class="renglon-3" style="padding: 5px;"><pre>{{caratulaNota.detalle_observacion}}</pre></div>
+				<div class="renglon-3" style="padding: 5px;">
+					
+					<pre>{{caratulaNota.detalle_observacion}}</pre>
+					<ngx-qrcode
+						[elementType] = "elementType"
+						[value] = "value"
+						cssClass = "aclass"
+						[margin] = "2" 
+						[errorCorrectionLevel] = "errorCorrectionLevel">
+					</ngx-qrcode>
+				</div>
+				
 				<div class="col-2">
 					<div class="renglon-1"></div>
 				</div>
@@ -340,11 +351,5 @@
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	<ngx-qrcode
-		[elementType] = "elementType"
-		[value] = "value"
-		cssClass = "aclass"
-		[errorCorrectionLevel] = "errorCorrectionLevel">
-	</ngx-qrcode>
 </body>
 </html>

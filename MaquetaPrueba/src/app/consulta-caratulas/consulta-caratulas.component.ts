@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Caratula } from '../models/caratula';
 import { CaratulaExterno } from '../models/caratulaExterno';
 import { CaratulaNota } from '../models/caratulaNota';
@@ -19,7 +20,7 @@ export class ConsultaCaratulasComponent implements OnInit {
   data
   index = 0
   tipoCaratula:string
-  constructor(private caratulaInyectada: CaratulasService) {
+  constructor(private caratulaInyectada: CaratulasService, private Ruta: Router) {
 
    }
 
@@ -67,7 +68,14 @@ export class ConsultaCaratulasComponent implements OnInit {
     }
   }
 
-  pasarId(idCaratula: number){
-    
+  verCaratulaNota(caratula: CaratulaNota){
+    this.caratulaInyectada.caratulaNota = caratula
+    this.Ruta.navigateByUrl('/caratulaNotaImprimir')
+
+  }
+
+  verCaratulaMensura(caratula: Caratula) {
+    this.caratulaInyectada.caratulaExp = caratula
+    this.Ruta.navigateByUrl("/caratulaImprimir")
   }
 }  

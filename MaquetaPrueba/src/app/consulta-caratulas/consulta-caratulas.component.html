@@ -18,9 +18,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let caratulaNota of arr">
+        <tr (click)="verCaratulaNota(caratulaNota)" *ngFor = "let caratulaNota of arr">
          
-              <th scope="row" (click)="pasarId(caratulaNota.id)"> {{ caratulaNota.id }} </th>
+              <th scope="row" > {{ caratulaNota.id }} </th>
               <td> {{ caratulaNota.iniciador }} </td>
               <td> {{ caratulaNota.dni_iniciador }} </td>
               <td> {{ caratulaNota.nroOrigen }} </td>
@@ -45,9 +45,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let caratulaMensura of arr">
+        <tr (click)="verCaratulaMensura(caratulaMensura)" *ngFor = "let caratulaMensura of arr">
          
-              <th scope="row"> {{ caratulaMensura.id }} </th>
+              <th scope="row" > {{ caratulaMensura.id }} </th>
               <td> {{ caratulaMensura.agenteInterviniente }} </td>
               <td> {{ caratulaMensura.profesional }} </td>
               <td> {{ caratulaMensura.numOrigen }} </td>
@@ -72,9 +72,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let caratulaOficio of arr">
+        <tr (click)="verCaratulaOficio(caratulaOficio)" *ngFor = "let caratulaOficio of arr">
          
-              <th scope="row"> {{ caratulaOficio.id }} </th>
+              <th scope="row" > {{ caratulaOficio.id }} </th>
               <td> {{ caratulaOficio.agenteInterviniente }} </td>
               <td> {{ caratulaOficio.diligenciador }} </td>
               <td> {{ caratulaOficio.numeroInterno }} </td>
@@ -99,9 +99,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let caratulaExterno of arr">
+        <tr (click)="verCaratulaExterno(caratulaExterno)" *ngFor = "let caratulaExterno of arr">
          
-              <th scope="row"> {{ caratulaExterno.id }} </th>
+              <th scope="row" > {{ caratulaExterno.id }} </th>
               <td> {{ caratulaExterno.agenteInterviniente }} </td>
               <td> {{ caratulaExterno.iniciador }} </td>
               <td> {{ caratulaExterno.numeroOrigen }} </td>
