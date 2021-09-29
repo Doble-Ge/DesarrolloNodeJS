@@ -78,4 +78,17 @@ export class ConsultaCaratulasComponent implements OnInit {
     this.caratulaInyectada.caratulaExp = caratula
     this.Ruta.navigateByUrl("/caratulaImprimir")
   }
+
+  verCaratulaOficio(caratula: CaratulaOficio) {
+    this.caratulaInyectada.caratulaOficio = caratula
+    this.Ruta.navigateByUrl("/caratulaOficiosImprimir")
+  }
+
+  verCaratulaExterno(caratula: CaratulaExterno) {
+    this.caratulaInyectada.caratulaExterno = caratula
+    this.Ruta.navigateByUrl("/caratulaExternoImprimir")
+  }
+
+
+
 }  
