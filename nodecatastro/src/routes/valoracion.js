@@ -3,7 +3,7 @@ const router = Router();
 
 import { crearValoracion, deleteValoracion, getOneValoracion, getValoracion, updateValoracion } from '../controllers/valoracion.controller';
 
-// /api/usuario
+// /api/usuarioooo
 router.post('/',crearValoracion);
 router.get('/',getValoracion);
 router.get('/:id',getOneValoracion);

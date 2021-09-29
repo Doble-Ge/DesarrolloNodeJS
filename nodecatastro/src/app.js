@@ -14,6 +14,8 @@ import oficioRoutes from './routes/oficio';
 import mensuraRoutes from './routes/mensura';
 import notaRoutes from './routes/nota';
 import valoracionRoutes from './routes/valoracion';
+import uploadRoutes from './routes/upload';
+
 //INICIACION
 const app = express();
 app.use((req, res, next) => {
@@ -38,5 +40,6 @@ app.use('/api/oficio',oficioRoutes);
 app.use('/api/mensura',mensuraRoutes);
 app.use('/api/nota',notaRoutes);
 app.use('/api/valoracion',valoracionRoutes);
+app.use('/api/upload',uploadRoutes);
 
 export default app;
