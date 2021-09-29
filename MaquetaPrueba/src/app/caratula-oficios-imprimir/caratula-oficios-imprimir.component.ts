@@ -13,14 +13,23 @@ export class CaratulaOficiosImprimirComponent implements OnInit {
   caratulaOficios: CaratulaOficio = new CaratulaOficio()
 
   constructor(private ruta: ActivatedRoute, public CaratulaExpedienteIny: CaratulasService) { }
-
-  value = '/caratulaOficiosImprimir'
+  numero= 20
+  value = String(this.numero)
   elementType = NgxQrcodeElementTypes.URL;
   errorCorrectionLevel = NgxQrcodeErrorCorrectionLevels.HIGH
   
   ngOnInit(): void {
     this.caratulaOficios = this.CaratulaExpedienteIny.caratulaOficio
     console.log(this.caratulaOficios)
+
+    this.value = 
+  `Agente Interviniente: ${this.caratulaOficios.agenteInterviniente} 
+Diligenciador: ${this.caratulaOficios.diligenciador}
+Asunto: ${this.caratulaOficios.caratula_asunto}
+Fecha: ${this.caratulaOficios.fecha}`
+  
   }
+
+  
 
 }
