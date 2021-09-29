@@ -1,5 +1,7 @@
 import Valoracion from '../models/valoracion';
 
+
+
 export async function getValoracion(req,res) {
     try{
         const valoracion = await Valoracion.findAll();
@@ -15,7 +17,6 @@ export async function getValoracion(req,res) {
 export async function crearValoracion(req, res) {
     const {valoracion} = req.body;
     try {
-
         let nuevoValoracion = await Valoracion.create({
             valoracion
             

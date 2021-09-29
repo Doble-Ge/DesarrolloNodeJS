@@ -4,10 +4,12 @@ const router = Router();
 import { crearValoracion, deleteValoracion, getOneValoracion, getValoracion, updateValoracion } from '../controllers/valoracion.controller';
 
 // /api/usuario
-router.post('/', crearValoracion);
-router.get('/', getValoracion);
-router.get('/:id', getOneValoracion);
-router.delete('/:id', deleteValoracion);
+router.post('/',crearValoracion);
+router.get('/',getValoracion);
+router.get('/:id',getOneValoracion);
+router.delete('/:id',deleteValoracion);
+
+
 
 
 // /api/usuario/usuarioID
