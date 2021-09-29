@@ -21,6 +21,11 @@ export class CaratulaNotaImprimirComponent implements OnInit {
   ngOnInit(): void {
     this.caratulaNota = this.CaratulaExpedienteIny.caratulaNota
     console.log(this.caratulaNota)
+    this.value = 
+  `Iniciador: ${this.caratulaNota.iniciador} 
+NRO Origen: ${this.caratulaNota.nroOrigen}
+Asunto: ${this.caratulaNota.caratula_asunto}
+Fecha: ${this.caratulaNota.fecha}  `
   }
 
 }

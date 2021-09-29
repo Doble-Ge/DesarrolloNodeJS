@@ -23,6 +23,12 @@ export class CaratulaMensuraImprimirComponent implements OnInit {
     this.caratula = this.CaratulaExpedienteIny.caratulaExp
     //this.caratula = JSON.parse(this.ruta.snapshot.params.caratula)
     console.log(this.caratula)
+    this.value = 
+  `Iniciador: ${this.caratula.agenteInterviniente} 
+NRO Origen: ${this.caratula.numOrigen}
+Asunto: ${this.caratula.caratula_asunto}
+Fecha: ${this.caratula.fechaIngreso} `
+  
   }
 
 }

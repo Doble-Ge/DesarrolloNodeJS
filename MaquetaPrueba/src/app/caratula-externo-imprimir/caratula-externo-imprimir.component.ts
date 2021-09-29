@@ -21,6 +21,11 @@ export class CaratulaExternoImprimirComponent implements OnInit {
     this.caratulaExterno = this.CaratulaExternoIny.caratulaExterno
   
     console.log(this.caratulaExterno)
+    this.value = 
+  `AgenteInterviniente: ${this.caratulaExterno.agenteInterviniente} 
+NRO Origen: ${this.caratulaExterno.numeroOrigen}
+Asunto: ${this.caratulaExterno.caratula_asunto}
+Fecha: ${this.caratulaExterno.fecha}  `
   }
 
 }
