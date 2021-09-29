@@ -52,4 +52,5 @@ export class CaratulasService {
    listarCaratulaMensura(): Observable<Caratula[]> {
     return this.http.get<Caratula[]>(this.API_URL + '/mensura')
    }
+   //asdasdasd
 }
