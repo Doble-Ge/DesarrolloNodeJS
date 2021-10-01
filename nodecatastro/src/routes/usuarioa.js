@@ -8,7 +8,7 @@ router.post('/', crearUsuario);
 router.get('/', getUsuario);
 
 // /api/usuario/usuarioaID
-router.get('/:id', getOneUsuario);
+//router.get('/:id', getOneUsuario);
 router.delete('/:id', deleteUsuario);
 router.put('/:id', updateUsuario);
 router.get('/:cuil', getOneUsuarioCuil);

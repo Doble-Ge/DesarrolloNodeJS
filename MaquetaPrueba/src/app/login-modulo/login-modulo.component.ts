@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Usuario } from '../models/usuario';
 import { UsuarioService } from '../services/usuario.service';
 
@@ -10,15 +11,25 @@ import { UsuarioService } from '../services/usuario.service';
 })
 export class LoginModuloComponent implements OnInit {
   usuario: Usuario = new Usuario()
-  usuarioDesdeBase: Usuario = new Usuario()
-  constructor(private usuarioInyectado: UsuarioService) { }
+  usuarioDesdeBase: any
+  data
+  constructor(private usuarioInyectado: UsuarioService, private Ruta: Router) { }
 
   ngOnInit(): void {
   }
   
   ingresar(){
-    console.log(this.usuario)
-    console.log(this.usuarioInyectado.getUsuario(this.usuario.cuil))
+  this.usuarioInyectado.getUsuario(this.usuario.cuil).subscribe(
+      res => {
+        this.usuarioDesdeBase = res
+        this.data = Object.values(this.usuarioDesdeBase)
+        if(this.usuario.pass == this.data[0].pass) {
+          alert("Felicitaciones por poner bien la contraseña")
+        }else{
+          alert("Contraseña incorrecta")
+        }
+      },
+      err => console.error(err)
+    )
   }
-
 }
