@@ -6,8 +6,8 @@ export const sequelize = new Sequelize(
     'postgres', //tipo de bd
     'postgres', //usuario
     //'gino1295', //pw
-    'mario', //pw
-    //'123456',
+    //'mario', //pw
+    '123456',
     {
         host: 'localhost', //donde esta alojada
         dialect: 'postgres', //el tipo de bd, no es lo mismo mysql que pg o que mariadb
