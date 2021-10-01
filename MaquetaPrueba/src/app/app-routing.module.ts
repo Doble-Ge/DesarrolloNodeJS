@@ -7,11 +7,13 @@ import { CaratulaOficiosImprimirComponent } from './caratula-oficios-imprimir/ca
 import { ConsultaCaratulasComponent } from './consulta-caratulas/consulta-caratulas.component';
 import { ContactoModuloComponent } from './contacto-modulo/contacto-modulo.component';
 import { ExpedienteMensuraComponent } from './expediente-mensura/expediente-mensura.component';
+import { ListadoSolicitudesNuevosUsuariosComponent } from './listado-solicitudes-nuevos-usuarios/listado-solicitudes-nuevos-usuarios.component';
 import { LoginModuloComponent } from './login-modulo/login-modulo.component';
 import { ModuloRegistroComponent } from './modulo-registro/modulo-registro.component';
 import { NuevaSolicitudAgrimensorComponent } from './nueva-solicitud-agrimensor/nueva-solicitud-agrimensor.component';
 import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
 import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
+import { SolicitudRegistroComponent } from './solicitud-registro/solicitud-registro.component';
 import { NuevaSolicitudComponent } from './solicitudes-mensura/nueva-solicitud/nueva-solicitud.component';
 import { SolicitudesMensuraComponent } from './solicitudes-mensura/solicitudes-mensura.component';
 
@@ -56,7 +58,12 @@ const routes: Routes = [
   {
     path: 'consultaCaratulas', component: ConsultaCaratulasComponent
   },
-
+  {
+    path: 'solicitudUsuario', component: SolicitudRegistroComponent
+  },
+  {
+    path: 'listadoSolicitudesUsuarios', component: ListadoSolicitudesNuevosUsuariosComponent
+  },
   {
     path: '**', component: PaginaErrorComponent
   }

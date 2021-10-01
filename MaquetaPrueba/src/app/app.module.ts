@@ -23,6 +23,8 @@ import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { HttpClientModule } from '@angular/common/http';
 import { ConsultaCaratulasComponent } from './consulta-caratulas/consulta-caratulas.component'
 import { UsuarioService } from './services/usuario.service';
+import { SolicitudRegistroComponent } from './solicitud-registro/solicitud-registro.component';
+import { ListadoSolicitudesNuevosUsuariosComponent } from './listado-solicitudes-nuevos-usuarios/listado-solicitudes-nuevos-usuarios.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { UsuarioService } from './services/usuario.service';
     CaratulaNotaImprimirComponent,
     CaratulaOficiosImprimirComponent,
     CaratulaExternoImprimirComponent,
-    ConsultaCaratulasComponent
+    ConsultaCaratulasComponent,
+    SolicitudRegistroComponent,
+    ListadoSolicitudesNuevosUsuariosComponent
   ],
   imports: [
     BrowserModule,

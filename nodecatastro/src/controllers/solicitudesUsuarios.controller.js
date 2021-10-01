@@ -39,5 +39,22 @@ export async function crearSolicitudUsuario(req, res) {
             data: {}
         });
     }
-    
+
+}
+
+export async function deleteSolicitud(req,res){
+    try {
+        const {id} = req.params;
+    const deleteRowCount = await SolicitudesUsuarios.destroy({
+        where: {
+            id: id
+        }
+    });
+    res.json({
+        message: "Solicitudes eliminada con éxito",
+        count: deleteRowCount
+    });
+    }catch (e){
+        console.log(e);
+    }
 }

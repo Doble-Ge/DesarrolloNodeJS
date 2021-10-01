@@ -71,7 +71,6 @@ export class ConsultaCaratulasComponent implements OnInit {
   verCaratulaNota(caratula: CaratulaNota){
     this.caratulaInyectada.caratulaNota = caratula
     this.Ruta.navigateByUrl('/caratulaNotaImprimir')
-
   }
 
   verCaratulaMensura(caratula: Caratula) {

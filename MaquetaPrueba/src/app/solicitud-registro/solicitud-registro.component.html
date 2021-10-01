@@ -1,0 +1,37 @@
+<br>
+
+<div class='container border border-danger'>
+    <h1>Formulario de Solicitud</h1>
+    <form action="">
+        <br>
+        <div class="form-group">
+            <input type="text" name = "nombre" class = "form-control" placeholder="Nombre" [(ngModel)] = solicitud.nombre>
+        </div>
+        <br>
+        <div class="form-group">
+            
+            <input type = "text" name = "apellido" class = "form-control" placeholder="Apellido" [(ngModel)] = solicitud.apellido>
+        </div>
+        <br>
+        <div class="form-group">            
+            <input type = "text" name = "cuil" class = "form-control" placeholder="CUIL" [(ngModel)] = solicitud.cuil>
+        </div>
+        <br>
+        <div class="form-group">            
+            <input type = "text" name = "mail" class = "form-control" placeholder="Email" [(ngModel)] = solicitud.email>
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="text" name="observacion" class="form-control observacion" placeholder="Indique el tipo de usuario y/o comentario" [(ngModel)] = solicitud.observacion>
+        </div>
+        <br>
+
+        <button type="button" class="btn btn-danger" id="liveToastBtn" (click) = agregarSolicitud()>Enviar Solicitud</button>
+        <br>
+    </form>
+        <br>
+
+</div>
+
+
+<br>

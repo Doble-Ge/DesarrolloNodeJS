@@ -13,6 +13,8 @@ export class ModuloRegistroComponent implements OnInit {
 
   constructor(private usuarioInyectado: UsuarioService) { }
   ngOnInit(): void {
+    console.log(this.usuarioInyectado.usuario)
+    this.usuario = this.usuarioInyectado.usuario
   }
 
   agregarUsuario(){

@@ -24,7 +24,7 @@ export class LoginModuloComponent implements OnInit {
         this.usuarioDesdeBase = res
         this.data = Object.values(this.usuarioDesdeBase)
         if(this.usuario.pass == this.data[0].pass) {
-          alert("Felicitaciones por poner bien la contraseña")
+          alert("Usuario correcto")
         }else{
           alert("Contraseña incorrecta")
         }
