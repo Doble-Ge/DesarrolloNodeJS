@@ -1,22 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from '../models/usuario';
+import { UsuarioService } from '../services/usuario.service';
 
-class Usuario{
-  nombre: string
-  apellido: string
-  password: string
-  cuil: number
-  email: string
-  tipoUsuario: string
-
-  constructor(){
-    this.nombre = ""
-    this.apellido = ""
-    this.password = ""
-    this.cuil
-    this.email = ""
-    this.tipoUsuario = ""
-  }
-}
 
 @Component({
   selector: 'app-modulo-registro',
@@ -26,22 +11,20 @@ class Usuario{
 export class ModuloRegistroComponent implements OnInit {
   usuario: Usuario = new Usuario()
 
-  constructor() { }
-
+  constructor(private usuarioInyectado: UsuarioService) { }
   ngOnInit(): void {
   }
 
   agregarUsuario(){
-    nombre: this.usuario.nombre
-    apellido: this.usuario.apellido
-    password: this.usuario.password
-    cuil: this.usuario.cuil
-    email: this.usuario.email
-    tipoUsuario: this.usuario.tipoUsuario
   
     console.log(this.usuario)
+    this.usuarioInyectado.crearUsuario(this.usuario).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
     alert('El usuario ha sido registrado correctamente')
   }
   
-
 }

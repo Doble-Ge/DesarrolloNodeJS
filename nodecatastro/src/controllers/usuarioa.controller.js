@@ -1,3 +1,4 @@
+import { text } from 'express';
 import UsuarioA from '../models/usuariosa';
 
 export async function getUsuario(req,res) {
@@ -57,6 +58,23 @@ export async function getOneUsuario(req,res){
         console.log(e);
     }
 }
+
+export async function getOneUsuarioCuil(req,res){
+    try {
+        const {cuil} = req.params;
+    const usuario = await UsuarioA.findOne({
+        where: {
+            cuil: cuil
+        }
+    });
+    res.json({
+        data: usuario
+    });
+    }catch (e){
+        console.log(e);
+    }
+}
+
 
 export async function deleteUsuario(req,res){
     try {

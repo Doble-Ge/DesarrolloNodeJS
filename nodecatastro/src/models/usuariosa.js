@@ -21,7 +21,7 @@ const UsuarioA = sequelize.define('usuarioa',{
         type: Sequelize.TEXT
     },
     cuil: {
-        type: Sequelize.NUMBER
+        type: Sequelize.TEXT
     },
     perfila_id: {
         type: Sequelize.NUMBER

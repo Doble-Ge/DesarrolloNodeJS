@@ -2,14 +2,14 @@
 <div class="container">
     <form action="">
         <div class="form-group">
-            <input type="text" name="cuil" class="form-control w-25" placeholder="Ingrese su CUIL/T">
+            <input type="text" name="cuil" class="form-control w-25" placeholder="Ingrese su CUIL/T" [(ngModel)] = usuario.cuil>
         </div>
         <br>
         <div class="form-group">
-            <input type="password" name="contraseña" class="form-control w-25" placeholder="contraseña"> 
+            <input type="password" name="contraseña" class="form-control w-25" placeholder="contraseña" [(ngModel)] = usuario.pass> 
         </div>
         <br>
-        <button class="btn btn-danger w-25">Ingresar</button>
+        <button class="btn btn-danger w-25" (click) = ingresar()>Ingresar</button>
     </form>
     <br>
     <button class="btn btn-danger w-25" routerLink="/registro">

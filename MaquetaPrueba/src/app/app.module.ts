@@ -22,6 +22,7 @@ import { CaratulasService } from './services/caratulas.service';
 import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
 import { HttpClientModule } from '@angular/common/http';
 import { ConsultaCaratulasComponent } from './consulta-caratulas/consulta-caratulas.component'
+import { UsuarioService } from './services/usuario.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { ConsultaCaratulasComponent } from './consulta-caratulas/consulta-caratu
     HttpClientModule
   ],
   providers: [
-    CaratulasService
+    CaratulasService,
+    UsuarioService
   ],
   bootstrap: [AppComponent]
 })

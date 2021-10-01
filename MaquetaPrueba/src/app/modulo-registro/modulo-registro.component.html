@@ -14,7 +14,7 @@
         </div>
         <br>
         <div class="form-group">
-            <input type = "password" name = "contraseña" class = "form-control" [(ngModel)] = "usuario.password" placeholder="Contraseña">
+            <input type = "password" name = "contraseña" class = "form-control" [(ngModel)] = "usuario.pass" placeholder="Contraseña">
         </div>
         <br>
         <div class="form-group">            
@@ -27,19 +27,20 @@
         <br>
         <div class="form-group">
             <label for = "tipoUsuario">Tipo de Usuario: </label>
-            <select  class="form-select "  name="tipoUser" [(ngModel)] = "usuario.tipoUsuario">
-                <option value="agrimensor">Agrimensor</option>
-                <option value="fiscalia">Fiscalia</option>
-                <option value="estado">Estado</option>
-                <option value="mesaEntrada">Mesa de entrada</option>
-                <option value="legales">Legales</option>
-                <option value="agrimensura">Agrimensura</option>
-                <option value="sistemas">Sistemas</option>
-                <option value="direccion">Dirección</option>
-                <option value="secretaria">Secretaria</option>
-                <option value="disposiciones">Disposiciones</option>
-                <option value="archivo">Archivo</option>
-                <option value="valuaciones">Valuaciones</option>
+            <select  class="form-select "  name="tipoUser" [(ngModel)] = "usuario.perfila_id">
+                <option [ngValue]=1>Director</option>
+                <option [ngValue]=2>Mesa de Entrada</option>
+                <option [ngValue]=3>Legales</option>
+                <option [ngValue]=4>Agrimensura</option>
+                <option [ngValue]=5>Sistemas</option>
+                <option [ngValue]=6>Secretaria</option>
+                <option [ngValue]=7>Disposiciones</option>
+                <option [ngValue]=8>Archivos</option>
+                <option [ngValue]=9>Valuaciones</option>
+                <option [ngValue]=10>Agrimensor</option>
+                <option [ngValue]=11>Fiscalia</option>
+                <option [ngValue]=12>Estado</option>
+                
             </select>
     
         </div>
