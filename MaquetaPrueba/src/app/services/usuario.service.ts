@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UsuarioService {
   usuario: Usuario = new Usuario()
+  usuarioLogeado: Usuario = new Usuario()
+  loginCorrecto = 0 
   API_URL: string = 'http://localhost:3000/api'
   constructor(private http: HttpClient) { }
 
@@ -17,6 +19,10 @@ export class UsuarioService {
 
   getUsuario(cuil: string){
     return this.http.get(this.API_URL + '/usuarioa/' + cuil)
+  }
+
+  verificarLogeo(){
+    return this.loginCorrecto = 1
   }
   
 }

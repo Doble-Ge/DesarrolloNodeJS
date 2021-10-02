@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { EncabezadoComponent } from '../encabezado/encabezado.component';
 import { Usuario } from '../models/usuario';
 import { UsuarioService } from '../services/usuario.service';
 
@@ -13,6 +14,7 @@ export class LoginModuloComponent implements OnInit {
   usuario: Usuario = new Usuario()
   usuarioDesdeBase: any
   data
+
   constructor(private usuarioInyectado: UsuarioService, private Ruta: Router) { }
 
   ngOnInit(): void {
@@ -25,6 +27,8 @@ export class LoginModuloComponent implements OnInit {
         this.data = Object.values(this.usuarioDesdeBase)
         if(this.usuario.pass == this.data[0].pass) {
           alert("Usuario correcto")
+          this.usuarioInyectado.usuarioLogeado = this.data[0]
+          this.usuarioInyectado.loginCorrecto = 1
         }else{
           alert("Contraseña incorrecta")
         }

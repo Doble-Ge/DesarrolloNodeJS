@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UsuarioService } from '../services/usuario.service';
 
 @Component({
   selector: 'app-encabezado',
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./encabezado.component.scss']
 })
 export class EncabezadoComponent implements OnInit {
-
-  constructor() { }
+  login = 0
+  texto: string
+  constructor(public UsuarioInyectado: UsuarioService) { }
 
   ngOnInit(): void {
   }

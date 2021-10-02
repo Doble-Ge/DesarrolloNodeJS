@@ -11,10 +11,12 @@
             <!--PARA LAS SECCIONES QUE AUN NO EXISTEN-->
             <a class="nav-link" routerLink="/paginaInicio" routerLinkActive="active">Inicio</a>
             <a class="nav-link" href= "http://www.catastrolr.com.ar/home.php" target="_blank">Solicitudes - Catastro</a>
-            <a class="nav-link" routerLink="/soliMensura" routerLinkActive="active">Solicitudes de Mensura</a>
-            <a class="nav-link" routerLink="/contacto" routerLinkActive="active">Contacto</a>
-            <a class="nav-link" routerLink="/registro" routerLinkActive="active">Registro de Usuarios</a>
-            <a class="nav-link" routerLink="/listadoSolicitudesUsuarios" routerLinkActive="active">Lista de solicitudes</a>
+            
+            <span *ngIf = "UsuarioInyectado.loginCorrecto == 1" ><a class="nav-link" routerLink="/soliMensura" routerLinkActive="active">Solicitudes de Mensura</a></span> 
+            <span *ngIf = "UsuarioInyectado.usuarioLogeado.perfila_id == 1 || UsuarioInyectado.usuarioLogeado.perfila_id == 5"><a class="nav-link" routerLink="/registro" routerLinkActive="active">Registro de Usuarios</a></span>
+            <span *ngIf = "UsuarioInyectado.usuarioLogeado.perfila_id == 1 || UsuarioInyectado.usuarioLogeado.perfila_id == 5"><a class="nav-link" routerLink="/listadoSolicitudesUsuarios" routerLinkActive="active">Lista de solicitudes</a>
+            </span>    
+            <span *ngIf = "UsuarioInyectado.loginCorrecto != 1"><a class="nav-link" routerLink="/contacto" routerLinkActive="active">Contacto</a> </span>
         </div>
         </div>
     </div>
