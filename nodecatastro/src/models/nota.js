@@ -58,6 +58,6 @@ const Nota = sequelize.define('nota', {
     timestamps: false
 });
 
-Nota.hasMany(TramiteA, { foreignKey: 'tramite_id'});
+//Nota.hasMany(TramiteA, { foreignKey: 'tramite_id'});
 
 export default Nota;

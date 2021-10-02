@@ -82,6 +82,6 @@ const Mensura = sequelize.define('mensura',{
 });
 
 
-Mensura.hasMany(TramiteA, { foreignKey: 'tramite_id'});
+//Mensura.hasMany(TramiteA, { foreignKey: 'tramite_id'});
 
 export default Mensura;

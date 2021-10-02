@@ -17,8 +17,8 @@ const Tramite = sequelize.define('tramite', {
     timestamps: false
 });
 
-Tramite.hasMany(perfil, { foreignKey: 'tramite_id', sourceKey: 'id'});
-Perfil.belongsTo(Tramite, { foreignKey: 'tramite_id', sourceKey: 'id'});
+//Tramite.hasMany(perfil, { foreignKey: 'tramite_id', sourceKey: 'id'});
+P//erfil.belongsTo(Tramite, { foreignKey: 'tramite_id', sourceKey: 'id'});
 
 
 export default Tramite;

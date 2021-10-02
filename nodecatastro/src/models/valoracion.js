@@ -19,6 +19,6 @@ const Valoracion = sequelize.define('valoracion', {
     timestamps: false
 });
 
-Valoracion.hasMany(TramiteA, { foreignKey: 'tramite_id'});
+//Valoracion.hasMany(TramiteA, { foreignKey: 'tramite_id'});
 
 export default Valoracion;

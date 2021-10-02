@@ -53,6 +53,6 @@ const Oficio = sequelize.define('oficio',{
 });
 
 
-Oficio.hasMany(TramiteA, { foreignKey: 'tramite_id'});
+//Oficio.hasMany(TramiteA, { foreignKey: 'tramite_id'});
 
 export default Oficio;

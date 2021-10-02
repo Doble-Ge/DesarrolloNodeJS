@@ -26,7 +26,7 @@ const Historial = sequelize.define('historial', {
 });
 
 
-Historial.belongsto(UsuarioA, { foreignkey: 'usuario_id', sourceKey: 'id'});
-Historial.belongsto(TramiteA, { foreignkey: 'tramite_id', sourceKey: 'id'});
+//Historial.belongsto(UsuarioA, { foreignkey: 'usuario_id', sourceKey: 'id'});
+//Historial.belongsto(TramiteA, { foreignkey: 'tramite_id', sourceKey: 'id'});
 //Perfil.belongsTo(Usuario, { foreignKey: 'tramite_id', sourceKey: 'id'});
 export default Historial;

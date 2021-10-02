@@ -59,6 +59,6 @@ const Externo = sequelize.define('externo', {
     timestamps: false
 });
 
-Externo.hasMany(TramiteA, { foreignKey: 'tramite_id'});
+//Externo.hasMany(TramiteA, { foreignKey: 'tramite_id'});
 
 export default Externo;
