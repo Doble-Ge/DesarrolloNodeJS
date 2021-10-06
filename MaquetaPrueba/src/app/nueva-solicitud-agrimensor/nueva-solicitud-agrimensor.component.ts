@@ -8,138 +8,65 @@ import { Component, OnInit } from '@angular/core';
 export class NuevaSolicitudAgrimensorComponent implements OnInit {
   tipoFormulario: string;
   textoForm;
+  nroBtn: number;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  validacion(){
+     var archivo = (<HTMLInputElement> document.getElementById("archivo"))
+     var path = archivo.value
+     var extension = /(.pdf)$/i
+     if(!extension.exec(path)){
+       alert("Solo se aceptan PDF")
+       archivo.value= null
+     }else{
+       alert("Archivo cargado")
+     }
+     console.log(archivo.value)
 
+  }
 
   escribirHTML(numero: number){
     if (numero == 1){
-      document.getElementById("formEditar").innerHTML = ` <form action="">
-      <div class="form-group">
-          <label for="control">Titularidad de propiedad inmueble</label>
-          <input type="text" name="control" class="form-control w-25">
-      </div>
-      <br>
-      <div class="form-group">
-          <label for="observaciones">Adjuntar archivo</label>
-          <input type="file" name="observaciones" class="form-control w-25"> 
-      </div>
-      
-  </form>`;
+      this.nroBtn = 1
     }
     if (numero == 2){
-      document.getElementById("formEditar").innerHTML = ` <form action="">
-      <div class="form-group">
-          <label for="Informe catastral">Informe catastral</label>
-          <input type="text" name="infCatastral" class="form-control w-25">
-      </div>
-      <br>
-      <div class="form-group">
-          <label for="adjunto">Adjuntar archivo</label>
-          <input type="file" name="adjunto" class="form-control w-25"> 
-      </div>
-      
-  </form>
-      `
+      this.nroBtn = 2
     }
     if (numero == 3){
-      document.getElementById("formEditar").innerHTML = ` <form action="">
-      <div class="form-group">
-          <label for="Estado de cuenta">Estado de cuenta (Debe/No debe):</label>
-          <input type="text" name="estadoCuenta" class="form-control w-25">
-      </div>  
-  </form>
-      `;
+     this.nroBtn = 3
     }
     if (numero == 4){
-      document.getElementById("formEditar").innerHTML = `
-      `;
+      this.nroBtn = 4
     }
     if (numero == 5){
-      document.getElementById("formEditar").innerHTML = `<form action="">
-      <div class="form-group">
-          <select>
-              <option value = "agrimensor">Agrimensor</option>
-              <option value = "particular">Particular</option>
-          </select>
-      </div>  
-      </form>
-      `;
+     this.nroBtn = 5
     }
     if (numero == 6){
-      document.getElementById("formEditar").innerHTML = `<form action="">
-      <div class="form-group">
-          <label for="Estado de cuenta">Adjuntar</label>
-          <input type="file" name="adjuntar" class="form-control w-25">
-      </div>  
-  </form>
-      `;
+      this.nroBtn = 6
     }
     if (numero == 7){
-      document.getElementById("formEditar").innerHTML = `<form action="">
-      <div class="form-group">
-          <label for="Ligado">Ligados:</label>
-          <input type="file" name="Ligados" class="form-control w-25">
-      </div>  
-  </form>
-      `;
+     this.nroBtn = 7
     }
     if (numero == 8){
-      document.getElementById("formEditar").innerHTML = `
-      `;
+      this.nroBtn = 8
     }
     if (numero == 9){
-      document.getElementById("formEditar").innerHTML = `<form action="">
-      <div class="form-group">
-          <label for="Estado de cuenta">Estado de cuenta (Debe/No debe): </label>
-          <select>
-              <option>Debe</option>
-              <option>No debe</option>
-          </select>
-          <label>Cuanto</label>
-          <input type="text" name="estadoCuenta" class="form-control w-25">
-      </div>  
-      `;
+      this.nroBtn=9
     }
     if (numero == 10){
-      document.getElementById("formEditar").innerHTML = `
-      <form action="">
-      <div class="form-group">
-      <label for="datoAdjuntar">Adjunto</label>
-      <input type="file" name="datoAdjuntar" class="form-control w-25">
-        </div>  
-      </form>
-      `;
+      this.nroBtn = 10
     }
     if (numero == 11){
-      document.getElementById("formEditar").innerHTML = `<form action="">
-      <div class="form-group">
-          <label for="datoAdjuntar">Adjunto</label>
-          <input type="file" name="datoAdjuntar" class="form-control w-25">
-      </div>  
-  </form>
-      `;
+     this.nroBtn = 11
     }
     if (numero == 12){
-      document.getElementById("formEditar").innerHTML = `<form action="">
-      <div class="form-group">
-          <label for="datoAdjuntar">Adjunto</label>
-          <input type="file" name="datoAdjuntar" class="form-control w-25">
-      </div>  
-  </form>
-      `;
+      this.nroBtn = 12
     }
     if (numero == 13){
-      document.getElementById("formEditar").innerHTML = `<form action="">
-      <div class="form-group">
-          <label for="datoAdjuntar">Adjunto</label>
-          <input type="file" name="datoAdjuntar" class="form-control w-25">
-      </div>  
-  </form>
-      `;
+     this.nroBtn = 13
     }
   }
 }

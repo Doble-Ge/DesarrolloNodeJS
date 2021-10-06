@@ -38,116 +38,144 @@
         <br>
         <br>
         <div class= "container"> <!--El formulario se va generando en el TS (editar ahi el html cualquier cosa)-->
-            <div class= "container border-danger border-3" id="formEditar">
+            <div class= "container border-danger border-3" id="formEditar" *ngIf = "nroBtn==1">
+                <form action="">
+                    <div class="form-group">
+                        <label for="control">Titularidad de propiedad inmueble</label>
+                        <input type="text" name="control" class="form-control w-25">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Adjuntar archivo</label>
+                        <input type="file" id="archivo" (change)="validacion()" name="observaciones" class="form-control w-25"> 
+                    </div>
+                    
+                </form>
 
             </div>
+            <div class= "container border-danger border-3" *ngIf = "nroBtn==2">
+                <form action="">
+                    <div class="form-group">
+                        <label for="Informe catastral">Informe catastral</label>
+                        <input type="text" name="infCatastral" class="form-control w-25">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="adjunto">Adjuntar archivo</label>
+                        <input type="file" id="archivo" (change)="validacion()" name="adjunto" class="form-control w-25"> 
+                    </div>
+                    
+                </form>
+            </div>
+            <div class= "container border-danger border-3" *ngIf = "nroBtn==3">
+                <form action="">
+                    <div class="form-group">
+                        <label for="Estado de cuenta">Estado de cuenta (Debe/No debe):</label>
+                        <input type="text"  name="estadoCuenta" class="form-control w-25">
+                    </div>  
+                </form>
+            </div>
+            <div class= "container border-danger border-3" *ngIf = "nroBtn==4">
+                <form action="">
+                    <div class="form-group">
+                        <label for="Copia de escritura">Copia de escritura</label>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="adjunto">Adjuntar archivo</label>
+                        <input type="file" id="archivo" (change)="validacion()" name="adjunto" class="form-control w-25"> 
+                    </div>
+                    
+                </form>
+            </div>
+            <div class= "container border-danger border-3" *ngIf = "nroBtn==5">
+                <form action="">
+                    <div class="form-group">
+                        <select>
+                            <option value = "agrimensor">Agrimensor</option>
+                            <option value = "particular">Particular</option>
+                        </select>
+                    </div>  
+                    </form>
+            </div>
+            <div class= "container border-danger border-3" *ngIf = "nroBtn==6">
+                <form action="">
+                    <div class="form-group">
+                        <label for="Estado de cuenta">Adjuntar</label>
+                        <input type="file" id="archivo" (change)="validacion()" name="adjuntar" class="form-control w-25">
+                    </div>  
+                </form>
+            </div>
+            <div class= "container border-danger border-3" *ngIf = "nroBtn==7">
+                <form action="">
+                    <div class="form-group">
+                        <label for="Ligado">Ligados:</label>
+                        <input type="file" name="Ligados" class="form-control w-25">
+                    </div>  
+                </form>
+            </div>
+
+            <div class= "container border-danger border-3" *ngIf = "nroBtn==8">
+                <form action="">
+                    <div class="form-group">
+                        <input type="file" name="actaConformidad" class="form-control w-25">
+                    </div>  
+                </form>
+            </div>
+
+            <div class= "container border-danger border-3" *ngIf = "nroBtn==9">
+                <form action="">
+                    <div class="form-group">
+                        <label for="Estado de cuenta">Estado de cuenta (Debe/No debe): </label>
+                        <select>
+                            <option>Debe</option>
+                            <option>No debe</option>
+                        </select>
+                        <label>Cuanto</label>
+                        <input type="text" name="estadoCuenta" class="form-control w-25">
+                    </div>
+                </form>
+            </div>
+
+            <div class= "container border-danger border-3" *ngIf = "nroBtn==10">
+                <form action="">
+                    <div class="form-group">
+                    <label for="datoAdjuntar">Adjunto</label>
+                    <input type="file" id="archivo" (change)="validacion()" name="datoAdjuntar" class="form-control w-25">
+                      </div>  
+                    </form>
+
+            </div>
+            <div class= "container border-danger border-3" *ngIf = "nroBtn==11">
+                <form action="">
+                    <div class="form-group">
+                        <label for="datoAdjuntar">Adjunto</label>
+                        <input type="file" id="archivo" (change)="validacion()" name="datoAdjuntar" class="form-control w-25">
+                    </div>  
+                </form>
+
+            </div>
+
+            <div class= "container border-danger border-3" *ngIf = "nroBtn==12">
+                <form action="">
+                    <div class="form-group">
+                        <label for="datoAdjuntar">Adjunto</label>
+                        <input type="file" id="archivo" (change)="validacion()" name="datoAdjuntar" class="form-control w-25">
+                    </div>  
+                </form>
+            </div>
+
+            <div class= "container border-danger border-3" *ngIf = "nroBtn==13">
+                <form action="">
+                    <div class="form-group">
+                        <label for="datoAdjuntar">Adjunto</label>
+                        <input type="file" id="archivo" (change)="validacion()" name="datoAdjuntar" class="form-control w-25">
+                    </div>  
+                </form>
+            </div>
+
+
         </div>
         
-       <!--  <div class="container"> 
-            <form action="">
-                <div class="form-group">
-                    <label for="control">Titularidad de propiedad inmueble</label>
-                    <input type="text" name="control" class="form-control w-25">
-                </div>
-                <br>
-                <div class="form-group">
-                    <label for="observaciones">Adjuntar archivo</label>
-                    <input type="file" name="observaciones" class="form-control w-25"> 
-                </div>
-                
-            </form>
-        </div>
-       
-    
-        <div class="container"> 
-           
-        </div>
-
-        Estado de cuenta:
-        <div class="container"> 
-            <form action="">
-                <div class="form-group">
-                    <label for="Estado de cuenta">Estado de cuenta (Debe/No debe):</label>
-                    <input type="text" name="estadoCuenta" class="form-control w-25">
-                </div>  
-            </form>
-        </div>
-
-        Visación del colegio:
-        <div class="container"> 
-            <form action="">
-                <div class="form-group">
-                    <select>
-                        <option value = "agrimensor">Agrimensor</option>
-                        <option value = "particular">Particular</option>
-                    </select>
-                </div>  
-            </form>
-        </div>
-
-        Notif. Inicio
-        <div class="container"> 
-            <form action="">
-                <div class="form-group">
-                    <label for="Estado de cuenta">Adjuntar</label>
-                    <input type="file" name="adjuntar" class="form-control w-25">
-                </div>  
-            </form>
-        </div>
-
-        Citación colindantes
-        <div class="container"> 
-            <form action="">
-                <div class="form-group">
-                    <label for="Ligado">Ligados:</label>
-                    <input type="file" name="Ligados" class="form-control w-25">
-                </div>  
-            </form>
-        </div>
-
-        Memoria descriptiva
-        <div class="container"> 
-            <form action="">
-                <div class="form-group">
-                    <label for="Estado de cuenta">Estado de cuenta (Debe/No debe): </label>
-                    <select>
-                        <option>Debe</option>
-                        <option>No debe</option>
-                    </select>
-                    <label>Cuanto</label>
-                    <input type="text" name="estadoCuenta" class="form-control w-25">
-                </div>  
-            </form>
-        </div>
-
-        Proyecto: 
-        <div class="container"> 
-            <form action="">
-                <div class="form-group">
-                    <label for="datoAdjuntar">Adjunto</label>
-                    <input type="file" name="datoAdjuntar" class="form-control w-25">
-                </div>  
-            </form>
-        </div>
-
-        Aprobación rural:
-        <div class="container"> 
-            <form action="">
-                <div class="form-group">
-                    <label for="datoAdjuntar">Adjunto</label>
-                    <input type="file" name="datoAdjuntar" class="form-control w-25">
-                </div>  
-            </form>
-        </div>
-
-        Plano digital:
-        <div class="container"> 
-            <form action="">
-                <div class="form-group">
-                    <label for="datoAdjuntar">Adjunto</label>
-                    <input type="file" name="datoAdjuntar" class="form-control w-25">
-                </div>  
-            </form>
-        </div>-->
     </div> 
 </div>
