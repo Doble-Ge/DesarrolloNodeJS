@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger position-relative">
     <div class="container-fluid">
         <a href="/paginaInicio"><img id="logoCatastro" src="https://minvivienda.larioja.gob.ar/images/2020/03/31/dgclr1.png"></a>
         <a class="navbar-brand" href="#">CATASTRO - LA RIOJA</a>
@@ -17,6 +17,16 @@
             <span *ngIf = "UsuarioInyectado.usuarioLogeado.perfila_id == 1 || UsuarioInyectado.usuarioLogeado.perfila_id == 5"><a class="nav-link" routerLink="/listadoSolicitudesUsuarios" routerLinkActive="active">Lista de solicitudes</a>
             </span>    
             <span *ngIf = "UsuarioInyectado.loginCorrecto != 1"><a class="nav-link" routerLink="/contacto" routerLinkActive="active">Contacto</a> </span>
+                <div *ngIf = "UsuarioInyectado.loginCorrecto == 1" class="dropdown">
+                    <button class="btn btn-danger dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      {{ UsuarioInyectado.usuarioLogeado.nombre }}
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" routerLink="/cambioContrasena">Cambiar contraseña</a></li>
+                      <li><a class="dropdown-item" (click) = "cerrarSesion()">Cerrar Sesion</a></li>
+                    </ul>
+                </div>
+            
         </div>
         </div>
     </div>

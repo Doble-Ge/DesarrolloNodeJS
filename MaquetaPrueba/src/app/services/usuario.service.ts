@@ -24,5 +24,9 @@ export class UsuarioService {
   verificarLogeo(){
     return this.loginCorrecto = 1
   }
+
+  updateContraseña(cuil: string, nuevoUsuario) {
+    return this.http.put(this.API_URL + '/usuarioa/' + cuil, nuevoUsuario)
+  }
   
 }

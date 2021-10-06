@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CambioContrasenaComponent } from './cambio-contrasena/cambio-contrasena.component';
 import { CaratulaExternoImprimirComponent } from './caratula-externo-imprimir/caratula-externo-imprimir.component';
 import { CaratulaMensuraImprimirComponent } from './caratula-mensura-imprimir/caratula-mensura-imprimir.component';
 import { CaratulaNotaImprimirComponent } from './caratula-nota-imprimir/caratula-nota-imprimir.component';
@@ -63,6 +64,9 @@ const routes: Routes = [
   },
   {
     path: 'listadoSolicitudesUsuarios', component: ListadoSolicitudesNuevosUsuariosComponent
+  },
+  {
+    path: 'cambioContrasena', component: CambioContrasenaComponent
   },
   {
     path: '**', component: PaginaErrorComponent

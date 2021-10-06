@@ -20,6 +20,7 @@ export class ModuloRegistroComponent implements OnInit {
   agregarUsuario(){
   
     console.log(this.usuario)
+    delete this.usuario.id
     this.usuarioInyectado.crearUsuario(this.usuario).subscribe(
       res => {
         console.log(res)

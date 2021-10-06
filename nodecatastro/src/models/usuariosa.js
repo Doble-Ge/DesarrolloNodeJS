@@ -25,6 +25,9 @@ const UsuarioA = sequelize.define('usuarioa',{
     },
     perfila_id: {
         type: Sequelize.NUMBER
+    },
+    primerLogin: {
+        type: Sequelize.BOOLEAN
     }
 }, {
     timestamps:false

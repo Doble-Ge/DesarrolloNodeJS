@@ -29,6 +29,12 @@ export class LoginModuloComponent implements OnInit {
           alert("Usuario correcto")
           this.usuarioInyectado.usuarioLogeado = this.data[0]
           this.usuarioInyectado.loginCorrecto = 1
+          if(this.data[0].primerLogin == true){
+            alert("Por ser el primer inicio de sesion, debe cambiar la contraseña")
+            this.Ruta.navigateByUrl("/cambioContrasena")
+          }else{
+            this.Ruta.navigateByUrl("/paginaInicio")
+          }
         }else{
           alert("Contraseña incorrecta")
         }

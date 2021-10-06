@@ -6,6 +6,8 @@ export class Usuario {
     pass: string
     cuil: string
     perfila_id: number
+    primerLogin: boolean
+    
 
     constructor(){
         this.id = this.id
@@ -15,5 +17,7 @@ export class Usuario {
         this.pass = this.pass
         this.cuil = this.cuil
         this.perfila_id = this.perfila_id
+        this.primerLogin = true
+        
     }
 }

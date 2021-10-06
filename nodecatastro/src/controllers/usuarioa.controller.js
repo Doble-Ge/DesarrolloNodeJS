@@ -14,7 +14,7 @@ export async function getUsuario(req,res) {
 }
 
 export async function crearUsuario(req, res) {
-    const {nombre, apellido, email, pass, cuil, perfila_id} = req.body;
+    const {nombre, apellido, email, pass, cuil, perfila_id, primerLogin} = req.body;
     try {
 
         let nuevoUsuario = await UsuarioA.create({
@@ -23,9 +23,10 @@ export async function crearUsuario(req, res) {
             email,
             pass,
             cuil,
-            perfila_id
+            perfila_id,
+            primerLogin
         }, {
-            fields:['nombre', 'apellido', 'email', 'pass', 'cuil', 'perfila_id']
+            fields:['nombre', 'apellido', 'email', 'pass', 'cuil', 'perfila_id', 'primerLogin']
         });
         if (nuevoUsuario) {
             return res.json({
@@ -114,6 +115,42 @@ export async function updateUsuario(req,res){
                 pass,
                 cuil,
                 perfila_id
+            })
+            
+        });
+    }
+
+    return res.json({
+        message: "Usuario actualizado con éxito",
+        data: usuario
+    });
+    }catch (e){
+        console.log(e);
+    }
+}
+
+export async function updateUsuarioCUIL(req,res){
+    try{
+        const {cuil} = req.params;
+    const {id, nombre, apellido, email, pass, perfila_id, primerLogin} = req.body;
+    
+    const usuario = await UsuarioA.findAll({
+        attributes: ['id', 'nombre', 'apellido', 'email', 'pass', 'cuil', 'perfila_id', 'primerLogin'],
+        where: {
+            cuil: cuil
+        }
+    });
+
+    if(usuario.length > 0){
+        usuario.forEach(async usuario => {
+            await usuario.update({
+                nombre,
+                apellido,
+                email,
+                pass,
+                cuil,
+                perfila_id,
+                primerLogin
             })
             
         });

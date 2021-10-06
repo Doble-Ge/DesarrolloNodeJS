@@ -25,6 +25,7 @@ import { ConsultaCaratulasComponent } from './consulta-caratulas/consulta-caratu
 import { UsuarioService } from './services/usuario.service';
 import { SolicitudRegistroComponent } from './solicitud-registro/solicitud-registro.component';
 import { ListadoSolicitudesNuevosUsuariosComponent } from './listado-solicitudes-nuevos-usuarios/listado-solicitudes-nuevos-usuarios.component';
+import { CambioContrasenaComponent } from './cambio-contrasena/cambio-contrasena.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ListadoSolicitudesNuevosUsuariosComponent } from './listado-solicitudes
     CaratulaExternoImprimirComponent,
     ConsultaCaratulasComponent,
     SolicitudRegistroComponent,
-    ListadoSolicitudesNuevosUsuariosComponent
+    ListadoSolicitudesNuevosUsuariosComponent,
+    CambioContrasenaComponent
   ],
   imports: [
     BrowserModule,
