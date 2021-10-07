@@ -3,7 +3,8 @@ import { sequelize } from '../database/db';
 
 const Subsistencia = sequelize.define('subsistencia', {
     id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        primaryKey: true
     },
     titulo_subsistencia: {
         type: Sequelize.TEXT
