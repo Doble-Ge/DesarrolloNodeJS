@@ -15,7 +15,9 @@
             <span *ngIf = "UsuarioInyectado.loginCorrecto == 1" ><a class="nav-link" routerLink="/soliMensura" routerLinkActive="active">Solicitudes de Mensura</a></span> 
             <span *ngIf = "UsuarioInyectado.usuarioLogeado.perfila_id == 1 || UsuarioInyectado.usuarioLogeado.perfila_id == 5"><a class="nav-link" routerLink="/registro" routerLinkActive="active">Registro de Usuarios</a></span>
             <span *ngIf = "UsuarioInyectado.usuarioLogeado.perfila_id == 1 || UsuarioInyectado.usuarioLogeado.perfila_id == 5"><a class="nav-link" routerLink="/listadoSolicitudesUsuarios" routerLinkActive="active">Lista de solicitudes</a>
-            </span>    
+            </span>
+            <a class="nav-link" routerLink="/generarNotas" routerLinkActive="active">Generar Nota</a>    
+            <a class="nav-link" routerLink="/consultarNotas" routerLinkActive="active">Consultar Nota</a>   
             <span *ngIf = "UsuarioInyectado.loginCorrecto != 1"><a class="nav-link" routerLink="/contacto" routerLinkActive="active">Contacto</a> </span>
                 <div *ngIf = "UsuarioInyectado.loginCorrecto == 1" class="dropdown">
                     <button class="btn btn-danger dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">

@@ -1,0 +1,22 @@
+<div class="container"> 
+    <form action="">
+        <div class="form-group">
+            <input type="text" name="nombre" class="form-control w-25" placeholder="Nombre y Apellido" [(ngModel)] = nota.nombreCompleto>
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="tel" name="telefono" class="form-control w-25" placeholder="CUIL" [(ngModel)] = nota.cuil>
+        </div>
+        <br>
+        <div class="form-group">
+            <input type="text" name="consulta" class="form-control consulta" placeholder="Ingrese su consulta" [(ngModel)] = nota.descripcion>
+        </div>
+        <br>
+        <div class="form-group">
+            <label for="observaciones">Adjuntar pdf o word</label>
+            <input type="file" id="archivo" (change)="validacion()" name="observaciones" class="form-control w-25"> 
+        </div>
+        <button class="btn btn-danger" (click) = "crearNota()">Enviar</button>
+
+    </form>
+</div>

@@ -26,6 +26,9 @@ import { UsuarioService } from './services/usuario.service';
 import { SolicitudRegistroComponent } from './solicitud-registro/solicitud-registro.component';
 import { ListadoSolicitudesNuevosUsuariosComponent } from './listado-solicitudes-nuevos-usuarios/listado-solicitudes-nuevos-usuarios.component';
 import { CambioContrasenaComponent } from './cambio-contrasena/cambio-contrasena.component';
+import { GenerarNotasComponent } from './generar-notas/generar-notas.component';
+import { ConsultarNotasComponent } from './consultar-notas/consultar-notas.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -47,14 +50,17 @@ import { CambioContrasenaComponent } from './cambio-contrasena/cambio-contrasena
     ConsultaCaratulasComponent,
     SolicitudRegistroComponent,
     ListadoSolicitudesNuevosUsuariosComponent,
-    CambioContrasenaComponent
+    CambioContrasenaComponent,
+    GenerarNotasComponent,
+    ConsultarNotasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     NgxQRCodeModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [
     CaratulasService,

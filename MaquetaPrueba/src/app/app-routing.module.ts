@@ -6,8 +6,10 @@ import { CaratulaMensuraImprimirComponent } from './caratula-mensura-imprimir/ca
 import { CaratulaNotaImprimirComponent } from './caratula-nota-imprimir/caratula-nota-imprimir.component';
 import { CaratulaOficiosImprimirComponent } from './caratula-oficios-imprimir/caratula-oficios-imprimir.component';
 import { ConsultaCaratulasComponent } from './consulta-caratulas/consulta-caratulas.component';
+import { ConsultarNotasComponent } from './consultar-notas/consultar-notas.component';
 import { ContactoModuloComponent } from './contacto-modulo/contacto-modulo.component';
 import { ExpedienteMensuraComponent } from './expediente-mensura/expediente-mensura.component';
+import { GenerarNotasComponent } from './generar-notas/generar-notas.component';
 import { ListadoSolicitudesNuevosUsuariosComponent } from './listado-solicitudes-nuevos-usuarios/listado-solicitudes-nuevos-usuarios.component';
 import { LoginModuloComponent } from './login-modulo/login-modulo.component';
 import { ModuloRegistroComponent } from './modulo-registro/modulo-registro.component';
@@ -67,6 +69,12 @@ const routes: Routes = [
   },
   {
     path: 'cambioContrasena', component: CambioContrasenaComponent
+  },
+  {
+    path: 'generarNotas', component: GenerarNotasComponent
+  },
+  {
+    path: 'consultarNotas', component: ConsultarNotasComponent
   },
   {
     path: '**', component: PaginaErrorComponent
