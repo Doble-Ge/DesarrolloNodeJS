@@ -1,0 +1,27 @@
+<div class="container">
+    <div >
+        <table class="table table-striped table-hover table-bordered">
+          <thead class="table">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nombre y Apellido</th>
+              <th scope="col">Email</th>
+              <th scope="col">Telefono</th>
+              <th scope="col">Consulta</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor = 'let consultas of arr' >
+             
+                  <th scope="row" > {{ consultas.id }} </th>
+                  <td> {{ consultas.nombreCompleto }} </td>
+                  <td> {{ consultas.email }} </td>
+                  <td> {{ consultas.telefono }} </td>
+                  <td> {{ consultas.consulta }}  </td>
+        
+            </tr>
+          </tbody>
+        </table>
+       </div>
+
+</div>

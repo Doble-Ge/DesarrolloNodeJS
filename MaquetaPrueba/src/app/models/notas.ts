@@ -3,6 +3,7 @@ export class Notas {
     nombreCompleto: string
     cuil: string
     descripcion: string
+    pdf_notasExp: string
     
 
     constructor(){
@@ -10,6 +11,7 @@ export class Notas {
         this.nombreCompleto = this.nombreCompleto
         this.cuil = this.cuil
         this.descripcion = this.descripcion
+        this.pdf_notasExp = '..../nodecatastro/uploads/notasExpedientesExternos'
         
         
     }

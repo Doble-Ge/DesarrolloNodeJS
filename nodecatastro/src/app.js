@@ -17,6 +17,8 @@ import valoracionRoutes from './routes/valoracion';
 import uploadRoutes from './routes/upload';
 import solicitudesUsuariosRoutes from './routes/solicitudesUsuarios';
 import subsistenciaRoutes from './routes/subsistencia';
+import contactoRoutes from './routes/contacto';
+import notasExpRoutes from './routes/notasExp'
 
 //INICIACION
 const app = express();
@@ -46,6 +48,8 @@ app.use('/api/valoracion',valoracionRoutes);
 app.use('/api/upload',uploadRoutes);
 app.use('/api/solicitudesUsuarios', solicitudesUsuariosRoutes);
 app.use('/api/subsistencia', subsistenciaRoutes);
+app.use('/api/contacto', contactoRoutes);
+app.use('/api/notasExp', notasExpRoutes)
 
 
 export default app;

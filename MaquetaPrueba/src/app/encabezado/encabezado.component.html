@@ -13,6 +13,7 @@
             <a class="nav-link" href= "http://www.catastrolr.com.ar/home.php" target="_blank">Solicitudes - Catastro</a>
             
             <span *ngIf = "UsuarioInyectado.loginCorrecto == 1" ><a class="nav-link" routerLink="/soliMensura" routerLinkActive="active">Solicitudes de Mensura</a></span> 
+            <span *ngIf = "UsuarioInyectado.loginCorrecto == 1" ><a class="nav-link" routerLink="/listadoContacto" routerLinkActive="active">Contactos</a></span> 
             <span *ngIf = "UsuarioInyectado.usuarioLogeado.perfila_id == 1 || UsuarioInyectado.usuarioLogeado.perfila_id == 5"><a class="nav-link" routerLink="/registro" routerLinkActive="active">Registro de Usuarios</a></span>
             <span *ngIf = "UsuarioInyectado.usuarioLogeado.perfila_id == 1 || UsuarioInyectado.usuarioLogeado.perfila_id == 5"><a class="nav-link" routerLink="/listadoSolicitudesUsuarios" routerLinkActive="active">Lista de solicitudes</a>
             </span>

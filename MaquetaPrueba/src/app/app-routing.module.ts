@@ -10,6 +10,7 @@ import { ConsultarNotasComponent } from './consultar-notas/consultar-notas.compo
 import { ContactoModuloComponent } from './contacto-modulo/contacto-modulo.component';
 import { ExpedienteMensuraComponent } from './expediente-mensura/expediente-mensura.component';
 import { GenerarNotasComponent } from './generar-notas/generar-notas.component';
+import { ListadoConsultasContactosComponent } from './listado-consultas-contactos/listado-consultas-contactos.component';
 import { ListadoSolicitudesNuevosUsuariosComponent } from './listado-solicitudes-nuevos-usuarios/listado-solicitudes-nuevos-usuarios.component';
 import { LoginModuloComponent } from './login-modulo/login-modulo.component';
 import { ModuloRegistroComponent } from './modulo-registro/modulo-registro.component';
@@ -75,6 +76,9 @@ const routes: Routes = [
   },
   {
     path: 'consultarNotas', component: ConsultarNotasComponent
+  },
+  {
+    path: 'listadoContacto', component: ListadoConsultasContactosComponent
   },
   {
     path: '**', component: PaginaErrorComponent

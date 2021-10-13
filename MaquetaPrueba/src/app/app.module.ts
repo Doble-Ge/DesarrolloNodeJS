@@ -29,6 +29,7 @@ import { CambioContrasenaComponent } from './cambio-contrasena/cambio-contrasena
 import { GenerarNotasComponent } from './generar-notas/generar-notas.component';
 import { ConsultarNotasComponent } from './consultar-notas/consultar-notas.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ListadoConsultasContactosComponent } from './listado-consultas-contactos/listado-consultas-contactos.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ListadoSolicitudesNuevosUsuariosComponent,
     CambioContrasenaComponent,
     GenerarNotasComponent,
-    ConsultarNotasComponent
+    ConsultarNotasComponent,
+    ListadoConsultasContactosComponent
   ],
   imports: [
     BrowserModule,

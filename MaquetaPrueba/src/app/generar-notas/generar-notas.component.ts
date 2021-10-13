@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Notas } from '../models/notas';
+import { NotasExternasService } from '../services/notas-externas.service';
 
 @Component({
   selector: 'app-generar-notas',
@@ -8,7 +9,7 @@ import { Notas } from '../models/notas';
 })
 export class GenerarNotasComponent implements OnInit {
   nota: Notas = new Notas()
-  constructor() { }
+  constructor(private notaInyectada: NotasExternasService) { }
 
   ngOnInit(): void {
   }
@@ -27,8 +28,13 @@ export class GenerarNotasComponent implements OnInit {
 
  }
 
- crearNota(){
-   console.log(this.nota)
+ agregarNota(){
+  this.notaInyectada.crearNota(this.nota).subscribe(
+    res => {
+      console.log(res)
+    },
+    err => console.error(err)
+  )
  }
-
+ 
 }

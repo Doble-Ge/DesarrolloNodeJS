@@ -2,23 +2,23 @@
 <div class="container"> 
     <form action="">
         <div class="form-group">
-            <input type="text" name="nombre" class="form-control w-25" placeholder="Nombre y Apellido">
+            <input type="text" name="nombre" class="form-control w-25" placeholder="Nombre y Apellido" [(ngModel)] = "contacto.nombreCompleto">
         </div>
         <br>
         <div class="form-group">
-            <input type="mail" name="e-mail" class="form-control w-25" placeholder="E-Mail"> 
+            <input type="mail" name="e-mail" class="form-control w-25" placeholder="E-Mail" [(ngModel)] = "contacto.email"> 
         </div>
         <br>
         <div class="form-group">
-            <input type="tel" name="telefono" class="form-control w-25" placeholder="Telefono">
+            <input type="tel" name="telefono" class="form-control w-25" placeholder="Telefono" [(ngModel)] = "contacto.telefono">
         </div>
         <br>
         <div class="form-group">
-            <input type="text" name="consulta" class="form-control consulta" placeholder="Ingrese su consulta">
+            <input type="text" name="consulta" class="form-control consulta" placeholder="Ingrese su consulta" [(ngModel)] = "contacto.consulta"> 
         </div>
         <br>
         <button class="btn btn-outline-danger">Atras</button>
-        <button class="btn btn-danger">Enviar</button>
+        <button class="btn btn-danger" (click)="agregarContacto()">Enviar</button>
 
     </form>
 </div>
