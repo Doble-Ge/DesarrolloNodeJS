@@ -30,6 +30,7 @@ import { GenerarNotasComponent } from './generar-notas/generar-notas.component';
 import { ConsultarNotasComponent } from './consultar-notas/consultar-notas.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListadoConsultasContactosComponent } from './listado-consultas-contactos/listado-consultas-contactos.component';
+import { RecuperarClaveComponent } from './recuperar-clave/recuperar-clave.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ListadoConsultasContactosComponent } from './listado-consultas-contacto
     CambioContrasenaComponent,
     GenerarNotasComponent,
     ConsultarNotasComponent,
-    ListadoConsultasContactosComponent
+    ListadoConsultasContactosComponent,
+    RecuperarClaveComponent
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,7 @@ import { ModuloRegistroComponent } from './modulo-registro/modulo-registro.compo
 import { NuevaSolicitudAgrimensorComponent } from './nueva-solicitud-agrimensor/nueva-solicitud-agrimensor.component';
 import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
 import { PaginaInicioComponent } from './pagina-inicio/pagina-inicio.component';
+import { RecuperarClaveComponent } from './recuperar-clave/recuperar-clave.component';
 import { SolicitudRegistroComponent } from './solicitud-registro/solicitud-registro.component';
 import { NuevaSolicitudComponent } from './solicitudes-mensura/nueva-solicitud/nueva-solicitud.component';
 import { SolicitudesMensuraComponent } from './solicitudes-mensura/solicitudes-mensura.component';
@@ -79,6 +80,9 @@ const routes: Routes = [
   },
   {
     path: 'listadoContacto', component: ListadoConsultasContactosComponent
+  },
+  {
+    path: 'recuperarClave', component: RecuperarClaveComponent
   },
   {
     path: '**', component: PaginaErrorComponent

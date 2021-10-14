@@ -10,12 +10,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngFor = 'let notas of arr'>
            
-                <th scope="row" >  </th>
-                <td> </td>
-                <td>  </td>
-                <td>  </td>
+                <th scope="row" > {{ notas.id }} </th>
+                <td> {{ notas.nombreCompleto }} </td>
+                <td> {{ notas.cuil }} </td>
+                <td> {{ notas.descripcion }} </td>
                 <td>  </td>
           
       

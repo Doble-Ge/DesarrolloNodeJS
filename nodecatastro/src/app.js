@@ -2,6 +2,7 @@ import express, { json } from 'express';
 import morgan from 'morgan';
 
 const cors = require('cors');
+const bodyparser = require('body-parser');
 //IMPORTING ROUTES
 /*import usuarioRoutes from './routes/usuario';
 import tramiteRoutes from './routes/tramites';
@@ -19,6 +20,8 @@ import solicitudesUsuariosRoutes from './routes/solicitudesUsuarios';
 import subsistenciaRoutes from './routes/subsistencia';
 import contactoRoutes from './routes/contacto';
 import notasExpRoutes from './routes/notasExp'
+import correoRoutes from './routes/correo'
+import { envioCorreo } from './controllers/correo.controller';
 
 //INICIACION
 const app = express();
@@ -32,6 +35,8 @@ app.use((req, res, next) => {
 //MIDDLEWARES
 app.use(morgan('dev'));
 app.use(json());
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({extended:false}));
 
 //RUTAS
 /*app.use('/api/usuario', usuarioRoutes);
@@ -50,6 +55,7 @@ app.use('/api/solicitudesUsuarios', solicitudesUsuariosRoutes);
 app.use('/api/subsistencia', subsistenciaRoutes);
 app.use('/api/contacto', contactoRoutes);
 app.use('/api/notasExp', notasExpRoutes)
+app.use('/api/envio', correoRoutes);
 
 
 export default app;
