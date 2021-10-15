@@ -80,7 +80,7 @@ export async function getOneUsuarioCuil(req,res){
 export async function deleteUsuario(req,res){
     try {
         const {id} = req.params;
-    const deleteRowCount = await Usuario.destroy({
+    const deleteRowCount = await UsuarioA.destroy({
         where: {
             id: id
         }
