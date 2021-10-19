@@ -1,18 +1,17 @@
 import { Router } from 'express';
+import { cargarArchivo } from '../controllers/subsistencia.controller';
 const router = Router();
+const controller = require('../controllers/subsistencia.controller');
 
-import { guardarPDFSubsistencia } from '../controllers/subsistencia.controller';
+router.get('/', controller.upload);
+router.post('/', controller.upload, controller.uploadFile)
 
-// /api/subsistencia
-//router.post('/', crearUsuario);
-//router.get('/', getUsuario);
-router.post('/', guardarPDFSubsistencia);
 
-// /api/usuario/usuarioaID
-//router.get('/:id', getOneUsuario);
-//router.delete('/:id', deleteUsuario);
-//router.put('/:id', updateUsuario);
-//router.put('/:cuil', updateUsuarioCUIL)
-//router.get('/:cuil', getOneUsuarioCuil);
+
+module.exports = router
+
+
+//router.post('/', cargarArchivo);
+
 
 export default router;

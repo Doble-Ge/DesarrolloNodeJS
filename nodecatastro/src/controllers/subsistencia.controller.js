@@ -1,62 +1,30 @@
-import Subsistencia from '../models/subsistencia';
+import Subsistencia from "../models/subsistencia";
+const multer = require('multer')
+const path = require('path')
+var pathh;
 
-
-export async function crearSubsistencia(req, res) {
-    const {titulo_subsistencia, pdf_subsistencia, mensura_id} = req.body;
-    try {
-
-        let nuevaSubsistencia = await Subsistencia.create({
-            titulo_subsistencia, //tal cosa
-            pdf_subsistencia,    //archivo
-            mensura_id           //5
-        }, {
-            fields:['titulo_subsistencia', 'pdf_subsistencia', 'mensura_id']
-        });
-        if (nuevaSubsistencia) {
-            return res.json({
-                message: 'Subsistencia de dominio cargada correctamente',
-                data: nuevaSubsistencia
-            });
-        }
-    } catch (e) {
-        console.log(e);
-        res.status(500).json({
-            message: 'algo va mal',
-            data: {}
-        });
-    }
-    
-}
-
-export async function guardarPDFSubsistencia(req,res){
-    const multer = require('multer')
-
-  try{
-    const storage = await multer.diskStorage({
+//export async function cargarArchivo(req,res){
+//    const storage = await multer.diskStorage({
+      const storage = multer.diskStorage({
         destination: function (req, file, cb){
-            cb(null, 'uploads')
+            cb(null, './uploads/subsistencia')
         },
         filename: function (req, file, cb){
         //    console.log(file);
-
-cb(null, file.fieldname + '-' + Date.now() + file.originalname)
-
-    ////'${Date.now()}-${file.originalname}'   
+    
+     pathh = cb(null, file.fieldname + '-' + Date.now() + file.originalname);
+    
+         ////'${Date.now()}-${file.originalname}'   
+        }
+    })
+    
+    const upload = multer({ storage:storage })
+    
+    exports.upload = upload.single('myFile')
+    
+    exports.uploadFile = (req, res) => {
+        res.send({ cb })
     }
-})
 
-const upload = multer({ storage:storage })
+//}
 
-exports.upload = upload.single('subsistencia')
-
-exports.uploadFile = (req, res) => {
-    res.send({ data: 'enviar un archivo'})
-}
-  }catch(e){
-      console.log(e);
-      res.status(500).json({
-          message: "no, no vino",
-          data: {}
-      });
-  };
-};

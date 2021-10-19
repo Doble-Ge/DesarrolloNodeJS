@@ -5,11 +5,7 @@ const router = Router()
 
 router.get('/', controller.upload);
 
-router.post(
-    '/',
-    controller.upload,
-    controller.uploadFile
-)
+router.post('/', controller.upload, controller.uploadFile)
 
 
 

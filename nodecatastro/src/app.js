@@ -52,7 +52,7 @@ app.use('/api/nota',notaRoutes);
 app.use('/api/valoracion',valoracionRoutes);
 app.use('/api/upload',uploadRoutes);
 app.use('/api/solicitudesUsuarios', solicitudesUsuariosRoutes);
-app.use('/api/subsistencia', subsistenciaRoutes);
+app.use('/api/subsistencias', subsistenciaRoutes);
 app.use('/api/contacto', contactoRoutes);
 app.use('/api/notasExp', notasExpRoutes)
 app.use('/api/envio', correoRoutes);
