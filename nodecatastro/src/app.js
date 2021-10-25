@@ -22,6 +22,7 @@ import contactoRoutes from './routes/contacto';
 import notasExpRoutes from './routes/notasExp'
 import correoRoutes from './routes/correo'
 import { envioCorreo } from './controllers/correo.controller';
+import notasExpPDFRoutes from './routes/notasExpPDF';
 
 //INICIACION
 const app = express();
@@ -56,6 +57,6 @@ app.use('/api/subsistencias', subsistenciaRoutes);
 app.use('/api/contacto', contactoRoutes);
 app.use('/api/notasExp', notasExpRoutes)
 app.use('/api/envio', correoRoutes);
-
+app.use('/api/notasExpPDF',notasExpPDFRoutes);
 
 export default app;
