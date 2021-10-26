@@ -21,7 +21,7 @@ export async function crearCitacion_colindante(req, res) {
         let nuevaCitacion_colindante= await Citacion_colindante.create({
             pdf_citacion
         }, {
-            fields:['pdd_citacion']
+            fields:['pdf_citacion']
         });
         if (nuevaCitacion_colindante) {
             return res.json({

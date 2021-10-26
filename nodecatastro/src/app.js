@@ -32,7 +32,8 @@ import certificadoRoutes from './routes/certificado';
 import certificadoPDFRoutes from './routes/certificadoPDF';
 import citacion_colindanteRoutes from './routes/citacion_colindante';
 import citacion_colindantePDFRoutes from './routes/citacion_colindantePDF';
-
+import copia_escrituraRoutes from './routes/copia_escritura';
+import copia_escrituraPDFRoutes from './routes/copia_escrituraPDF';
 
 
 //INICIACION
@@ -78,6 +79,8 @@ app.use('/api/certificado',certificadoRoutes);
 app.use('/api/certificadoPDF',certificadoPDFRoutes);
 app.use('/api/citacion_colindante',citacion_colindanteRoutes);
 app.use('/api/citacion_colindantePDF',citacion_colindantePDFRoutes);
+app.use('/api/copia_escritura',copia_escrituraRoutes);
+app.use('/api/copia_escrituraPDF',copia_escrituraPDFRoutes);
 
 
 
