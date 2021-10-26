@@ -28,6 +28,10 @@ import acta_conformidadRoutes from './routes/acta_conformidad';
 import acta_conformidadPDFRoutes from './routes/acta_conformidadPDF';
 import aprobacion_agrimensuraRoutes from './routes/aprobacion_agrimensura';
 import aprobacion_agrimensuraPDFRoutes from './routes/aprobacion_agrimensuraPDF';
+import certificadoRoutes from './routes/certificado';
+import certificadoPDFRoutes from './routes/certificadoPDF';
+import citacion_colindanteRoutes from './routes/citacion_colindante';
+import citacion_colindantePDFRoutes from './routes/citacion_colindantePDF';
 
 
 
@@ -70,6 +74,10 @@ app.use('/api/acta_conformidad',acta_conformidadRoutes);
 app.use('/api/acta_conformidadPDF',acta_conformidadPDFRoutes);
 app.use('/api/aprobacion_agrimensura',aprobacion_agrimensuraRoutes);
 app.use('/api/aprobacion_agrimensuraPDF',aprobacion_agrimensuraPDFRoutes);
+app.use('/api/certificado',certificadoRoutes);
+app.use('/api/certificadoPDF',certificadoPDFRoutes);
+app.use('/api/citacion_colindante',citacion_colindanteRoutes);
+app.use('/api/citacion_colindantePDF',citacion_colindantePDFRoutes);
 
 
 
