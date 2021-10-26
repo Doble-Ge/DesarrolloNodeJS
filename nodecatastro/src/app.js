@@ -22,8 +22,14 @@ import correoRoutes from './routes/correo'
 import { envioCorreo } from './controllers/correo.controller';
 import notasExpRoutes from './routes/notasExp'
 import notasExpPDFRoutes from './routes/notasExpPDF';
-import subsistenciaPDFRoutes from './routes/subsistenciaPDF';
 import subsistenciaRoutes from './routes/subsistencia';
+import subsistenciaPDFRoutes from './routes/subsistenciaPDF';
+import acta_conformidadRoutes from './routes/acta_conformidad';
+import acta_conformidadPDFRoutes from './routes/acta_conformidadPDF';
+import aprobacion_agrimensuraRoutes from './routes/aprobacion_agrimensura';
+import aprobacion_agrimensuraPDFRoutes from './routes/aprobacion_agrimensuraPDF';
+
+
 
 //INICIACION
 const app = express();
@@ -60,6 +66,12 @@ app.use('/api/notasExp', notasExpRoutes)
 app.use('/api/envio', correoRoutes);
 app.use('/api/notasExpPDF',notasExpPDFRoutes);
 app.use('/api/subsistencia',subsistenciaRoutes);
+app.use('/api/acta_conformidad',acta_conformidadRoutes);
+app.use('/api/acta_conformidadPDF',acta_conformidadPDFRoutes);
+app.use('/api/aprobacion_agrimensura',aprobacion_agrimensuraRoutes);
+app.use('/api/aprobacion_agrimensuraPDF',aprobacion_agrimensuraPDFRoutes);
+
+
 
 
 export default app;

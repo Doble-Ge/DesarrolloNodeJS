@@ -1,8 +1,8 @@
 import { Router } from 'express';
+const controller = require('../controllers/aprobacion_agrimensuraPDF.controller')
 
+const router = Router()
 
-const controller = require('../controllers/subsistenciaPDF.controller');
-const router = Router();
 router.get('/', controller.upload);
 
 router.post('/', controller.upload, controller.uploadFile)
@@ -10,9 +10,6 @@ router.post('/', controller.upload, controller.uploadFile)
 
 
 module.exports = router
-
-
-//router.post('/', cargarArchivo);
 
 
 export default router;
