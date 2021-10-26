@@ -9,12 +9,13 @@ import { NotasExternasService } from '../services/notas-externas.service';
 })
 export class GenerarNotasComponent implements OnInit {
   nota: Notas = new Notas()
+  pdf
   constructor(private notaInyectada: NotasExternasService) { }
 
   ngOnInit(): void {
   }
 
-  validacion(){
+  validacion(event){
     var archivo = (<HTMLInputElement> document.getElementById("archivo"))
     var path = archivo.value
     var extension = /(.pdf|.docx)$/i
@@ -23,15 +24,27 @@ export class GenerarNotasComponent implements OnInit {
       archivo.value= null
     }else{
       alert("Archivo cargado")
+      if(event.target.files.length > 0){
+        const file = event.target.files[0]
+        this.pdf = file
+      }
     }
     console.log(archivo.value)
 
  }
 
  agregarNota(){
+   const formdata = new FormData()
+   formdata.append("myFile",this.pdf)
   this.notaInyectada.crearNota(this.nota).subscribe(
     res => {
       console.log(res)
+      this.notaInyectada.guardarPDF(formdata).subscribe(
+        res => {
+          console.log(res)
+        },
+        err => console.error(err)
+      )
     },
     err => console.error(err)
   )

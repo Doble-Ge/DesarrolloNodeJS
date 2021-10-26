@@ -14,7 +14,7 @@
         <br>
         <div class="form-group">
             <label for="observaciones">Adjuntar pdf o word</label>
-            <input type="file" id="archivo" (change)="validacion()" name="observaciones" class="form-control w-25"> 
+            <input type="file" id="archivo" (change)="validacion($event)" name="observaciones" class="form-control w-25"> 
         </div>
         <button class="btn btn-danger" (click) = "agregarNota()">Enviar</button>
 

@@ -18,4 +18,8 @@ export class NotasExternasService {
   listarNotas(): Observable<Notas[]>{
     return this.http.get<Notas[]>(this.API_URL + '/notasExp')
   }
+
+  guardarPDF(pdf: any): Observable<any>{
+    return this.http.post<any>(`${this.API_URL}/notasExpPDF`,pdf)
+  }
 }
