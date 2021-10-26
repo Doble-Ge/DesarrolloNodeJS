@@ -17,12 +17,13 @@ import notaRoutes from './routes/nota';
 import valoracionRoutes from './routes/valoracion';
 import uploadRoutes from './routes/upload';
 import solicitudesUsuariosRoutes from './routes/solicitudesUsuarios';
-import subsistenciaRoutes from './routes/subsistencia';
 import contactoRoutes from './routes/contacto';
-import notasExpRoutes from './routes/notasExp'
 import correoRoutes from './routes/correo'
 import { envioCorreo } from './controllers/correo.controller';
+import notasExpRoutes from './routes/notasExp'
 import notasExpPDFRoutes from './routes/notasExpPDF';
+import subsistenciaPDFRoutes from './routes/subsistenciaPDF';
+import subsistenciaRoutes from './routes/subsistencia';
 
 //INICIACION
 const app = express();
@@ -53,10 +54,12 @@ app.use('/api/nota',notaRoutes);
 app.use('/api/valoracion',valoracionRoutes);
 app.use('/api/upload',uploadRoutes);
 app.use('/api/solicitudesUsuarios', solicitudesUsuariosRoutes);
-app.use('/api/subsistencias', subsistenciaRoutes);
+app.use('/api/subsistenciaPDF', subsistenciaPDFRoutes);
 app.use('/api/contacto', contactoRoutes);
 app.use('/api/notasExp', notasExpRoutes)
 app.use('/api/envio', correoRoutes);
 app.use('/api/notasExpPDF',notasExpPDFRoutes);
+app.use('/api/subsistencia',subsistenciaRoutes);
+
 
 export default app;
