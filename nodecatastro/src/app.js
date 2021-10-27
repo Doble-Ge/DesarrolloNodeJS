@@ -34,6 +34,10 @@ import citacion_colindanteRoutes from './routes/citacion_colindante';
 import citacion_colindantePDFRoutes from './routes/citacion_colindantePDF';
 import copia_escrituraRoutes from './routes/copia_escritura';
 import copia_escrituraPDFRoutes from './routes/copia_escrituraPDF';
+import estado_cuentaRoutes from './routes/estado_cuenta';
+import memoria_descriptivaRoutes from './routes/memoria_descriptiva';
+import notificacionRoutes from './routes/notificacion';
+import notificacionPDFRoutes from './routes/notificacionPDF';
 
 
 //INICIACION
@@ -81,6 +85,10 @@ app.use('/api/citacion_colindante',citacion_colindanteRoutes);
 app.use('/api/citacion_colindantePDF',citacion_colindantePDFRoutes);
 app.use('/api/copia_escritura',copia_escrituraRoutes);
 app.use('/api/copia_escrituraPDF',copia_escrituraPDFRoutes);
+app.use('/api/estado_cuenta',estado_cuentaRoutes);
+app.use('/api/memoria_descriptiva',memoria_descriptivaRoutes);
+app.use('/api/notificacion',notificacionRoutes);
+app.use('/api/notificacionPDF',notificacionPDFRoutes);
 
 
 
