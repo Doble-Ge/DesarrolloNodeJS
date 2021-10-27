@@ -38,7 +38,14 @@ import estado_cuentaRoutes from './routes/estado_cuenta';
 import memoria_descriptivaRoutes from './routes/memoria_descriptiva';
 import notificacionRoutes from './routes/notificacion';
 import notificacionPDFRoutes from './routes/notificacionPDF';
-
+import plano_digitalRoutes from './routes/plano_digital';
+import plano_digitalPDFRoutes from './routes/plano_digitalPDF';
+import plano_proyecto_obraRoutes from './routes/plano_proyecto_obra';
+import plano_proyecto_obraPDFRoutes from './routes/plano_proyecto_obraPDF';
+import visacion_agrimensoresRoutes from './routes/visacion_agrimensores';
+import visacion_agrimensoresPDFRoutes from './routes/visacion_agrimensoresPDF';
+import visacion_municipalRoutes from './routes/visacion_municipal';
+import visacion_municipalPDFRoutes from './routes/visacion_municipalPDF';
 
 //INICIACION
 const app = express();
@@ -89,8 +96,14 @@ app.use('/api/estado_cuenta',estado_cuentaRoutes);
 app.use('/api/memoria_descriptiva',memoria_descriptivaRoutes);
 app.use('/api/notificacion',notificacionRoutes);
 app.use('/api/notificacionPDF',notificacionPDFRoutes);
-
-
+app.use('/api/plano_digital',plano_digitalRoutes);
+app.use('/api/plano_digitalPDF',plano_digitalPDFRoutes);
+app.use('/api/plano_proyecto_obra',plano_proyecto_obraRoutes);
+app.use('/api/plano_proyecto_obraPDF',plano_proyecto_obraPDFRoutes);
+app.use('/api/visacion_agrimensores',visacion_agrimensoresRoutes);
+app.use('/api/visacion_agrimensoresPDF',visacion_agrimensoresPDFRoutes);
+app.use('/api/visacion_municipal',visacion_municipalRoutes);
+app.use('/api/visacion_municipalPDF',visacion_municipalPDFRoutes);
 
 
 export default app;
