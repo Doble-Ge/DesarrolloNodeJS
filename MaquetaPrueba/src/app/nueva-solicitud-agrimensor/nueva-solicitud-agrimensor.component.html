@@ -62,7 +62,8 @@
                     <br>
                     <div class="form-group">
                         <label for="adjunto">Adjuntar archivo</label>
-                        <input type="file" id="archivo" (change)="validacion()" name="adjunto" class="form-control w-25"> 
+                        <input type="file" id="archivo" (change)="validacion($event)" name="adjunto" class="form-control w-25">
+                        <button class="btn btn-danger" (click) = "agregarCertificado()">Enviar</button> 
                     </div>
                     
                 </form>
@@ -83,7 +84,8 @@
                     <br>
                     <div class="form-group">
                         <label for="adjunto">Adjuntar archivo</label>
-                        <input type="file" id="archivo" (change)="validacion()" name="adjunto" class="form-control w-25"> 
+                        <input type="file" id="archivo" (change)="validacion($event)" name="adjunto" class="form-control w-25">
+                        <button class="btn btn-danger" (click) = "agregarCopiaEscritura()">Enviar</button> 
                     </div>
                     
                 </form>
@@ -110,7 +112,8 @@
                 <form action="">
                     <div class="form-group">
                         <label for="Ligado">Ligados:</label>
-                        <input type="file" name="Ligados" class="form-control w-25">
+                        <input type="file" id="archivo" (change)="validacion($event)"  name="Ligados" class="form-control w-25">
+                        <button class="btn btn-danger" (click) = "agregarCitacionColindante()">Enviar</button>
                     </div>  
                 </form>
             </div>
@@ -118,7 +121,8 @@
             <div class= "container border-danger border-3" *ngIf = "nroBtn==8">
                 <form action="">
                     <div class="form-group">
-                        <input type="file" name="actaConformidad" class="form-control w-25">
+                        <input type="file" id="archivo" (change)="validacion($event)"  name="actaConformidad" class="form-control w-25">
+                        <button class="btn btn-danger" (click) = "agregarActaConformidad()">Enviar</button>
                     </div>  
                 </form>
             </div>
@@ -160,7 +164,8 @@
                 <form action="">
                     <div class="form-group">
                         <label for="datoAdjuntar">Adjunto</label>
-                        <input type="file" id="archivo" (change)="validacion()" name="datoAdjuntar" class="form-control w-25">
+                        <input type="file" id="archivo" (change)="validacion($event)" name="datoAdjuntar" class="form-control w-25">
+                        <button class="btn btn-danger" (click) = "agregarAprobacionAgrimensura()">Enviar</button>
                     </div>  
                 </form>
             </div>
