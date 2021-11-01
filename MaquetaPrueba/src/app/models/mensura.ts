@@ -45,7 +45,7 @@ export class CitacionColindantes {
 
     constructor(){
         this.id = this.id
-        this.pdf_citacion = this.pdf_citacion
+        this.pdf_citacion = 'ACA VA EL PATH'
         this.mensura_id = this.mensura_id
     }
 }
@@ -57,7 +57,7 @@ export class CopiaEscritura {
 
     constructor(){
         this.id = this.id
-        this.pdf_escritura = this.pdf_escritura
+        this.pdf_escritura = 'ACA VA EL PATH'
         this.mensura_id = this.mensura_id
     }
 }
@@ -95,7 +95,7 @@ export class Notificaciones {
 
     constructor(){
         this.id = this.id
-        this.pdf_notificacion = this.pdf_notificacion
+        this.pdf_notificacion = 'ACA VA EL PATH'
         this.mensura_id = this.mensura_id
     }
 }
@@ -108,7 +108,7 @@ export class PlanoDigital {
 
     constructor(){
         this.id= this.id
-        this.pdf_plano_digital = this.pdf_plano_digital
+        this.pdf_plano_digital = 'ACA VA EL PATH'
         this.mensura_id = this.mensura_id
     }
 
@@ -121,7 +121,7 @@ export class PlanoProyectoObras {
 
     constructor(){
         this.id = this.id
-        this.pdf_citacion = this.pdf_citacion
+        this.pdf_citacion = 'ACA VA EL PATH'
         this.mensura_id = this.mensura_id
     }
 }
@@ -135,7 +135,7 @@ export class Subsistencia {
     constructor(){
         this.id = this.id
         this.titulo_subsistencia = this.titulo_subsistencia
-        this.pdf_subsistencia = this.pdf_subsistencia
+        this.pdf_subsistencia = 'ACA VA EL PATH'
         this.mensura_id = this.mensura_id
     }
 }
@@ -148,7 +148,7 @@ export class VisacionAgrimensores {
 
     constructor(){
         this.id = this.id
-        this.pdf_visado_agrimensores = this.pdf_visado_agrimensores
+        this.pdf_visado_agrimensores = 'ACA VA EL PATH'
         this.mensura_id = this.mensura_id
     }
 }
@@ -161,7 +161,7 @@ export class VisacionMunicipal {
 
     constructor(){
         this.id = this.id
-        this.pdf_visacion_municipal = this.pdf_visacion_municipal
+        this.pdf_visacion_municipal = 'ACA VA EL PATH'
         this.mensura_id = this.mensura_id
     }
 }

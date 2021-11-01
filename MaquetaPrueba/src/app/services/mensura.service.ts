@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { ThisReceiver } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ActaConformidad, AprobacionAgrimensura, Certificados, CitacionColindantes, CopiaEscritura } from '../models/mensura';
+import { ActaConformidad, AprobacionAgrimensura, Certificados, CitacionColindantes, CopiaEscritura, EstadoCuenta, MemoriaDescriptivas, Notificaciones, PlanoDigital, PlanoProyectoObras, Subsistencia, VisacionAgrimensores, VisacionMunicipal } from '../models/mensura';
 
 @Injectable({
   providedIn: 'root'
@@ -51,6 +51,64 @@ export class MensuraService {
   guardarCopiaEscrituraPDF (pdf: any): Observable<any>{
     return this.http.post<any>(`${this.API_URL}/copia_escrituraPDF`,pdf)
   }
+
+  guardarEstadoCuenta(estadoC: EstadoCuenta): Observable<EstadoCuenta>{
+    return this.http.post<EstadoCuenta>(this.API_URL + '/estado_cuenta',estadoC)
+  }
+
+ 
+  guardarMemoriasDescriptivas (memoriaD: MemoriaDescriptivas): Observable<MemoriaDescriptivas>{
+    return this.http.post<MemoriaDescriptivas>(this.API_URL + '/memoria_descriptiva',memoriaD)
+  }
+
+  guardarNotificaciones (notificacion: Notificaciones): Observable<Notificaciones>{
+    return this.http.post<Notificaciones>(this.API_URL + '/notificacion',notificacion)
+  }
+  
+  guardarNotificacionesPDF(pdf: any): Observable<any>{
+    return this.http.post<any>(`${this.API_URL}/notificacionPDF`,pdf)
+  }
+
+  guardarPlanoDigital (plano: PlanoDigital): Observable<PlanoDigital>{
+    return this.http.post<PlanoDigital>(this.API_URL + '/plano_digital',plano)
+  }
+
+  guardarPlanoDigitalPDF (pdf: any): Observable<any>{
+    return this.http.post<any>(`${this.API_URL}/plano_digitalPDF`,pdf)
+  }
+
+  guardarPlanoProyectoObras (planoProyecto: PlanoProyectoObras): Observable<PlanoProyectoObras>{
+    return this.http.post<PlanoProyectoObras>(this.API_URL + '/plano_proyecto_obra',planoProyecto)
+  }
+
+  guardarPlanoProyectoObrasPDF (pdf: any): Observable<any>{
+    return this.http.post<any>(`${this.API_URL}/plano_proyecto_obraPDF`,pdf)
+  }
+
+  guardarSubsistencia(subsistencia: Subsistencia): Observable<Subsistencia>{
+    return this.http.post<Subsistencia>(this.API_URL + '/subsistencia',subsistencia)
+  }
+
+  guardarSubsistenciaPDF(pdf: any): Observable<any>{
+    return this.http.post<any>(`${this.API_URL}/subsistenciaPDF`,pdf)
+  }
+
+  guardarVisacionAgrimensores(visacionA: VisacionAgrimensores): Observable<VisacionAgrimensores>{
+    return this.http.post<VisacionAgrimensores>(this.API_URL + '/visacion_agrimensores',visacionA)
+  }
+
+  guardarVisacionAgrimensoresPDF(pdf: any): Observable<any>{
+    return this.http.post<any>(`${this.API_URL}/visacion_agrimensoresPDF`,pdf)
+  }
+
+  guardarVisacionMunicipal(visacionM: VisacionMunicipal): Observable<VisacionMunicipal>{
+    return this.http.post<VisacionMunicipal>(this.API_URL + '/visacion_municipal',visacionM)
+  }
+
+  guardarVisacionMunicipalPDF(pdf: any): Observable<any>{
+    return this.http.post<any>(`${this.API_URL}/visacion_municipalPDF`,pdf)
+  }
+
 
 
 }

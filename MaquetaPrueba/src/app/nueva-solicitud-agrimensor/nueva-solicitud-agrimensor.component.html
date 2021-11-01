@@ -3,7 +3,7 @@
         <h1>Solicitud de Mensura</h1>
         <button class="btn btn-outline-danger botonCabecera">Volver</button>
         <button class="btn btn-outline-danger botonCabecera">Guardar Borrador</button>
-        <button id="btnPresentar" class="btn btn-danger">Presentar y Pegar</button>
+        <button id="btnPresentar" class="btn btn-danger" (click)="generarCaratula()">Presentar y Pegar</button>
     </div>
     
     
@@ -47,7 +47,8 @@
                     <br>
                     <div class="form-group">
                         <label for="observaciones">Adjuntar archivo</label>
-                        <input type="file" id="archivo" (change)="validacion()" name="observaciones" class="form-control w-25"> 
+                        <input type="file" id="archivo" (change)="validacion($event)" name="observaciones" class="form-control w-25">
+                        <button class="btn btn-danger" (click) = "agregarSubsistencia()">Enviar</button> 
                     </div>
                     
                 </form>
@@ -73,6 +74,7 @@
                     <div class="form-group">
                         <label for="Estado de cuenta">Estado de cuenta (Debe/No debe):</label>
                         <input type="text"  name="estadoCuenta" class="form-control w-25">
+                        <button class="btn btn-danger" (click) = "agregarEstadoCuenta()">Enviar</button>
                     </div>  
                 </form>
             </div>
@@ -104,7 +106,8 @@
                 <form action="">
                     <div class="form-group">
                         <label for="Estado de cuenta">Adjuntar</label>
-                        <input type="file" id="archivo" (change)="validacion()" name="adjuntar" class="form-control w-25">
+                        <input type="file" id="archivo" (change)="validacion($event)" name="adjuntar" class="form-control w-25">
+                        <button class="btn btn-danger" (click) = "agregarNotificaciones()">Enviar</button>
                     </div>  
                 </form>
             </div>
@@ -137,6 +140,7 @@
                         </select>
                         <label>Cuanto</label>
                         <input type="text" name="estadoCuenta" class="form-control w-25">
+                        <button class="btn btn-danger" (click) = "agregarMemoriasDescriptivas()">Enviar</button>
                     </div>
                 </form>
             </div>
@@ -145,7 +149,8 @@
                 <form action="">
                     <div class="form-group">
                     <label for="datoAdjuntar">Adjunto</label>
-                    <input type="file" id="archivo" (change)="validacion()" name="datoAdjuntar" class="form-control w-25">
+                    <input type="file" id="archivo" (change)="validacion($event)" name="datoAdjuntar" class="form-control w-25">
+                    <button class="btn btn-danger" (click) = "agregarVisacionMunicipal()">Enviar</button>
                       </div>  
                     </form>
 
@@ -154,7 +159,8 @@
                 <form action="">
                     <div class="form-group">
                         <label for="datoAdjuntar">Adjunto</label>
-                        <input type="file" id="archivo" (change)="validacion()" name="datoAdjuntar" class="form-control w-25">
+                        <input type="file" id="archivo" (change)="validacion($event)" name="datoAdjuntar" class="form-control w-25">
+                        <button class="btn btn-danger" (click) = "agregarPlanoProyectoObras()">Enviar</button>
                     </div>  
                 </form>
 
@@ -174,7 +180,8 @@
                 <form action="">
                     <div class="form-group">
                         <label for="datoAdjuntar">Adjunto</label>
-                        <input type="file" id="archivo" (change)="validacion()" name="datoAdjuntar" class="form-control w-25">
+                        <input type="file" id="archivo" (change)="validacion($event)" name="datoAdjuntar" class="form-control w-25">
+                        <button class="btn btn-danger" (click) = "agregarPlanoDigital()">Enviar</button>
                     </div>  
                 </form>
             </div>
