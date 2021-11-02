@@ -164,4 +164,21 @@ export class VisacionMunicipal {
         this.pdf_visacion_municipal = 'ACA VA EL PATH'
         this.mensura_id = this.mensura_id
     }
+
+}
+
+export class id_Mensuras{
+    id_subsistencia: number
+    id_acta_conformidad: number
+    id_aprobacion_agrimensura: number
+    id_certificado: number
+    id_citacion_colindante: number
+    id_copia_escritura: number
+    id_estado_cuenta: number
+    id_memoria_descriptiva: number
+    id_notificacion: number
+    id_planoDigital: number
+    id_plano_proyecto_obra: number
+    id_visacion_agrimensores: number
+    id_visacion_municipal: number
 }
