@@ -38,3 +38,34 @@ export async function crearNotificacion(req, res) {
     }
 
 }
+
+export async function updateNotificacion(req,res){
+    try{
+        const {id} = req.params;
+    const {pdf_notificacion, mensura_id} = req.body;
+    
+    const notificacion = await Notificacion.findAll({
+        attributes: ['id', 'pdf_notificacion', 'mensura_id'],
+        where: {
+            id: id
+        }
+    });
+
+    if(notificacion.length > 0){
+        notificacion.forEach(async notificacion => {
+            await notificacion.update({
+                pdf_notificacion,
+                mensura_id
+            })
+            
+        });
+    }
+
+    return res.json({
+        message: "Actualizado con éxito",
+        data: notificacion
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

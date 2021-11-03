@@ -36,9 +36,35 @@ export async function crearActa_conformidad(req, res) {
             data: {}
         });
     }
+}
 
+export async function updateActa_conformidad(req,res){
+    try{
+        const {id} = req.params;
+    const {pdf_acta, mensura_id} = req.body;
     
+    const acta_conf = await Acta_conformidad.findAll({
+        attributes: ['id', 'pdf_acta', 'mensura_id'],
+        where: {
+            id: id
+        }
+    });
 
+    if(acta_conf.length > 0){
+        acta_conf.forEach(async acta_conf => {
+            await acta_conf.update({
+                pdf_acta,
+                mensura_id
+            })
+            
+        });
+    }
 
-
+    return res.json({
+        message: "Actualizado con éxito",
+        data: acta_conf
+    });
+    }catch (e){
+        console.log(e);
+    }
 }

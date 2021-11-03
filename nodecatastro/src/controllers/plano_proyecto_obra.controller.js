@@ -15,13 +15,13 @@ export async function getPlano_proyecto_obra(req,res) {
 } 
 
 export async function crearPlano_proyecto_obra(req, res) {
-    const {pdf_citacion} = req.body;
+    const {pdf_proyecto_obra} = req.body;
     try {
 
         let nuevoPlano_proyecto_obra = await Plano_proyecto_obra.create({
-            pdf_citacion
+            pdf_proyecto_obra
         }, {
-            fields:['pdf_citacion']
+            fields:['pdf_proyecto_obra']
         });
         if (nuevoPlano_proyecto_obra) {
             return res.json({
@@ -37,4 +37,35 @@ export async function crearPlano_proyecto_obra(req, res) {
         });
     }
 
+}
+
+export async function updatePlano_Proyecto_Obra(req,res){
+    try{
+        const {id} = req.params;
+    const {pdf_proyecto_obra, mensura_id} = req.body;
+    
+    const plano_proyecto_obra = await Plano_proyecto_obra.findAll({
+        attributes: ['id', 'pdf_proyecto_obra', 'mensura_id'],
+        where: {
+            id: id
+        }
+    });
+
+    if(plano_proyecto_obra.length > 0){
+        plano_proyecto_obra.forEach(async plano_proyecto_obra => {
+            await plano_proyecto_obra.update({
+                pdf_proyecto_obra,
+                mensura_id
+            })
+            
+        });
+    }
+
+    return res.json({
+        message: "Actualizado con éxito",
+        data: plano_proyecto_obra
+    });
+    }catch (e){
+        console.log(e);
+    }
 }

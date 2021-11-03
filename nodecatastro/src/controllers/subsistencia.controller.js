@@ -38,3 +38,52 @@ export async function crearSubsistencia(req, res) {
     }
 
 }
+
+/*export async function deleteSubsistencia(req,res){
+    try {
+        const {id} = req.params;
+    const deleteRowCount = await Subsistencia.destroy({
+        where: {
+            id: id
+        }
+    });
+    res.json({
+        message: "Eliminado correctamente",
+        count: deleteRowCount
+    });
+    }catch (e){
+        console.log(e);
+    }
+}*/
+
+export async function updateSubsistencia(req,res){
+    try{
+        const {id} = req.params;
+    const {titulo_subsistencia, pdf_subsistencia, mensura_id} = req.body;
+    
+    const subsistencia = await Subsistencia.findAll({
+        attributes: ['id', 'titulo_subsistencia', 'pdf_subsistencia', 'mensura_id'],
+        where: {
+            id: id
+        }
+    });
+
+    if(subsistencia.length > 0){
+        subsistencia.forEach(async subsistencia => {
+            await subsistencia.update({
+                titulo_subsistencia,
+                pdf_subsistencia,
+                mensura_id
+            })
+            
+        });
+    }
+
+    return res.json({
+        message: "Actualizado con éxito",
+        data: subsistencia
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

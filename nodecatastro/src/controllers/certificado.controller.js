@@ -39,3 +39,35 @@ export async function crearCertificado(req, res) {
     }
 
 }
+
+export async function updateCertificado(req,res){
+    try{
+        const {id} = req.params;
+    const {informe_catastral, pdf_certificado, mensura_id} = req.body;
+    
+    const certificado = await Certificado.findAll({
+        attributes: ['id', 'informe_catastral', 'pdf_certificado', 'mensura_id'],
+        where: {
+            id: id
+        }
+    });
+
+    if(certificado.length > 0){
+        certificado.forEach(async certificado => {
+            await certificado.update({
+                informe_catastral,
+                pdf_certificado,
+                mensura_id
+            })
+            
+        });
+    }
+
+    return res.json({
+        message: "Actualizado con éxito",
+        data: certificado
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

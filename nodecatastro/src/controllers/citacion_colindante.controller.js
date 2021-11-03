@@ -38,3 +38,34 @@ export async function crearCitacion_colindante(req, res) {
     }
 
 }
+
+export async function updateCitacion_Colindante(req,res){
+    try{
+        const {id} = req.params;
+    const {pdf_citacion, mensura_id} = req.body;
+    
+    const citacion_colindante = await Citacion_colindante.findAll({
+        attributes: ['id', 'pdf_citacion', 'mensura_id'],
+        where: {
+            id: id
+        }
+    });
+
+    if(citacion_colindante.length > 0){
+        citacion_colindante.forEach(async citacion_colindante => {
+            await citacion_colindante.update({
+                pdf_citacion,
+                mensura_id
+            })
+            
+        });
+    }
+
+    return res.json({
+        message: "Actualizado con éxito",
+        data: citacion_colindante
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

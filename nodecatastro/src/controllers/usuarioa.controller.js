@@ -94,7 +94,7 @@ export async function deleteUsuario(req,res){
     }
 }
 
-export async function updateUsuario(req,res){
+/*export async function updateUsuario(req,res){
     try{
         const {id} = req.params;
     const {nombre, apellido, email, pass, cuil, perfila_id} = req.body;
@@ -127,12 +127,12 @@ export async function updateUsuario(req,res){
     }catch (e){
         console.log(e);
     }
-}
+}*/
 
 export async function updateUsuarioCUIL(req,res){
     try{
         const {cuil} = req.params;
-    const {id, nombre, apellido, email, pass, perfila_id, primerLogin} = req.body;
+    const {nombre, apellido, email, pass, perfila_id, primerLogin} = req.body;
     
     const usuario = await UsuarioA.findAll({
         attributes: ['id', 'nombre', 'apellido', 'email', 'pass', 'cuil', 'perfila_id', 'primerLogin'],

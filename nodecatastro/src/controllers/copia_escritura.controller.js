@@ -38,3 +38,34 @@ export async function crearCopia_escritura(req, res) {
     }
 
 }
+
+export async function updateCopia_Escritura(req,res){
+    try{
+        const {id} = req.params;
+    const {pdf_escritura, mensura_id} = req.body;
+    
+    const copia_escritura = await Copia_escritura.findAll({
+        attributes: ['id', 'pdf_escritura', 'mensura_id'],
+        where: {
+            id: id
+        }
+    });
+
+    if(copia_escritura.length > 0){
+        copia_escritura.forEach(async copia_escritura => {
+            await copia_escritura.update({
+                pdf_escritura,
+                mensura_id
+            })
+            
+        });
+    }
+
+    return res.json({
+        message: "Actualizado con éxito",
+        data: copia_escritura
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

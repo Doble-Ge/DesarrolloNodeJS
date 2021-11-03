@@ -38,3 +38,34 @@ export async function crearPlano_digital(req, res) {
     }
 
 }
+
+export async function updatePlano_Digital(req,res){
+    try{
+        const {id} = req.params;
+    const {pdf_plano_digital, mensura_id} = req.body;
+    
+    const plano_digital = await Plano_digital.findAll({
+        attributes: ['id', 'pdf_plano_digital', 'mensura_id'],
+        where: {
+            id: id
+        }
+    });
+
+    if(plano_digital.length > 0){
+        plano_digital.forEach(async plano_digital => {
+            await plano_digital.update({
+                pdf_plano_digital,
+                mensura_id
+            })
+            
+        });
+    }
+
+    return res.json({
+        message: "Actualizado con éxito",
+        data: plano_digital
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

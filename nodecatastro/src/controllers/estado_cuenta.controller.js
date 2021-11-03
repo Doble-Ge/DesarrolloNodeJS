@@ -39,3 +39,34 @@ export async function crearEstado_cuenta(req, res) {
     }
 
 }
+
+export async function updateEstado_Cuenta(req,res){
+    try{
+        const {id} = req.params;
+    const {db_nodb, mensura_id} = req.body;
+    
+    const estado_cuenta = await Estado_cuenta.findAll({
+        attributes: ['id', 'db_nodb', 'mensura_id'],
+        where: {
+            id: id
+        }
+    });
+
+    if(estado_cuenta.length > 0){
+        estado_cuenta.forEach(async estado_cuenta => {
+            await estado_cuenta.update({
+                db_nodb,
+                mensura_id
+            })
+            
+        });
+    }
+
+    return res.json({
+        message: "Actualizado con éxito",
+        data: estado_cuenta
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

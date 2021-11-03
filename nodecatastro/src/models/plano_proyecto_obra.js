@@ -6,7 +6,7 @@ const Plano_proyecto_obra = sequelize.define('plano_proyecto_obra', {
         type: Sequelize.INTEGER,
         primaryKey: true
     },
-    pdf_citacion: {
+    pdf_proyecto_obra: {
         type: Sequelize.TEXT
     },
     mensura_id: {

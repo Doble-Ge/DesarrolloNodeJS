@@ -38,3 +38,34 @@ export async function crearVisacion_agrimensores(req, res) {
     }
 
 }
+
+export async function updateVisacion_Agrimensores(req,res){
+    try{
+        const {id} = req.params;
+    const {pdf_visado_agrimensores, mensura_id} = req.body;
+    
+    const visacion_agrimensores = await Visacion_agrimensores.findAll({
+        attributes: ['id', 'pdf_visado_agrimensores', 'mensura_id'],
+        where: {
+            id: id
+        }
+    });
+
+    if(visacion_agrimensores.length > 0){
+        visacion_agrimensores.forEach(async visacion_agrimensores => {
+            await visacion_agrimensores.update({
+                pdf_visado_agrimensores,
+                mensura_id
+            })
+            
+        });
+    }
+
+    return res.json({
+        message: "Actualizado con éxito",
+        data: visacion_agrimensores
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

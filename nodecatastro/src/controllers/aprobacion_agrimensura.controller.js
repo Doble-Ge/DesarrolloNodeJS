@@ -38,3 +38,34 @@ export async function crearAprobacion_agrimensura(req, res) {
     }
 
 }
+
+export async function updateAprobacion_Agrimensura(req,res){
+    try{
+        const {id} = req.params;
+    const {pdf_aprobacion_agrimensura, mensura_id} = req.body;
+    
+    const aprobacion_agrimensura = await Aprobacion_agrimensura.findAll({
+        attributes: ['id', 'pdf_aprobacion_agrimensura', 'mensura_id'],
+        where: {
+            id: id
+        }
+    });
+
+    if(aprobacion_agrimensura.length > 0){
+        aprobacion_agrimensura.forEach(async aprobacion_agrimensura => {
+            await aprobacion_agrimensura.update({
+                pdf_aprobacion_agrimensura,
+                mensura_id
+            })
+            
+        });
+    }
+
+    return res.json({
+        message: "Actualizado con éxito",
+        data: aprobacion_agrimensura
+    });
+    }catch (e){
+        console.log(e);
+    }
+}
