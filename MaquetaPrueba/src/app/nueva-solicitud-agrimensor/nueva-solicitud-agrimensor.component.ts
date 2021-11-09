@@ -324,8 +324,9 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
     this.caratulaInyectada.guardarCaratulaMensura(this.caratula).subscribe(
       res => {
         console.log(res)
-        console.log(this.susbsitencia.mensura_id)
         this.id_mensura = Object.values(res)[1].id
+        console.log(this.id_mensura)
+        console.log(this.id.id_subsistencia)
         this.updateSubsistencia(this.id.id_subsistencia)
         this.updateActaConformidad(this.id.id_acta_conformidad)
         this.updateAprobacionAgrimensura(this.id.id_aprobacion_agrimensura)

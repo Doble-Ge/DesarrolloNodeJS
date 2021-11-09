@@ -134,7 +134,7 @@ export class MensuraService {
   }
 
   updateSubsistencia(id:any, nuevaSubsistencia){
-    return this.http.put(this.API_URL + '/subsistencia' + id, nuevaSubsistencia)
+    return this.http.put(this.API_URL + '/subsistencia/' + id, nuevaSubsistencia)
   }
 
   guardarVisacionAgrimensores(visacionA: VisacionAgrimensores): Observable<VisacionAgrimensores>{
