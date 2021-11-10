@@ -1,11 +1,12 @@
 import { Router } from 'express';
 const router = Router();
 
-import { crearUsuario, deleteUsuario, getOneUsuario, getOneUsuarioCuil, getUsuario, updateUsuario, updateUsuarioCUIL } from '../controllers/usuarioa.controller';
+import { crearUsuario, deleteUsuario, getOneUsuario, getOneUsuarioCuil, getUsuario, register, updateUsuario, updateUsuarioCUIL } from '../controllers/usuarioa.controller';
 
 // /api/usuarioa
-router.post('/', crearUsuario);
+router.post('/crear', crearUsuario);
 router.get('/', getUsuario);
+router.post('/registro',register);
 
 // /api/usuario/usuarioaID
 //router.get('/:id', getOneUsuario);
