@@ -8,7 +8,7 @@ export class Historial {
     constructor(){
         this.id = this.id
         this.estado = 'Pendiente'
-        this.fechahora = Date.now.toString()
+        this.fechahora = this.fechahora
         this.usuario_id = this.usuario_id
     }
 }

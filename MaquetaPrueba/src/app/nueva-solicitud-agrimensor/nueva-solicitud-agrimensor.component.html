@@ -1,9 +1,13 @@
 <div class="container">
-    <div class="cabecera">
+    <div>
         <h1>Solicitud de Mensura</h1>
         <button class="btn btn-outline-danger botonCabecera">Volver</button>
         <button class="btn btn-outline-danger botonCabecera">Guardar Borrador</button>
         <button id="btnPresentar" class="btn btn-danger" (click)="generarCaratula()">Presentar y Pegar</button>
+        <br>
+        <br>
+        <input type="text" name="cuil" class="form-control w-25" placeholder="Ingrese su nombre" [(ngModel)] = historial.usuario_id>
+        <br>
     </div>
     
     

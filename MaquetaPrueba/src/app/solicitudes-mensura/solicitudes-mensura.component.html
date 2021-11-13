@@ -13,8 +13,34 @@
         <label>Busqueda:</label>
         <input type="text" name='busqueda' class="form-control">
         <button class="btn btn-dark">Ir</button>
-
     </div>
     
-    <router-outlet></router-outlet>
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table">
+          <tr>
+            <th scope="col">ID Tramite</th>
+            <th scope="col">ID Mensura</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Usuario</th>
+            <th scope="col">Fecha y Hora</th>
+            <th scope="col">Prioridad</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = 'let historiales of arr'>
+           
+                <th scope="row" > {{ historiales.id }} </th>
+                <td> {{ historiales.mensura_id }} </td>
+                <td> {{ historiales.estado}} </td>
+                <td> {{ historiales.usuario_id }} </td>
+                <td> {{ historiales.fechahora }} </td>
+                <td> {{ prioridad }} </td>
+          
+      
+          </tr>
+        </tbody>
+      </table>
+
+
+<!--   <router-outlet></router-outlet>--> 
 </div>

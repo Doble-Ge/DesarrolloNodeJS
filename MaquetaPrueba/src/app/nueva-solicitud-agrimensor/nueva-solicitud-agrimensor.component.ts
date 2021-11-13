@@ -33,6 +33,8 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
   id: id_Mensuras = new id_Mensuras()
 
   id_mensura: any 
+
+  FechaHora: Date = new Date()
   pdf
   constructor(private mensuraInyectada: MensuraService, private caratulaInyectada: CaratulasService,
               private historialInyectado: HistorialService) { }
@@ -330,6 +332,7 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         console.log(res)
         this.id_mensura = Object.values(res)[1].id
         console.log(this.id_mensura)
+        this.historial.fechahora = `${this.FechaHora.getDate()}/${this.FechaHora.getMonth()}/${this.FechaHora.getFullYear()}  ${this.FechaHora.getHours()}:${this.FechaHora.getMinutes()}`
         console.log(this.historial.fechahora)
         this.updateSubsistencia(this.id.id_subsistencia)
         this.updateActaConformidad(this.id.id_acta_conformidad)
@@ -348,11 +351,9 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         this.historialInyectado.guardarHistorial(this.historial).subscribe(
           res =>{
             console.log(res)
-            console.log("PUTO EL QUE LEE")
           },
           err => console.error(err)
-        )
-        
+        )       
       },
       err => console.error(err)
     )
