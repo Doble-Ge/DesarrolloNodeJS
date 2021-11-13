@@ -21,7 +21,7 @@ export class MensuraService {
   }
 
   updateActaConformidad(id: any, nuevaActa){
-    return this.http.put(this.API_URL + '/actaconformidad/' + id, nuevaActa)
+    return this.http.put(this.API_URL + '/acta_conformidad/' + id, nuevaActa)
   }
 
   guardarAprobacionAgrimensura (aprobacion: AprobacionAgrimensura): Observable<AprobacionAgrimensura>{

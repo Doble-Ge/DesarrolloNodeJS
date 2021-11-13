@@ -28,6 +28,7 @@ export class LoginModuloComponent implements OnInit {
         this.data[0].pass = this.usuario.pass
         this.usuarioInyectado.comprobacionUsuario(this.data[0]).subscribe(
           res => {
+            this.usuarioInyectado.usuarioLogeado = this.data[0]
             if(this.data[0].primerLogin == true){
               alert("Por ser el primer inicio de sesion, debe cambiar la contraseña")
               this.Ruta.navigateByUrl("/cambioContrasena")

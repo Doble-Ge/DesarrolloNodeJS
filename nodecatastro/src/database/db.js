@@ -7,8 +7,8 @@ export const sequelize = new Sequelize(
     //'Catastro', //nombre bd
     'postgres', //usuario
     //'gino1295', //pw
-    'mario', //pw
-   // '123456',//
+    //'mario', //pw
+    '123456',//
     //'Holachau1234',
     {
         host: 'localhost', //donde esta alojada
