@@ -14,7 +14,7 @@ export class UsuarioService {
   constructor(private http: HttpClient) { }
 
   crearUsuario(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(this.API_URL + '/usuarioa', usuario)
+    return this.http.post<Usuario>(this.API_URL + '/usuarioa/crear', usuario)
   }
 
   getUsuario(cuil: string){
@@ -27,6 +27,10 @@ export class UsuarioService {
 
   updateContraseña(cuil: string, nuevoUsuario) {
     return this.http.put(this.API_URL + '/usuarioa/' + cuil, nuevoUsuario)
+  }
+
+  comprobacionUsuario(usuario: any) {
+    return this.http.post(this.API_URL + '/usuarioa/registro', usuario)
   }
   
 }

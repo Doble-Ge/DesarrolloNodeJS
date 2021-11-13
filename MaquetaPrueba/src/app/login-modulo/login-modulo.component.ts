@@ -25,6 +25,21 @@ export class LoginModuloComponent implements OnInit {
       res => {
         this.usuarioDesdeBase = res
         this.data = Object.values(this.usuarioDesdeBase)
+        this.data[0].pass = this.usuario.pass
+        this.usuarioInyectado.comprobacionUsuario(this.data[0]).subscribe(
+          res => {
+            if(this.data[0].primerLogin == true){
+              alert("Por ser el primer inicio de sesion, debe cambiar la contraseña")
+              this.Ruta.navigateByUrl("/cambioContrasena")
+            }else{
+              this.Ruta.navigateByUrl("/paginaInicio")
+            }
+          },
+          err => alert("Contraseña incorrecta")
+        )
+
+        /*this.usuarioDesdeBase = res
+        this.data = Object.values(this.usuarioDesdeBase)
         if(this.usuario.pass == this.data[0].pass) {
           alert("Usuario correcto")
           this.usuarioInyectado.usuarioLogeado = this.data[0]
@@ -37,7 +52,7 @@ export class LoginModuloComponent implements OnInit {
           }
         }else{
           alert("Contraseña incorrecta")
-        }
+        }*/
       },
       err => console.error(err)
     )

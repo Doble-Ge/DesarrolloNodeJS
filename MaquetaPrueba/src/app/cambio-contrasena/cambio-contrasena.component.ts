@@ -26,6 +26,24 @@ export class CambioContrasenaComponent implements OnInit {
         res => {
           this.usuarioDesdeBase = res
           this.data = Object.values(this.usuarioDesdeBase)
+          this.data[0].pass = this.claveAntigua
+          this.usuarioInyectado.comprobacionUsuario(this.data[0]).subscribe(
+            res => {
+              this.data[0].pass = this.claveNueva
+              this.data[0].primerLogin = false
+              this.usuarioInyectado.updateContraseña(this.usuarioLog.cuil, this.data[0]).subscribe(
+                res => {
+                  alert("Contraseña cambiada con exito")
+                },
+                err => console.error(err)
+              )
+            },
+            err => console.error(err)
+          )
+        },
+        err => console.error(err)
+
+        /*
           if(this.claveAntigua == this.data[0].pass) {
             this.data[0].pass = this.claveNueva 
             this.data[0].primerLogin = false
@@ -41,7 +59,7 @@ export class CambioContrasenaComponent implements OnInit {
             alert("Contraseña incorrecta")
           }
         },
-        err => console.error(err)
+        err => console.error(err)*/
       )
     }
 }
