@@ -7,6 +7,7 @@ import { crearMemoria_descriptiva, getMemoria_descriptiva } from '../controllers
 router.post('/',crearMemoria_descriptiva);
 router.get('/', getMemoria_descriptiva);
 
+
 // /api/usuario/usuarioaID
 
 

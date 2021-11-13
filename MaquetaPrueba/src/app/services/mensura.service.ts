@@ -21,7 +21,7 @@ export class MensuraService {
   }
 
   updateActaConformidad(id: any, nuevaActa){
-    return this.http.put(this.API_URL + '/actaconformidad' + id, nuevaActa)
+    return this.http.put(this.API_URL + '/actaconformidad/' + id, nuevaActa)
   }
 
   guardarAprobacionAgrimensura (aprobacion: AprobacionAgrimensura): Observable<AprobacionAgrimensura>{
@@ -33,7 +33,7 @@ export class MensuraService {
   }
 
   updateAprobacionAgrimensura (id: any, nuevaAprobacion){
-    return this.http.put(this.API_URL + '/aprobacion_agrimensura' + id, nuevaAprobacion)
+    return this.http.put(this.API_URL + '/aprobacion_agrimensura/' + id, nuevaAprobacion)
   }
 
   guardarCertificados (certificado: Certificados): Observable<Certificados>{
@@ -45,7 +45,7 @@ export class MensuraService {
   }
 
   updateCertificados (id: any, nuevoCertificado){
-    return this.http.put(this.API_URL + '/certificado' + id, nuevoCertificado)
+    return this.http.put(this.API_URL + '/certificado/' + id, nuevoCertificado)
   }
 
   guardarCitacionColindantes (citacion: CitacionColindantes): Observable<CitacionColindantes>{
@@ -57,7 +57,7 @@ export class MensuraService {
   }
 
   updateCitacionColindante (id: any, nuevaCitacion){
-    return this.http.put(this.API_URL + '/citacion_colindante' + id, nuevaCitacion)
+    return this.http.put(this.API_URL + '/citacion_colindante/' + id, nuevaCitacion)
   }
 
   guardarCopiaEscritura(copia: CopiaEscritura): Observable<CopiaEscritura>{
@@ -69,7 +69,7 @@ export class MensuraService {
   }
 
   updateCopiaEscritura (id: any, nuevaCopiaE){
-    return this.http.put(this.API_URL + '/copia_escritura' + id, nuevaCopiaE)
+    return this.http.put(this.API_URL + '/copia_escritura/' + id, nuevaCopiaE)
   }
 
   guardarEstadoCuenta(estadoC: EstadoCuenta): Observable<EstadoCuenta>{
@@ -77,7 +77,7 @@ export class MensuraService {
   }
 
   updateEstadoCuenta (id: any, nuevoEstadoC){
-    return this.http.put(this.API_URL + '/estado_cuenta' + id, nuevoEstadoC)
+    return this.http.put(this.API_URL + '/estado_cuenta/' + id, nuevoEstadoC)
   }
 
  
@@ -86,7 +86,7 @@ export class MensuraService {
   }
 
   updateMemoriasDescriptivas(id: any, nuevaMemoria){
-    return this.http.put(this.API_URL + '/memoria_descriptiva' + id, nuevaMemoria)
+    return this.http.put(this.API_URL + '/memoria_descriptiva/' + id, nuevaMemoria)
   }
 
   guardarNotificaciones (notificacion: Notificaciones): Observable<Notificaciones>{
@@ -98,7 +98,7 @@ export class MensuraService {
   }
 
   updateNotificaciones(id:any, nuevaNotificacion){
-    return this.http.put(this.API_URL + '/notificacion' + id, nuevaNotificacion)
+    return this.http.put(this.API_URL + '/notificacion/' + id, nuevaNotificacion)
   }
 
   guardarPlanoDigital (plano: PlanoDigital): Observable<PlanoDigital>{
@@ -110,7 +110,7 @@ export class MensuraService {
   }
 
   updatePlanoDigital(id: any, nuevoPlanoD){
-    return this.http.put(this.API_URL + '/plano_digital' + id,nuevoPlanoD)
+    return this.http.put(this.API_URL + '/plano_digital/' + id,nuevoPlanoD)
   }
 
   guardarPlanoProyectoObras (planoProyecto: PlanoProyectoObras): Observable<PlanoProyectoObras>{
@@ -122,7 +122,7 @@ export class MensuraService {
   }
 
   updatePlanoProyectoObras(id: any, nuevoPlanoP){
-    return this.http.put(this.API_URL + '/plano_proyecto_obra' + id, nuevoPlanoP)
+    return this.http.put(this.API_URL + '/plano_proyecto_obra/' + id, nuevoPlanoP)
   }
 
   guardarSubsistencia(subsistencia: Subsistencia): Observable<Subsistencia>{
@@ -146,7 +146,7 @@ export class MensuraService {
   }
 
   updateVisacionAgrimensores(id:any, nuevaVisacionA){
-    return this.http.put(this.API_URL + '/visacion_agrimensores' + id, nuevaVisacionA)
+    return this.http.put(this.API_URL + '/visacion_agrimensores/' + id, nuevaVisacionA)
   }
 
   guardarVisacionMunicipal(visacionM: VisacionMunicipal): Observable<VisacionMunicipal>{
@@ -158,7 +158,7 @@ export class MensuraService {
   }
 
   updateVisacionMunicipal(id: any, nuevaVisacionM){
-    return this.http.put(this.API_URL + '/visacion_municipal' + id, nuevaVisacionM)
+    return this.http.put(this.API_URL + '/visacion_municipal/' + id, nuevaVisacionM)
   }
 
 

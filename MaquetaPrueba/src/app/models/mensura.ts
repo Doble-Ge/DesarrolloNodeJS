@@ -116,12 +116,12 @@ export class PlanoDigital {
 
 export class PlanoProyectoObras {
     id: number
-    pdf_citacion: string
+    pdf_proyecto_obra: string
     mensura_id: number
 
     constructor(){
         this.id = this.id
-        this.pdf_citacion = 'ACA VA EL PATH'
+        this.pdf_proyecto_obra = 'ACA VA EL PATH'
         this.mensura_id = this.mensura_id
     }
 }

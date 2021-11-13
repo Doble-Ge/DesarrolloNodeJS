@@ -480,7 +480,7 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
 
   updatePlanoProyectoObra(id: any){
     delete this.planoProyectoObras.id
-    delete this.planoProyectoObras.pdf_citacion
+    delete this.planoProyectoObras.pdf_proyecto_obra
     this.planoProyectoObras.mensura_id = this.id_mensura
 
     this.mensuraInyectada.updatePlanoProyectoObras(id, this.planoProyectoObras).subscribe(
