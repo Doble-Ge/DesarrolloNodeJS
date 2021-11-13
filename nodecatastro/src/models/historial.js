@@ -13,7 +13,7 @@ const Historial = sequelize.define('historial', {
         type: Sequelize.TEXT,
     },
     fechahora: {
-        type: Sequelize.DATE
+        type: Sequelize.TEXT
     },
     tramite_id: {
         type: Sequelize.INTEGER

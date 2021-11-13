@@ -50,6 +50,7 @@ export class RecuperarClaveComponent implements OnInit {
   updateClave(){
     this.usuarioDesdeBase[0].pass = this.clave
     this.usuarioDesdeBase[0].primerLogin = true
+    
     this.usuarioInyectado.updateContraseña(this.cuil, this.usuarioDesdeBase[0]).subscribe(
       res => {
         alert("Nueva contraseña enviada al email")

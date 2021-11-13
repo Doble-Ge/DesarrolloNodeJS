@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Caratula } from '../models/caratula';
+import { Historial } from '../models/historial';
 import { ActaConformidad, AprobacionAgrimensura, Certificados, CitacionColindantes, CopiaEscritura, EstadoCuenta, id_Mensuras, MemoriaDescriptivas, Notificaciones, PlanoDigital, PlanoProyectoObras, Subsistencia, VisacionAgrimensores, VisacionMunicipal } from '../models/mensura';
 import { CaratulasService } from '../services/caratulas.service';
+import { HistorialService } from '../services/historial.service';
 import { MensuraService } from '../services/mensura.service';
 
 @Component({
@@ -10,6 +12,7 @@ import { MensuraService } from '../services/mensura.service';
   styleUrls: ['./nueva-solicitud-agrimensor.component.scss']
 })
 export class NuevaSolicitudAgrimensorComponent implements OnInit {
+  historial: Historial = new Historial()
   tipoFormulario: string;
   textoForm;
   nroBtn: number;
@@ -31,7 +34,8 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
 
   id_mensura: any 
   pdf
-  constructor(private mensuraInyectada: MensuraService, private caratulaInyectada: CaratulasService) { }
+  constructor(private mensuraInyectada: MensuraService, private caratulaInyectada: CaratulasService,
+              private historialInyectado: HistorialService) { }
 
   ngOnInit(): void {
   }
@@ -326,7 +330,7 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         console.log(res)
         this.id_mensura = Object.values(res)[1].id
         console.log(this.id_mensura)
-        console.log(this.id.id_subsistencia)
+        console.log(this.historial.fechahora)
         this.updateSubsistencia(this.id.id_subsistencia)
         this.updateActaConformidad(this.id.id_acta_conformidad)
         this.updateAprobacionAgrimensura(this.id.id_aprobacion_agrimensura)
@@ -334,12 +338,20 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         this.updateCitacionColindante(this.id.id_citacion_colindante)
         this.updateCopiaEscritura(this.id.id_copia_escritura)
         this.updateEstadoCuenta(this.id.id_estado_cuenta)
-        this.updateMemoriaDescriptiva(this.id.id_memoria_descriptiva)
+        //this.updateMemoriaDescriptiva(this.id.id_memoria_descriptiva)
         this.updateNotificacion(this.id.id_notificacion)
         this.updatePlanoDigital(this.id.id_planoDigital)
         this.updatePlanoProyectoObra(this.id.id_plano_proyecto_obra)
         this.updateVisacionAgrimensores(this.id.id_visacion_agrimensores)
         this.updateVisacionMunicipal(this.id.id_visacion_municipal)
+        this.historial.tramite_id = this.id_mensura
+        this.historialInyectado.guardarHistorial(this.historial).subscribe(
+          res =>{
+            console.log(res)
+            console.log("PUTO EL QUE LEE")
+          },
+          err => console.error(err)
+        )
         
       },
       err => console.error(err)
