@@ -182,7 +182,9 @@ export async function updateUsuarioCUIL(req,res){
     try{
         const {cuil} = req.params;
     const {nombre, apellido, email, pass, perfila_id, primerLogin} = req.body;
-    
+
+    const passHash = await encrypt(pass)
+
     const usuario = await UsuarioA.findAll({
         attributes: ['id', 'nombre', 'apellido', 'email', 'pass', 'cuil', 'perfila_id', 'primerLogin'],
         where: {
@@ -196,7 +198,7 @@ export async function updateUsuarioCUIL(req,res){
                 nombre,
                 apellido,
                 email,
-                pass,
+                pass:passHash,
                 cuil,
                 perfila_id,
                 primerLogin
