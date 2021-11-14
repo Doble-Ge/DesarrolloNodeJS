@@ -69,3 +69,18 @@ export async function updateCitacion_Colindante(req,res){
         console.log(e);
     }
 }
+export async function getCitacionMensuraID(req,res){
+    try {
+        const {mensura_id} = req.params;
+    const citacion = await Citacion_colindante.findOne({
+        where: {
+            mensura_id: mensura_id
+        }
+    });
+    res.json({
+        data: citacion
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

@@ -12,6 +12,7 @@ import { MensuraService } from '../services/mensura.service';
   styleUrls: ['./nueva-solicitud-agrimensor.component.scss']
 })
 export class NuevaSolicitudAgrimensorComponent implements OnInit {
+  stringNombreArchivo: string
   historial: Historial = new Historial()
   tipoFormulario: string;
   textoForm;
@@ -45,6 +46,7 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
   validacion(event){
      var archivo = (<HTMLInputElement> document.getElementById("archivo"))
      var path = archivo.value
+     this.stringNombreArchivo = archivo.value
      var extension = /(.pdf)$/i
      if(!extension.exec(path)){
        alert("Solo se aceptan PDF")
@@ -56,7 +58,7 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         this.pdf = file
       }
      }
-     console.log(archivo.value)
+     console.log(archivo.value.substring(12))
 
   }
 
@@ -107,6 +109,8 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
   agregarActaConformidad(){
     const formdata = new FormData()
     formdata.append("myFile",this.pdf)
+    const nombreArchivo = `${this.FechaHora.getDate()}-${this.FechaHora.getMonth()}-${this.FechaHora.getHours()}-${this.FechaHora.getMinutes()}_${this.stringNombreArchivo.substring(12)}`
+    this.acta.pdf_acta += nombreArchivo
     this.mensuraInyectada.guardarActaConformidad(this.acta).subscribe(
       res => {
         console.log(res)

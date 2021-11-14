@@ -6,7 +6,7 @@ export class ActaConformidad {
 
     constructor(){
         this.id = this.id
-        this.pdf_acta = 'ACA VA EL PATH'
+        this.pdf_acta = '/nodecatastro/uploads/acta_conformidad/'
         this.mensura_id = this.mensura_id
         
     }
@@ -19,7 +19,7 @@ export class AprobacionAgrimensura {
 
     constructor(){
         this.id = this.id
-        this.pdf_aprobacion_agrimensura = 'ACA VA EL PATH'
+        this.pdf_aprobacion_agrimensura = '/nodecatastro/uploads/aprobacion_agrimensura/'
         this.mensura_id = this.mensura_id
     }
 }
@@ -33,7 +33,7 @@ export class Certificados {
     constructor(){
         this.id = this.id
         this.informe_catastral = this.informe_catastral
-        this.pdf_certificado = 'ACA VA EL PATH'
+        this.pdf_certificado = '/nodecatastro/uploads/certificado/'
         this.mensura_id = this.mensura_id
     }
 }
@@ -45,7 +45,7 @@ export class CitacionColindantes {
 
     constructor(){
         this.id = this.id
-        this.pdf_citacion = 'ACA VA EL PATH'
+        this.pdf_citacion = '/nodecatastro/uploads/citacion_colindante/'
         this.mensura_id = this.mensura_id
     }
 }
@@ -57,7 +57,7 @@ export class CopiaEscritura {
 
     constructor(){
         this.id = this.id
-        this.pdf_escritura = 'ACA VA EL PATH'
+        this.pdf_escritura = '/nodecatastro/uploads/copia_escritura/'
         this.mensura_id = this.mensura_id
     }
 }
@@ -95,7 +95,7 @@ export class Notificaciones {
 
     constructor(){
         this.id = this.id
-        this.pdf_notificacion = 'ACA VA EL PATH'
+        this.pdf_notificacion = '/nodecatastro/uploads/notificacion/'
         this.mensura_id = this.mensura_id
     }
 }
@@ -108,7 +108,7 @@ export class PlanoDigital {
 
     constructor(){
         this.id= this.id
-        this.pdf_plano_digital = 'ACA VA EL PATH'
+        this.pdf_plano_digital = '/nodecatastro/uploads/plano_digital/'
         this.mensura_id = this.mensura_id
     }
 
@@ -121,7 +121,7 @@ export class PlanoProyectoObras {
 
     constructor(){
         this.id = this.id
-        this.pdf_proyecto_obra = 'ACA VA EL PATH'
+        this.pdf_proyecto_obra = '/nodecatastro/uploads/plano_proyecto_obra/'
         this.mensura_id = this.mensura_id
     }
 }
@@ -135,7 +135,7 @@ export class Subsistencia {
     constructor(){
         this.id = this.id
         this.titulo_subsistencia = this.titulo_subsistencia
-        this.pdf_subsistencia = 'ACA VA EL PATH'
+        this.pdf_subsistencia = '/nodecatastro/uploads/subsistencia/'
         this.mensura_id = this.mensura_id
     }
 }
@@ -148,7 +148,7 @@ export class VisacionAgrimensores {
 
     constructor(){
         this.id = this.id
-        this.pdf_visado_agrimensores = 'ACA VA EL PATH'
+        this.pdf_visado_agrimensores = '/nodecatastro/uploads/visacion_agrimensores/'
         this.mensura_id = this.mensura_id
     }
 }
@@ -161,7 +161,7 @@ export class VisacionMunicipal {
 
     constructor(){
         this.id = this.id
-        this.pdf_visacion_municipal = 'ACA VA EL PATH'
+        this.pdf_visacion_municipal = '/nodecatastro/uploads/visacion_municipal/'
         this.mensura_id = this.mensura_id
     }
 

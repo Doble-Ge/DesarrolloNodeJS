@@ -20,3 +20,4 @@ exports.upload = upload.single('myFile')
 exports.uploadFile = (req, res) => {
     res.send({ data: 'enviar un archivo'})
 }
+

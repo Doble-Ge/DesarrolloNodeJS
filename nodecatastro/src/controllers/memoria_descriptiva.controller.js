@@ -40,3 +40,19 @@ export async function crearMemoria_descriptiva(req, res) {
     }
 
 }
+
+export async function getMemoriaDescMensuraID(req,res){
+    try {
+        const {mensura_id} = req.params;
+    const memoria_descriptiva = await Memoria_descriptiva.findOne({
+        where: {
+            mensura_id: mensura_id
+        }
+    });
+    res.json({
+        data: memoria_descriptiva
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

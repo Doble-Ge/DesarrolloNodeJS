@@ -71,3 +71,19 @@ export async function updateCertificado(req,res){
         console.log(e);
     }
 }
+
+export async function getCertificadoMensuraID(req,res){
+    try {
+        const {mensura_id} = req.params;
+    const certificado = await Certificado.findOne({
+        where: {
+            mensura_id: mensura_id
+        }
+    });
+    res.json({
+        data: certificado
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

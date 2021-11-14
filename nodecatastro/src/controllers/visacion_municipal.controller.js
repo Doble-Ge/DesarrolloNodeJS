@@ -69,3 +69,18 @@ export async function updateVisacion_Municipal(req,res){
         console.log(e);
     }
 }
+export async function getVisacionMunicipalMensuraID(req,res){
+    try {
+        const {mensura_id} = req.params;
+    const visacion_municipal = await Visacion_municipal.findOne({
+        where: {
+            mensura_id: mensura_id
+        }
+    });
+    res.json({
+        data: visacion_municipal
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

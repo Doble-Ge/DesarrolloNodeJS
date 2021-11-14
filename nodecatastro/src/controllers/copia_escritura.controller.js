@@ -69,3 +69,19 @@ export async function updateCopia_Escritura(req,res){
         console.log(e);
     }
 }
+
+export async function getCopiaEscrituraMensuraID(req,res){
+    try {
+        const {mensura_id} = req.params;
+    const copia = await Copia_escritura.findOne({
+        where: {
+            mensura_id: mensura_id
+        }
+    });
+    res.json({
+        data: copia
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

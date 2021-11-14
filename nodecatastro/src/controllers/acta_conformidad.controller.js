@@ -68,3 +68,19 @@ export async function updateActa_conformidad(req,res){
         console.log(e);
     }
 }
+
+export async function getActaMensuraID(req,res){
+    try {
+        const {mensura_id} = req.params;
+    const acta = await Acta_conformidad.findOne({
+        where: {
+            mensura_id: mensura_id
+        }
+    });
+    res.json({
+        data: acta
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

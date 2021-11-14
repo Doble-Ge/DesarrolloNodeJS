@@ -29,10 +29,10 @@
         <tbody>
           <tr *ngFor = 'let historiales of arr'>
            
-                <th scope="row" > {{ historiales.id }} </th>
+                <th scope="row" (click)='pasarHistorial(historiales)'> {{ historiales.id }} </th>
                 <td> {{ historiales.mensura_id }} </td>
                 <td> {{ historiales.estado}} </td>
-                <td> {{ historiales.usuario_id }} </td>
+                <td> {{ historiales.usuario }} </td>
                 <td> {{ historiales.fechahora }} </td>
                 <td> {{ prioridad }} </td>
           
@@ -40,7 +40,6 @@
           </tr>
         </tbody>
       </table>
-
 
 <!--   <router-outlet></router-outlet>--> 
 </div>

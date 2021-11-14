@@ -23,6 +23,10 @@ export class MensuraService {
   updateActaConformidad(id: any, nuevaActa){
     return this.http.put(this.API_URL + '/acta_conformidad/' + id, nuevaActa)
   }
+ 
+  getActa(mensura_id: number){
+    return this.http.get(this.API_URL + '/acta_conformidad/' + mensura_id)
+  }
 
   guardarAprobacionAgrimensura (aprobacion: AprobacionAgrimensura): Observable<AprobacionAgrimensura>{
     return this.http.post<AprobacionAgrimensura>(this.API_URL + '/aprobacion_agrimensura', aprobacion)

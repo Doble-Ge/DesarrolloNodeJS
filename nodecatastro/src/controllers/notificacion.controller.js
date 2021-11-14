@@ -69,3 +69,18 @@ export async function updateNotificacion(req,res){
         console.log(e);
     }
 }
+export async function getNotifiacionMensuraID(req,res){
+    try {
+        const {mensura_id} = req.params;
+    const notificacion = await Notificacion.findOne({
+        where: {
+            mensura_id: mensura_id
+        }
+    });
+    res.json({
+        data: notificacion
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

@@ -69,3 +69,19 @@ export async function updateAprobacion_Agrimensura(req,res){
         console.log(e);
     }
 }
+
+export async function getAprobacionMensuraID(req,res){
+    try {
+        const {mensura_id} = req.params;
+    const aprobacion = await Aprobacion_agrimensura.findOne({
+        where: {
+            mensura_id: mensura_id
+        }
+    });
+    res.json({
+        data: aprobacion
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

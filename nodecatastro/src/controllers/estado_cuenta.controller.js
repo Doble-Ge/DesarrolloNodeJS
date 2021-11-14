@@ -70,3 +70,19 @@ export async function updateEstado_Cuenta(req,res){
         console.log(e);
     }
 }
+
+export async function getEstadoCuentaMensuraID(req,res){
+    try {
+        const {mensura_id} = req.params;
+    const estadocuenta = await Estado_cuenta.findOne({
+        where: {
+            mensura_id: mensura_id
+        }
+    });
+    res.json({
+        data: estadocuenta
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

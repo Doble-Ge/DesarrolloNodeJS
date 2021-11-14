@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Historial } from '../models/historial';
 import { Usuario } from '../models/usuario';
 import { HistorialService } from '../services/historial.service';
@@ -12,10 +13,11 @@ import { UsuarioService } from '../services/usuario.service';
 export class SolicitudesMensuraComponent implements OnInit {
   usuarioLocal: Usuario = new Usuario()
   historiales: Array<Historial> = new Array<Historial>()
+  historialSeleccionado: Historial = new Historial()
   data
   arr
   prioridad
-  constructor(private usuarioInyectado: UsuarioService, private historialInyectado: HistorialService) { }
+  constructor(private usuarioInyectado: UsuarioService, private Ruta: Router, private historialInyectado: HistorialService) { }
 
   ngOnInit(): void {
     this.usuarioLocal = this.usuarioInyectado.usuarioLogeado
@@ -27,4 +29,12 @@ export class SolicitudesMensuraComponent implements OnInit {
     })
   }
 
+  pasarHistorial(historial: Historial){
+    this.historialSeleccionado.mensura_id = historial.mensura_id
+    this.historialSeleccionado.estado = historial.estado
+    this.historialSeleccionado.usuario = historial.usuario
+    this.historialSeleccionado.fechahora = historial.fechahora
+    this.historialInyectado.historial = this.historialSeleccionado
+    this.Ruta.navigateByUrl('/controlMensura')
+  }
 }

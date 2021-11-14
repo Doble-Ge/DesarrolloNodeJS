@@ -69,3 +69,19 @@ export async function updatePlano_Digital(req,res){
         console.log(e);
     }
 }
+
+export async function getPlanoDigitalMensuraID(req,res){
+    try {
+        const {mensura_id} = req.params;
+    const plano = await Plano_digital.findOne({
+        where: {
+            mensura_id: mensura_id
+        }
+    });
+    res.json({
+        data: plano
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

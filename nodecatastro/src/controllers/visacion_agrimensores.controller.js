@@ -69,3 +69,18 @@ export async function updateVisacion_Agrimensores(req,res){
         console.log(e);
     }
 }
+export async function getVisacionAgrimensorMensuraID(req,res){
+    try {
+        const {mensura_id} = req.params;
+    const visacion_agrimensores = await Visacion_agrimensores.findOne({
+        where: {
+            mensura_id: mensura_id
+        }
+    });
+    res.json({
+        data: visacion_agrimensores
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

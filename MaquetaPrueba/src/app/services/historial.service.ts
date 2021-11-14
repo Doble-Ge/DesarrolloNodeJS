@@ -7,6 +7,7 @@ import { Historial } from '../models/historial';
   providedIn: 'root'
 })
 export class HistorialService {
+  historial: Historial = new Historial()
   API_URL: string = 'http://localhost:3000/api'
   constructor(private http: HttpClient) { }
 

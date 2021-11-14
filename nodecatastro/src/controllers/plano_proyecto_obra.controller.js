@@ -69,3 +69,18 @@ export async function updatePlano_Proyecto_Obra(req,res){
         console.log(e);
     }
 }
+export async function getPlanoProyectoMensuraID(req,res){
+    try {
+        const {mensura_id} = req.params;
+    const plano = await Plano_proyecto_obra.findOne({
+        where: {
+            mensura_id: mensura_id
+        }
+    });
+    res.json({
+        data: plano
+    });
+    }catch (e){
+        console.log(e);
+    }
+}

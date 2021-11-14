@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HistorialService } from 'src/app/services/historial.service';
+import { MensuraService } from 'src/app/services/mensura.service';
 
 @Component({
   selector: 'app-nueva-solicitud',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NuevaSolicitudComponent implements OnInit {
 
-  constructor() { }
+  constructor(private mensuraInyectada: MensuraService, private historialIny: HistorialService) { }
 
   ngOnInit(): void {
+    console.log(this.historialIny.historial)
+    this.mensuraInyectada.getActa(this.historialIny.historial.mensura_id).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
   }
 
 }

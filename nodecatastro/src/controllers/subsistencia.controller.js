@@ -87,3 +87,19 @@ export async function updateSubsistencia(req,res){
         console.log(e);
     }
 }
+
+export async function getSubsistenciaMensuraID(req,res){
+    try {
+        const {mensura_id} = req.params;
+    const subsistencia = await Subsistencia.findOne({
+        where: {
+            mensura_id: mensura_id
+        }
+    });
+    res.json({
+        data: subsistencia
+    });
+    }catch (e){
+        console.log(e);
+    }
+}
