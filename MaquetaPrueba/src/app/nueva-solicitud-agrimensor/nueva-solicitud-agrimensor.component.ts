@@ -332,8 +332,7 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         console.log(res)
         this.id_mensura = Object.values(res)[1].id
         console.log(this.id_mensura)
-        this.historial.fechahora = `${this.FechaHora.getDate()}/${this.FechaHora.getMonth()}/${this.FechaHora.getFullYear()}  ${this.FechaHora.getHours()}:${this.FechaHora.getMinutes()}`
-        console.log(this.historial.fechahora)
+        
         this.updateSubsistencia(this.id.id_subsistencia)
         this.updateActaConformidad(this.id.id_acta_conformidad)
         this.updateAprobacionAgrimensura(this.id.id_aprobacion_agrimensura)
@@ -347,7 +346,11 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         this.updatePlanoProyectoObra(this.id.id_plano_proyecto_obra)
         this.updateVisacionAgrimensores(this.id.id_visacion_agrimensores)
         this.updateVisacionMunicipal(this.id.id_visacion_municipal)
-        this.historial.tramite_id = this.id_mensura
+        this.historial.fechahora = `${this.FechaHora.getDate()}/${this.FechaHora.getMonth()}/${this.FechaHora.getFullYear()}  ${this.FechaHora.getHours()}:${this.FechaHora.getMinutes()}`
+        console.log(this.historial.fechahora)
+        this.historial.mensura_id = this.id_mensura
+        console.log(this.historial)
+        
         this.historialInyectado.guardarHistorial(this.historial).subscribe(
           res =>{
             console.log(res)

@@ -15,11 +15,11 @@ const Historial = sequelize.define('historial', {
     fechahora: {
         type: Sequelize.TEXT
     },
-    tramite_id: {
+    mensura_id: {
         type: Sequelize.INTEGER
     },
-    usuario_id: {
-        type: Sequelize.INTEGER
+    usuario: {
+        type: Sequelize.TEXT
     }    
 }, {
     timestamps: false

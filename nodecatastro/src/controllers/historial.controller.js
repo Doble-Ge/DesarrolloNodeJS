@@ -14,16 +14,16 @@ export async function getHistorial(req,res) {
 }
 
 export async function crearHistorial(req, res) {
-    const {estado, fechahora, tramite_id, usuario_id} = req.body;
+    const {estado, fechahora, mensura_id, usuario} = req.body;
     try {
 
         let nuevoHistorial = await Historial.create({
             estado,
             fechahora,
-            tramite_id,
-            usuario_id
+            mensura_id,
+            usuario
         }, {
-            fields:['estado', 'fechahora', 'tramite_id', 'usuario_id']
+            fields:['estado', 'fechahora', 'mensura_id', 'usuario']
         });
         if (nuevoHistorial) {
             return res.json({
@@ -94,10 +94,10 @@ export async function deleteHistorial(req,res){
 export async function updateHistorial(req,res){
     try{
         const {id} = req.params;
-    const {estado, fechahora, tramite_id, usuario_id} = req.body;
+    const {estado, fechahora, mensura_id, usuario} = req.body;
     
     const historial = await Historial.findAll({
-        attributes: ['estado', 'fechahora', 'tramite_id', 'usuario_id'],
+        attributes: ['estado', 'fechahora', 'mensura_id', 'usuario'],
         where: {
             id: id
         }
@@ -108,8 +108,8 @@ export async function updateHistorial(req,res){
             await historial.update({
                 estado,
                 fechahora,
-                tramite_id,
-                usuario_id
+                mensura_id,
+                usuario
             })
             
         });
