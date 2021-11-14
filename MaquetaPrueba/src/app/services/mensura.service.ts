@@ -36,6 +36,10 @@ export class MensuraService {
     return this.http.post<any>(`${this.API_URL}/aprobacion_agrimensuraPDF`,pdf)
   }
 
+  getAprobacion(mensura_id: number){
+    return this.http.get(this.API_URL + '/aprobacion_agrimensura/' + mensura_id)
+  }
+
   updateAprobacionAgrimensura (id: any, nuevaAprobacion){
     return this.http.put(this.API_URL + '/aprobacion_agrimensura/' + id, nuevaAprobacion)
   }
@@ -46,6 +50,10 @@ export class MensuraService {
 
   guardarCertificadosPDF (pdf: any): Observable<any>{
     return this.http.post<any>(`${this.API_URL}/certificadoPDF`,pdf)
+  }
+
+  getCertificado(mensura_id: number){
+    return this.http.get(this.API_URL + '/certificado/' + mensura_id)
   }
 
   updateCertificados (id: any, nuevoCertificado){
@@ -60,6 +68,10 @@ export class MensuraService {
     return this.http.post<any>(`${this.API_URL}/citacion_colindantePDF`,pdf)
   }
 
+  getCitacion (mensura_id: number){
+    return this.http.get(this.API_URL + '/citacion_colindante/' + mensura_id)
+  }
+
   updateCitacionColindante (id: any, nuevaCitacion){
     return this.http.put(this.API_URL + '/citacion_colindante/' + id, nuevaCitacion)
   }
@@ -70,6 +82,10 @@ export class MensuraService {
 
   guardarCopiaEscrituraPDF (pdf: any): Observable<any>{
     return this.http.post<any>(`${this.API_URL}/copia_escrituraPDF`,pdf)
+  }
+
+  getCopiaEscritura (mensura_id:number) {
+    return this.http.get(this.API_URL + '/copia_escritura/' + mensura_id)
   }
 
   updateCopiaEscritura (id: any, nuevaCopiaE){
@@ -84,13 +100,20 @@ export class MensuraService {
     return this.http.put(this.API_URL + '/estado_cuenta/' + id, nuevoEstadoC)
   }
 
- 
+  getEstadoCuenta (mensura_id: number) {
+    return this.http.get(this.API_URL + '/estado_cuenta/' + mensura_id)
+  }
+
   guardarMemoriasDescriptivas (memoriaD: MemoriaDescriptivas): Observable<MemoriaDescriptivas>{
     return this.http.post<MemoriaDescriptivas>(this.API_URL + '/memoria_descriptiva',memoriaD)
   }
 
   updateMemoriasDescriptivas(id: any, nuevaMemoria){
     return this.http.put(this.API_URL + '/memoria_descriptiva/' + id, nuevaMemoria)
+  }
+
+  getMemoriaDescriptiva (mensura_id: number){
+    return this.http.get(this.API_URL + '/memoria_descriptiva/' + mensura_id)
   }
 
   guardarNotificaciones (notificacion: Notificaciones): Observable<Notificaciones>{
@@ -101,12 +124,20 @@ export class MensuraService {
     return this.http.post<any>(`${this.API_URL}/notificacionPDF`,pdf)
   }
 
+  getNotifiaciones (mensura_id: number){
+    return this.http.get(this.API_URL + '/notificacion/' + mensura_id)
+  }
+
   updateNotificaciones(id:any, nuevaNotificacion){
     return this.http.put(this.API_URL + '/notificacion/' + id, nuevaNotificacion)
   }
 
   guardarPlanoDigital (plano: PlanoDigital): Observable<PlanoDigital>{
     return this.http.post<PlanoDigital>(this.API_URL + '/plano_digital',plano)
+  }
+
+  getPlanoDigital (mensura_id: number){
+    return this.http.get(this.API_URL + '/plano_digital/' + mensura_id)
   }
 
   guardarPlanoDigitalPDF (pdf: any): Observable<any>{
@@ -125,12 +156,20 @@ export class MensuraService {
     return this.http.post<any>(`${this.API_URL}/plano_proyecto_obraPDF`,pdf)
   }
 
+  getPlanoProyecto(mensura_id: number) {
+    return this.http.get(this.API_URL + '/plano_proyecto_obra/' + mensura_id)
+  }
+
   updatePlanoProyectoObras(id: any, nuevoPlanoP){
     return this.http.put(this.API_URL + '/plano_proyecto_obra/' + id, nuevoPlanoP)
   }
 
   guardarSubsistencia(subsistencia: Subsistencia): Observable<Subsistencia>{
-    return this.http.post<Subsistencia>(this.API_URL + '/subsistencia',subsistencia)
+    return this.http.post<Subsistencia>(this.API_URL + '/subsistencia/',subsistencia)
+  }
+
+  getSubsistencia (mensura_id:number){
+    return this.http.get(this.API_URL + '/subsistencia/' + mensura_id)
   }
 
   guardarSubsistenciaPDF(pdf: any): Observable<any>{
@@ -143,6 +182,10 @@ export class MensuraService {
 
   guardarVisacionAgrimensores(visacionA: VisacionAgrimensores): Observable<VisacionAgrimensores>{
     return this.http.post<VisacionAgrimensores>(this.API_URL + '/visacion_agrimensores',visacionA)
+  }
+
+  getVisacionAgrimensores(mensura_id:number) {
+    return this.http.get(this.API_URL + '/visacion_agrimensores/' + mensura_id)
   }
 
   guardarVisacionAgrimensoresPDF(pdf: any): Observable<any>{
@@ -165,6 +208,9 @@ export class MensuraService {
     return this.http.put(this.API_URL + '/visacion_municipal/' + id, nuevaVisacionM)
   }
 
+  getVisacionMunicipal (mensura_id: number){
+    return this.http.get(this.API_URL + '/visacion_municipal/' + mensura_id)
+  }
 
 
 }

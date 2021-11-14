@@ -3,6 +3,8 @@ import morgan from 'morgan';
 
 const cors = require('cors');
 const bodyparser = require('body-parser');
+
+
 //IMPORTING ROUTES
 /*import usuarioRoutes from './routes/usuario';
 import tramiteRoutes from './routes/tramites';
@@ -46,6 +48,7 @@ import visacion_agrimensoresRoutes from './routes/visacion_agrimensores';
 import visacion_agrimensoresPDFRoutes from './routes/visacion_agrimensoresPDF';
 import visacion_municipalRoutes from './routes/visacion_municipal';
 import visacion_municipalPDFRoutes from './routes/visacion_municipalPDF';
+import path, { dirname } from 'path';
 
 //INICIACION
 const app = express();
@@ -61,7 +64,7 @@ app.use(morgan('dev'));
 app.use(json());
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:false}));
-
+app.use(express.static(path.join(__dirname, './uploads')));
 //RUTAS
 /*app.use('/api/usuario', usuarioRoutes);
 app.use('/api/tramites', tramiteRoutes);
@@ -105,5 +108,6 @@ app.use('/api/visacion_agrimensoresPDF',visacion_agrimensoresPDFRoutes);
 app.use('/api/visacion_municipal',visacion_municipalRoutes);
 app.use('/api/visacion_municipalPDF',visacion_municipalPDFRoutes);
 
+//prueba subida
 
 export default app;

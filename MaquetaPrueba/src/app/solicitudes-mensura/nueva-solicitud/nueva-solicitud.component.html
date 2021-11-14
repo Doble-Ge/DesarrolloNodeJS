@@ -16,43 +16,47 @@
                 </button>
                 
                 <div class="navbar-nav">
-                    <button class="btn btn-danger btn-sm">Susbsistencia de dominio</button>
-                    <button class="btn btn-danger" >Certificado Catastral</button>
-                    <button class="btn btn-danger">Estado de cuenta</button>
-                    <button class="btn btn-danger">Copia de escrituras</button>
-                    <button class="btn btn-danger">Visación del Colegio de Agrimensores</button>
-                    <button class="btn btn-danger">Notificación a Catastro de iniciación de mensuras</button>
-                    <button class="btn btn-danger">Citación de colindantes y ocupantes</button>
-                    <button class="btn btn-danger">Acta de Conformidad de colindantes</button>
-                    <button class="btn btn-danger">Memoria descriptiva</button>
-                    <button class="btn btn-danger">Visación Municipal</button>
-                    <button class="btn btn-danger">Proyecto o plano de obra</button>
-                    <button class="btn btn-danger">Aprobación de agrimensura Divis. Rurales </button>
-                    <button class="btn btn-danger">Plano digital</button>
+                    <button class="btn btn-danger btn-sm" (click) = 'escribirHTML(1)'>Subsistencia de dominio</button>
+                    <button class="btn btn-danger" (click) = 'escribirHTML(2)'>Certificado Catastral</button>
+                    <button class="btn btn-danger"(click) = 'escribirHTML(3)'>Estado de cuenta</button>
+                    <button class="btn btn-danger" (click) = 'escribirHTML(4)'>Copia de escrituras</button>
+                    <button class="btn btn-danger" (click) = 'escribirHTML(5)'>Visación del Colegio de Agrimensores</button>
+                    <button class="btn btn-danger" (click) = 'escribirHTML(6)'>Notificación a Catastro de iniciación de mensuras</button>
+                    <button class="btn btn-danger" (click) = 'escribirHTML(7)'>Citación de colindantes y ocupantes</button>
+                    <button class="btn btn-danger" (click) = 'escribirHTML(8)'>Acta de Conformidad de colindantes</button>
+                    <button class="btn btn-danger" (click) = 'escribirHTML(9)'>Memoria descriptiva</button>
+                    <button class="btn btn-danger" (click) = 'escribirHTML(10)'>Visación Municipal</button>
+                    <button class="btn btn-danger" (click) = 'escribirHTML(11)'>Proyecto o plano de obra</button>
+                    <button class="btn btn-danger" (click) = 'escribirHTML(12)'>Aprobación de agrimensura Divis. Rurales </button>
+                    <button class="btn btn-danger" (click) = 'escribirHTML(13)'>Plano digital</button>
                     
                 </div>
                 
             </div>
         </nav>
         
-        <div class="container"> 
-            <form action="">
-                <div class="form-group">
-                    <label for="control">Control</label>
-                    <input type="text" name="control" class="form-control">
-                </div>
-                <br>
-                <div class="form-group">
-                    <label for="observaciones">Observaciones</label>
-                    <input type="text" name="observaciones" class="form-control"> 
-                </div>
-                <br>
-                <div class="form-group">
-                    <label for="VB">VB</label>
-                    <input type="text" name="VB" class="form-control">
-                </div>
-                
-            </form>
+        <div class="container">
+            <div *ngIf = "nroBtn==1">
+                <form action="">
+                    <button>LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input type="text" name="observaciones" class="form-control"> 
+                    </div>
+                </form>
+            </div> 
+            <div *ngIf = "nroBtn==2">
+                <form action="">
+                    <label>Informe Catastral: {{ certificado.informe_catastral }}</label>
+                    <button>LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input type="text" name="observaciones" class="form-control"> 
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EncabezadoComponent } from '../encabezado/encabezado.component';
 import { Usuario } from '../models/usuario';
+import { DownloadService } from '../services/download.service';
 import { UsuarioService } from '../services/usuario.service';
 
 
@@ -14,8 +15,9 @@ export class LoginModuloComponent implements OnInit {
   usuario: Usuario = new Usuario()
   usuarioDesdeBase: any
   data
+  fileName = 'myFile-1636916929801Acta-conformidad_Matias-Fuentes.pdf'
 
-  constructor(private usuarioInyectado: UsuarioService, private Ruta: Router) { }
+  constructor(private usuarioInyectado: UsuarioService, private Ruta: Router, private donwloadService: DownloadService) { }
 
   ngOnInit(): void {
   }
@@ -57,5 +59,19 @@ export class LoginModuloComponent implements OnInit {
       },
       err => console.error(err)
     )
+  }
+
+  returnBlob(res): Blob {
+    console.log('file download!')
+    return new Blob([res], { type: 'application/pdf'})
+  }
+
+  download() {
+    this.donwloadService.downloadActaConformidad(this.fileName).subscribe(res => {
+      if (res) {
+        const url =window.URL.createObjectURL(this.returnBlob(res));
+        window.open(url)
+      }
+    })
   }
 }

@@ -62,7 +62,7 @@
                 <form action="">
                     <div class="form-group">
                         <label for="Informe catastral">Informe catastral</label>
-                        <input type="text" name="infCatastral" class="form-control w-25">
+                        <input [(ngModel)] = 'certificado.informe_catastral' type="text" name="infCatastral" class="form-control w-25">
                     </div>
                     <br>
                     <div class="form-group">
@@ -77,7 +77,7 @@
                 <form action="">
                     <div class="form-group">
                         <label for="Estado de cuenta">Estado de cuenta (Debe/No debe):</label>
-                        <input type="text"  name="estadoCuenta" class="form-control w-25">
+                        <input [(ngModel)] = 'estadoCuenta.db_nodb' type="text"  name="estadoCuenta" class="form-control w-25">
                         <button class="btn btn-danger" (click) = "agregarEstadoCuenta()">Enviar</button>
                     </div>  
                 </form>
@@ -109,7 +109,7 @@
             <div class= "container border-danger border-3" *ngIf = "nroBtn==6">
                 <form action="">
                     <div class="form-group">
-                        <label for="Estado de cuenta">Adjuntar</label>
+                        <label for="">Adjuntar</label>
                         <input type="file" id="archivo" (change)="validacion($event)" name="adjuntar" class="form-control w-25">
                         <button class="btn btn-danger" (click) = "agregarNotificaciones()">Enviar</button>
                     </div>  

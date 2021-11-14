@@ -1,4 +1,7 @@
+import express from 'express'
+import { path } from '../routes/correo'
 const multer = require('multer')
+//ASDASD
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb){
@@ -20,3 +23,4 @@ exports.upload = upload.single('myFile')
 exports.uploadFile = (req, res) => {
     res.send({ data: 'enviar un archivo'})
 }
+
