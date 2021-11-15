@@ -56,3 +56,34 @@ export async function getMemoriaDescMensuraID(req,res){
         console.log(e);
     }
 }
+
+export async function updateMemoriaDescriptiva(req,res){
+    try{
+        const {id} = req.params;
+    const {db_nodbmem,cantidad} = req.body;
+    
+    const memoria_descriptiva = await Memoria_descriptiva.findAll({
+        attributes: ['id', 'db_nodbmem', 'cantidad'],
+        where: {
+            id: id
+        }
+    });
+
+    if(memoria_descriptiva.length > 0){
+        memoria_descriptiva.forEach(async memoria_descriptiva => {
+            await memoria_descriptiva.update({
+                db_nodbmem,
+                cantidad
+            })
+            
+        });
+    }
+
+    return res.json({
+        message: "Memoria descriptiva actualizada",
+        data: memoria_descriptiva
+    });
+    }catch (e){
+        console.log(e);
+    }
+}
