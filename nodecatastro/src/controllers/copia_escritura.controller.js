@@ -15,13 +15,14 @@ export async function getCopia_escritura(req,res) {
 } 
 
 export async function crearCopia_escritura(req, res) {
-    const {pdf_escritura} = req.body;
+    const {pdf_escritura, observacion} = req.body;
     try {
 
         let nuevaCopia_escritura= await Copia_escritura.create({
-           pdf_escritura
+           pdf_escritura,
+           observacion
         }, {
-            fields:['pdf_escritura']
+            fields:['pdf_escritura', 'observacion']
         });
         if (nuevaCopia_escritura) {
             return res.json({
@@ -42,10 +43,10 @@ export async function crearCopia_escritura(req, res) {
 export async function updateCopia_Escritura(req,res){
     try{
         const {id} = req.params;
-    const {pdf_escritura, mensura_id} = req.body;
+    const {pdf_escritura, mensura_id, observacion} = req.body;
     
     const copia_escritura = await Copia_escritura.findAll({
-        attributes: ['id', 'pdf_escritura', 'mensura_id'],
+        attributes: ['id', 'pdf_escritura', 'mensura_id', 'observacion'],
         where: {
             id: id
         }
@@ -55,7 +56,8 @@ export async function updateCopia_Escritura(req,res){
         copia_escritura.forEach(async copia_escritura => {
             await copia_escritura.update({
                 pdf_escritura,
-                mensura_id
+                mensura_id,
+                observacion
             })
             
         });

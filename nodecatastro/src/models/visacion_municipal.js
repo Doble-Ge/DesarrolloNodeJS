@@ -11,6 +11,9 @@ const Visacion_municipal = sequelize.define('visacion_municipal', {
     },
     mensura_id: {
         type: Sequelize.INTEGER
+    },
+    observacion: {
+        type: Sequelize.TEXT
     }
 }, {
     timestamps: false

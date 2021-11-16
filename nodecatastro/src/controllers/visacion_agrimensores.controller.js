@@ -15,13 +15,15 @@ export async function getVisacion_agrimensores(req,res) {
 } 
 
 export async function crearVisacion_agrimensores(req, res) {
-    const {pdf_visado_agrimensores} = req.body;
+    const {pdf_visado_agrimensores, tipo, observacion } = req.body;
     try {
 
         let nuevaVisacion_agrimensores = await Visacion_agrimensores.create({
-            pdf_visado_agrimensores
+            pdf_visado_agrimensores,
+            tipo,
+            observacion
         }, {
-            fields:['pdf_visado_agrimensores']
+            fields:['pdf_visado_agrimensores', 'tipo', 'observacion']
         });
         if (nuevaVisacion_agrimensores) {
             return res.json({
@@ -42,10 +44,10 @@ export async function crearVisacion_agrimensores(req, res) {
 export async function updateVisacion_Agrimensores(req,res){
     try{
         const {id} = req.params;
-    const {pdf_visado_agrimensores, mensura_id} = req.body;
+    const {pdf_visado_agrimensores, mensura_id, tipo, observacion} = req.body;
     
     const visacion_agrimensores = await Visacion_agrimensores.findAll({
-        attributes: ['id', 'pdf_visado_agrimensores', 'mensura_id'],
+        attributes: ['id', 'pdf_visado_agrimensores', 'mensura_id', 'tipo', 'observacion'],
         where: {
             id: id
         }
@@ -55,7 +57,9 @@ export async function updateVisacion_Agrimensores(req,res){
         visacion_agrimensores.forEach(async visacion_agrimensores => {
             await visacion_agrimensores.update({
                 pdf_visado_agrimensores,
-                mensura_id
+                mensura_id,
+                tipo,
+                observacion
             })
             
         });

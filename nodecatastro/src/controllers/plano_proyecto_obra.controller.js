@@ -15,13 +15,14 @@ export async function getPlano_proyecto_obra(req,res) {
 } 
 
 export async function crearPlano_proyecto_obra(req, res) {
-    const {pdf_proyecto_obra} = req.body;
+    const {pdf_proyecto_obra, observacion} = req.body;
     try {
 
         let nuevoPlano_proyecto_obra = await Plano_proyecto_obra.create({
-            pdf_proyecto_obra
+            pdf_proyecto_obra,
+            observacion
         }, {
-            fields:['pdf_proyecto_obra']
+            fields:['pdf_proyecto_obra', 'observacion']
         });
         if (nuevoPlano_proyecto_obra) {
             return res.json({
@@ -42,10 +43,10 @@ export async function crearPlano_proyecto_obra(req, res) {
 export async function updatePlano_Proyecto_Obra(req,res){
     try{
         const {id} = req.params;
-    const {pdf_proyecto_obra, mensura_id} = req.body;
+    const {pdf_proyecto_obra, mensura_id, observacion} = req.body;
     
     const plano_proyecto_obra = await Plano_proyecto_obra.findAll({
-        attributes: ['id', 'pdf_proyecto_obra', 'mensura_id'],
+        attributes: ['id', 'pdf_proyecto_obra', 'mensura_id', 'observacion'],
         where: {
             id: id
         }
@@ -55,7 +56,8 @@ export async function updatePlano_Proyecto_Obra(req,res){
         plano_proyecto_obra.forEach(async plano_proyecto_obra => {
             await plano_proyecto_obra.update({
                 pdf_proyecto_obra,
-                mensura_id
+                mensura_id,
+                observacion
             })
             
         });

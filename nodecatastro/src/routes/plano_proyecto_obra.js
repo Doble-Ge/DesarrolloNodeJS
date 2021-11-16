@@ -7,7 +7,7 @@ import { crearPlano_proyecto_obra, getPlanoProyectoMensuraID, getPlano_proyecto_
 router.post('/', crearPlano_proyecto_obra);
 router.get('/', getPlano_proyecto_obra);
 router.put('/:id',updatePlano_Proyecto_Obra);
-router.get(':mensura_id', getPlanoProyectoMensuraID);
+router.get('/:mensura_id', getPlanoProyectoMensuraID);
 // /api/usuario/usuarioaID
 
 

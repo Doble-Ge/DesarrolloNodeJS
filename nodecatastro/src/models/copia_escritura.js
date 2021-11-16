@@ -11,6 +11,9 @@ const Copia_escritura = sequelize.define('copia_escritura', {
     },
     mensura_id: {
         type: Sequelize.INTEGER
+    },
+    observacion: {
+        type: Sequelize.TEXT
     }
 }, {
     timestamps: false

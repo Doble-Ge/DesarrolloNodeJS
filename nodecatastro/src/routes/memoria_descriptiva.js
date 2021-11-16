@@ -6,8 +6,7 @@ import { crearMemoria_descriptiva, getMemoriaDescMensuraID, getMemoria_descripti
 // /api/usuarioa
 router.post('/',crearMemoria_descriptiva);
 router.get('/', getMemoria_descriptiva);
-router.get('/:id', getMemoriaDescMensuraID);
-router.get('/mensura_id', getMemoriaDescMensuraID);
+router.get('/:mensura_id', getMemoriaDescMensuraID);
 router.put('/:id', updateMemoriaDescriptiva);
 
 // /api/usuario/usuarioaID

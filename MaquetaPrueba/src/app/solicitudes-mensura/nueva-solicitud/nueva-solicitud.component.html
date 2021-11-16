@@ -38,7 +38,7 @@
         <div class="container">
             <div *ngIf = "nroBtn==1">
                 <form action="">
-                    <button>LEER PDF </button>
+                    <button (click) = 'descargaSubsistenciaPDF(subsistencia.pdf_subsistencia)'>LEER PDF </button>
                     <br>
                     <div class="form-group">
                         <label for="observaciones">Observaciones</label>
@@ -49,7 +49,119 @@
             <div *ngIf = "nroBtn==2">
                 <form action="">
                     <label>Informe Catastral: {{ certificado.informe_catastral }}</label>
-                    <button>LEER PDF </button>
+                    <button (click)= 'descargaCertificadoPDF(certificado.pdf_certificado)'>LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input type="text" name="observaciones" class="form-control"> 
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==3">
+                <form action="">
+                    <label>Estado: {{ estadoCuenta.db_nodb }}</label>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input type="text" name="observaciones" class="form-control"> 
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==4">
+                <form action="">
+                    <button (click) = 'descargaCopiaEscrituraPDF(copiaEscritura.pdf_escritura)'>LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input type="text" name="observaciones" class="form-control"> 
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==5">
+                <form action="">
+                    <label for="">Tipo: {{ visacionAgrimensores.tipo }}</label>
+                    <button (click) = 'descargaVisacionAgrimensoresPDF(visacionAgrimensores.pdf_visado_agrimensores)'>LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input type="text" name="observaciones" class="form-control"> 
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==6">
+                <form action="">
+                    <button (click) = 'descargaNotificacionPDF(notificacion.pdf_notificacion)'>LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input type="text" name="observaciones" class="form-control"> 
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==7">
+                <form action="">
+                    <button (click) = 'descargaCitacionPDF(citacionColindante.pdf_citacion)'>LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input type="text" name="observaciones" class="form-control"> 
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==8">
+                <form action="">
+                    <button (click) = 'descargaActaPDF(actaConformidad.pdf_acta)'>LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input type="text" name="observaciones" class="form-control"> 
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==9">
+                <form action="">
+                    <label>Estado: {{ memoriaDescriptiva.db_nodbmem }}  </label>
+                    <label>Cantidad: {{ memoriaDescriptiva.cantidad }} </label>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input type="text" name="observaciones" class="form-control"> 
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==10">
+                <form action="">
+                    <button (click) = 'descargaVisacionMunicipalPDF(visacionMunicipal.pdf_visacion_municipal)'>LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input type="text" name="observaciones" class="form-control"> 
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==11">
+                <form action="">
+                    <button (click) = 'descargaPlanoProyectoPDF(planoProyecto.pdf_proyecto_obra)' >LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input type="text" name="observaciones" class="form-control"> 
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==12">
+                <form action="">
+                    <button (click) = 'descargaAprobacionPDF(aprobacionAgrimensura.pdf_aprobacion_agrimensura)'>LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input type="text" name="observaciones" class="form-control"> 
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==13">
+                <form action="">
+                    <button (click) = 'descargaPlanoDigitalPDF(planoDigital.pdf_plano_digital)'>LEER PDF </button>
                     <br>
                     <div class="form-group">
                         <label for="observaciones">Observaciones</label>

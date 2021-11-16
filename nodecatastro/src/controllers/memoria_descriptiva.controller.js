@@ -15,14 +15,15 @@ export async function getMemoria_descriptiva(req,res) {
 } 
 
 export async function crearMemoria_descriptiva(req, res) {
-    const {db_nodbmem,cantidad} = req.body;
+    const {db_nodbmem,cantidad, observacion} = req.body;
     try {
 
         let nuevaMemoria_descriptiva= await Memoria_descriptiva.create({
            db_nodbmem,
-           cantidad
+           cantidad,
+           observacion
         }, {
-            fields:['db_nodbmem','cantidad']
+            fields:['db_nodbmem','cantidad', 'observacion']
         });
         if (nuevaMemoria_descriptiva) {
             return res.json({
@@ -60,10 +61,10 @@ export async function getMemoriaDescMensuraID(req,res){
 export async function updateMemoriaDescriptiva(req,res){
     try{
         const {id} = req.params;
-    const {db_nodbmem,cantidad} = req.body;
+    const {db_nodbmem,cantidad, mensura_id, observacion} = req.body;
     
     const memoria_descriptiva = await Memoria_descriptiva.findAll({
-        attributes: ['id', 'db_nodbmem', 'cantidad'],
+        attributes: ['id', 'db_nodbmem', 'cantidad', 'mensura_id', 'observacion'],
         where: {
             id: id
         }
@@ -73,7 +74,9 @@ export async function updateMemoriaDescriptiva(req,res){
         memoria_descriptiva.forEach(async memoria_descriptiva => {
             await memoria_descriptiva.update({
                 db_nodbmem,
-                cantidad
+                cantidad,
+                mensura_id,
+                observacion
             })
             
         });

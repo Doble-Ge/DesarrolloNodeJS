@@ -14,6 +14,9 @@ const Subsistencia = sequelize.define('subsistencia', {
     },
     mensura_id: {
         type: Sequelize.INTEGER
+    },
+    observacion: {
+        type: Sequelize.TEXT
     }
 }, {
     timestamps: false

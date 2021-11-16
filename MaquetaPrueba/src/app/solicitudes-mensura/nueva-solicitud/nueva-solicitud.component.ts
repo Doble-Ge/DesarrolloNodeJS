@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActaConformidad, AprobacionAgrimensura, Certificados, CitacionColindantes, CopiaEscritura, EstadoCuenta, MemoriaDescriptivas, Notificaciones, PlanoDigital, PlanoProyectoObras, Subsistencia, VisacionAgrimensores, VisacionMunicipal } from 'src/app/models/mensura';
+import { DownloadService } from 'src/app/services/download.service';
 import { HistorialService } from 'src/app/services/historial.service';
 import { MensuraService } from 'src/app/services/mensura.service';
 
@@ -23,7 +24,8 @@ export class NuevaSolicitudComponent implements OnInit {
   subsistencia: Subsistencia = new Subsistencia()
   visacionAgrimensores: VisacionAgrimensores = new VisacionAgrimensores()
   visacionMunicipal: VisacionMunicipal = new VisacionMunicipal()
-  constructor(private mensuraInyectada: MensuraService, private historialIny: HistorialService) { }
+  constructor(private mensuraInyectada: MensuraService, private historialIny: HistorialService,
+              private descargaService: DownloadService) { }
 
   ngOnInit(): void {
     console.log(this.historialIny.historial)
@@ -34,6 +36,7 @@ export class NuevaSolicitudComponent implements OnInit {
     this.obtenerCopiaEscritura()
     this.obtenerEstadoCuenta()
     this.obtenerNotificacion()
+    this.obtenerMemoriaDescriptiva()
     this.obtenerPlanoDigital()
     this.obtenerPlanoProyecto()
     this.obtenerSubsistencia()
@@ -86,6 +89,7 @@ export class NuevaSolicitudComponent implements OnInit {
       res => {
         const data = Object.values(res)
         this.actaConformidad = data[0]
+
         console.log(this.actaConformidad)
       },
       err => console.error(err)
@@ -143,7 +147,16 @@ export class NuevaSolicitudComponent implements OnInit {
     )
   }
 
-  //Falta memoria descriptiva
+ obtenerMemoriaDescriptiva(){
+   this.mensuraInyectada.getMemoriaDescriptiva(this.historialIny.historial.mensura_id).subscribe(
+     res => {
+       const data = Object.values(res)
+       this.memoriaDescriptiva = data[0]
+       console.log("Res:", data[0], "MEMORIA: ", this.memoriaDescriptiva  )
+     },
+     err => console.error(err)
+   )
+ }
 
   obtenerNotificacion(){
     this.mensuraInyectada.getNotifiaciones(this.historialIny.historial.mensura_id).subscribe(
@@ -205,4 +218,107 @@ export class NuevaSolicitudComponent implements OnInit {
     )
   }
 
+  returnBlob(res): Blob {
+    console.log('file download!')
+    return new Blob([res], { type: 'application/pdf'})
+  }
+
+  descargaActaPDF(nombrePDf: string){
+    this.descargaService.downloadActaConformidad(nombrePDf).subscribe(res => {
+      if (res) {
+        const url = window.URL.createObjectURL(this.returnBlob(res));
+        window.open(url)
+      }
+    })
+  }
+
+  descargaAprobacionPDF(nombrePDF: string) {
+    this.descargaService.downloadAprobacionAgrimensor(nombrePDF).subscribe(res => {
+      if (res) {
+        const url = window.URL.createObjectURL(this.returnBlob(res))
+        window.open(url)
+      }
+    })
+  }
+
+  descargaCertificadoPDF(nombrePDF: string) {
+    this.descargaService.downloadCeritificado(nombrePDF).subscribe(res => {
+      if (res) {
+        const url = window.URL.createObjectURL(this.returnBlob(res))
+        window.open(url)
+      }
+    })
+  }
+
+  descargaCitacionPDF(nombrePDF: string) {
+    this.descargaService.downloadCitacionColindante(nombrePDF).subscribe(res => {
+      if (res) {
+        const url = window.URL.createObjectURL(this.returnBlob(res))
+        window.open(url)
+      }
+    })
+  }
+
+  descargaCopiaEscrituraPDF(nombrePDF: string) {
+    this.descargaService.downloadCopiaEscritura(nombrePDF).subscribe(res => {
+      if (res) {
+        const url = window.URL.createObjectURL(this.returnBlob(res))
+        window.open(url)
+      }
+    })
+  }
+
+  descargaNotificacionPDF(nombrePDF: string){
+    this.descargaService.downloadNotificacion(nombrePDF).subscribe(res => {
+      if (res) {
+        const url = window.URL.createObjectURL(this.returnBlob(res))
+        window.open(url)
+      }
+    })
+  }
+
+  descargaPlanoDigitalPDF(nombrePDF: string){
+    this.descargaService.downloadPlanoDigital(nombrePDF).subscribe(res => {
+      if (res) {
+        const url = window.URL.createObjectURL(this.returnBlob(res))
+        window.open(url)
+      }
+    })
+  }
+
+  descargaPlanoProyectoPDF(nombrePDF: string) {
+    this.descargaService.downloadPlanoProyecto(nombrePDF).subscribe(res => {
+      if (res) {
+        const url = window.URL.createObjectURL(this.returnBlob(res))
+        window.open(url)
+      }
+    })
+  }
+
+  descargaSubsistenciaPDF(nombrePDF: string) {
+    this.descargaService.downloadSubsistencia(nombrePDF).subscribe(res => {
+      if (res) {
+        const url = window.URL.createObjectURL(this.returnBlob(res))
+        window.open(url)
+      }
+    })
+  }
+
+  descargaVisacionAgrimensoresPDF(nombrePDF: string) {
+    this.descargaService.downloadVisacionAgrimensores(nombrePDF).subscribe(res => {
+      if (res) {
+        const url = window.URL.createObjectURL(this.returnBlob(res))
+        window.open(url)
+      }
+    })
+  }
+
+  descargaVisacionMunicipalPDF(nombrePDF: string) {
+    this.descargaService.downloadVisacionMunicipal(nombrePDF).subscribe(res => {
+      if (res) {
+        const url = window.URL.createObjectURL(this.returnBlob(res))
+        window.open(url)
+      }
+    })
+  }
 }

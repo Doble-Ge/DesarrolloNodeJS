@@ -11,6 +11,9 @@ const Plano_proyecto_obra = sequelize.define('plano_proyecto_obra', {
     },
     mensura_id: {
         type: Sequelize.INTEGER
+    },
+    observacion: {
+        type: Sequelize.TEXT
     }
 }, {
     timestamps: false

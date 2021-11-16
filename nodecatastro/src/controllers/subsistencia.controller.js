@@ -14,14 +14,15 @@ export async function getSubsistencia(req,res) {
 } 
 
 export async function crearSubsistencia(req, res) {
-    const {titulo_subsistencia,pdf_subsistencia} = req.body;
+    const {titulo_subsistencia,pdf_subsistencia, observacion} = req.body;
     try {
 
         let nuevaSubsistencia = await Subsistencia.create({
             titulo_subsistencia,
-            pdf_subsistencia
+            pdf_subsistencia,
+            observacion
         }, {
-            fields:['titulo_subsistencia', 'pdf_subsistencia']
+            fields:['titulo_subsistencia', 'pdf_subsistencia', 'observacion']
         });
         if (nuevaSubsistencia) {
             return res.json({
@@ -59,10 +60,10 @@ export async function crearSubsistencia(req, res) {
 export async function updateSubsistencia(req,res){
     try{
         const {id} = req.params;
-    const {titulo_subsistencia, pdf_subsistencia, mensura_id} = req.body;
+    const {titulo_subsistencia, pdf_subsistencia, mensura_id, observacion} = req.body;
     
     const subsistencia = await Subsistencia.findAll({
-        attributes: ['id', 'titulo_subsistencia', 'pdf_subsistencia', 'mensura_id'],
+        attributes: ['id', 'titulo_subsistencia', 'pdf_subsistencia', 'mensura_id', 'observacion'],
         where: {
             id: id
         }
@@ -73,7 +74,8 @@ export async function updateSubsistencia(req,res){
             await subsistencia.update({
                 titulo_subsistencia,
                 pdf_subsistencia,
-                mensura_id
+                mensura_id,
+                observacion
             })
             
         });

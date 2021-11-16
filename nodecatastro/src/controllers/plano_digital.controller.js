@@ -15,13 +15,14 @@ export async function getPlano_digital(req,res) {
 } 
 
 export async function crearPlano_digital(req, res) {
-    const {pdf_plano_digital} = req.body;
+    const {pdf_plano_digital, observacion} = req.body;
     try {
 
         let nuevoPlano_digital = await Plano_digital.create({
-            pdf_plano_digital
+            pdf_plano_digital,
+            observacion
         }, {
-            fields:['pdf_plano_digital']
+            fields:['pdf_plano_digital', 'observacion']
         });
         if (nuevoPlano_digital) {
             return res.json({
@@ -42,10 +43,10 @@ export async function crearPlano_digital(req, res) {
 export async function updatePlano_Digital(req,res){
     try{
         const {id} = req.params;
-    const {pdf_plano_digital, mensura_id} = req.body;
+    const {pdf_plano_digital, mensura_id, observacion} = req.body;
     
     const plano_digital = await Plano_digital.findAll({
-        attributes: ['id', 'pdf_plano_digital', 'mensura_id'],
+        attributes: ['id', 'pdf_plano_digital', 'mensura_id', 'observacion'],
         where: {
             id: id
         }
@@ -55,7 +56,8 @@ export async function updatePlano_Digital(req,res){
         plano_digital.forEach(async plano_digital => {
             await plano_digital.update({
                 pdf_plano_digital,
-                mensura_id
+                mensura_id,
+                observacion
             })
             
         });

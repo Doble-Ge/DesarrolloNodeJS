@@ -15,13 +15,14 @@ export async function getNotificacion(req,res) {
 } 
 
 export async function crearNotificacion(req, res) {
-    const {pdf_notificacion} = req.body;
+    const {pdf_notificacion, observacion} = req.body;
     try {
 
         let nuevaNotificacion= await Notificacion.create({
-           pdf_notificacion
+           pdf_notificacion,
+           observacion
         }, {
-            fields:['pdf_notificacion']
+            fields:['pdf_notificacion', 'observacion']
         });
         if (nuevaNotificacion) {
             return res.json({
@@ -42,10 +43,10 @@ export async function crearNotificacion(req, res) {
 export async function updateNotificacion(req,res){
     try{
         const {id} = req.params;
-    const {pdf_notificacion, mensura_id} = req.body;
+    const {pdf_notificacion, mensura_id, observacion} = req.body;
     
     const notificacion = await Notificacion.findAll({
-        attributes: ['id', 'pdf_notificacion', 'mensura_id'],
+        attributes: ['id', 'pdf_notificacion', 'mensura_id', 'observacion'],
         where: {
             id: id
         }
@@ -55,7 +56,8 @@ export async function updateNotificacion(req,res){
         notificacion.forEach(async notificacion => {
             await notificacion.update({
                 pdf_notificacion,
-                mensura_id
+                mensura_id,
+                observacion
             })
             
         });

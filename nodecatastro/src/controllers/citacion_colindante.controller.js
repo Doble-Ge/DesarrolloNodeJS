@@ -15,13 +15,14 @@ export async function getCitacion_colindante(req,res) {
 } 
 
 export async function crearCitacion_colindante(req, res) {
-    const {pdf_citacion} = req.body;
+    const {pdf_citacion, observacion} = req.body;
     try {
 
         let nuevaCitacion_colindante= await Citacion_colindante.create({
-            pdf_citacion
+            pdf_citacion,
+            observacion
         }, {
-            fields:['pdf_citacion']
+            fields:['pdf_citacion', 'observacion']
         });
         if (nuevaCitacion_colindante) {
             return res.json({

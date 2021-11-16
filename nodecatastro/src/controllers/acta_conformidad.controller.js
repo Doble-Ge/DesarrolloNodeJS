@@ -15,13 +15,14 @@ export async function getActa_conformidad(req,res) {
 } 
 
 export async function crearActa_conformidad(req, res) {
-    const {pdf_acta} = req.body;
+    const {pdf_acta, observacion} = req.body;
     try {
 
         let nuevaActa = await Acta_conformidad.create({
-            pdf_acta
+            pdf_acta,
+            observacion
         }, {
-            fields:['pdf_acta']
+            fields:['pdf_acta', 'observacion']
         });
         if (nuevaActa) {
             return res.json({
@@ -41,10 +42,10 @@ export async function crearActa_conformidad(req, res) {
 export async function updateActa_conformidad(req,res){
     try{
         const {id} = req.params;
-    const {pdf_acta, mensura_id} = req.body;
+    const {pdf_acta, mensura_id, observacion} = req.body;
     
     const acta_conf = await Acta_conformidad.findAll({
-        attributes: ['id', 'pdf_acta', 'mensura_id'],
+        attributes: ['id', 'pdf_acta', 'mensura_id', 'observacion'],
         where: {
             id: id
         }
@@ -54,7 +55,8 @@ export async function updateActa_conformidad(req,res){
         acta_conf.forEach(async acta_conf => {
             await acta_conf.update({
                 pdf_acta,
-                mensura_id
+                mensura_id,
+                observacion
             })
             
         });

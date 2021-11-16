@@ -14,6 +14,9 @@ const Certificado = sequelize.define('certificado', {
     },
     mensura_id: {
         type: Sequelize.INTEGER
+    },
+    observacion: {
+        type: Sequelize.TEXT
     }
 }, {
     timestamps: false

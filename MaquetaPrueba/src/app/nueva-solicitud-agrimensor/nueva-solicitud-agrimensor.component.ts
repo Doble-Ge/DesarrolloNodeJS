@@ -12,7 +12,8 @@ import { MensuraService } from '../services/mensura.service';
   styleUrls: ['./nueva-solicitud-agrimensor.component.scss']
 })
 export class NuevaSolicitudAgrimensorComponent implements OnInit {
-  
+  contadorHabilitarBtnMensura: number = 0
+  nombreBtn: string
   stringNombreArchivo: string
   historial: Historial = new Historial()
   tipoFormulario: string;
@@ -42,6 +43,7 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
 
   ngOnInit(): void {
   }
+ 
 
   validacion(event){
      var archivo = (<HTMLInputElement> document.getElementById("archivo"))
@@ -53,56 +55,79 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
        archivo.value= null
      }else{
        alert("Archivo cargado")
+       var element = <HTMLInputElement> document.getElementById(this.nombreBtn);
+          element.disabled = false;
        if(event.target.files.length > 0){
         const file = event.target.files[0]
         this.pdf = file
       }
      }
      console.log(archivo.value.substring(12))
+     this.comprobarSiSon12()
+     console.log(this.contadorHabilitarBtnMensura)
+     
 
   }
 
-  
+    comprobarSiSon12(){
+      if (this.contadorHabilitarBtnMensura == 12){
+        var element = <HTMLInputElement> document.getElementById('btnGenerarCaratula');
+            element.disabled = false;
+      }
+    }
 
   escribirHTML(numero: number){
     if (numero == 1){
       this.nroBtn = 1
+      this.nombreBtn = 'btnSubsistencia'
     }
     if (numero == 2){
       this.nroBtn = 2
+      this.nombreBtn = 'btnCertificado'
     }
     if (numero == 3){
-     this.nroBtn = 3
+      this.nroBtn = 3
+      this.nombreBtn = 'btnEstado'
     }
     if (numero == 4){
       this.nroBtn = 4
+      this.nombreBtn = 'btnCopEscritura'
     }
     if (numero == 5){
      this.nroBtn = 5
+     this.nombreBtn = 'btnVisacionA'
     }
     if (numero == 6){
       this.nroBtn = 6
+      this.nombreBtn = 'btnNotificaciones'
     }
     if (numero == 7){
      this.nroBtn = 7
+     this.nombreBtn = 'btnCitacion'
     }
     if (numero == 8){
       this.nroBtn = 8
+      this.nombreBtn = 'btnActa'
     }
     if (numero == 9){
       this.nroBtn=9
+      this.nombreBtn = 'btnMemoria'
     }
     if (numero == 10){
       this.nroBtn = 10
+      this.nombreBtn = 'btnVisacionM'
     }
     if (numero == 11){
      this.nroBtn = 11
+     this.nombreBtn = 'btnPlanoProyecto'
     }
     if (numero == 12){
       this.nroBtn = 12
+      this.nombreBtn = 'btnAprobA'
     }
     if (numero == 13){
      this.nroBtn = 13
+     this.nombreBtn = 'btnPlanoDigital'
     }
   }
 
@@ -119,6 +144,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         this.mensuraInyectada.guardarActaConformidadPDF(formdata).subscribe(
           res => {
             console.log(res)
+            alert('Acta cargada correctamente')
+            var element = <HTMLInputElement> document.getElementById("btnActa");
+            this.contadorHabilitarBtnMensura += 1
+            element.disabled = true;
           },
           err => console.error(err)
         )
@@ -140,6 +169,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         this.mensuraInyectada.guardarAprobacionAgrimensuraPDF(formdata).subscribe(
           res => {
             console.log(res)
+            alert('Aprobación de Agrimensura cargada correctamente')
+            var element = <HTMLInputElement> document.getElementById("btnAprobA");
+            this.contadorHabilitarBtnMensura += 1
+            element.disabled = true;
           },
           err => console.error(err)
         )
@@ -161,6 +194,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         this.mensuraInyectada.guardarCertificadosPDF(formdata).subscribe(
           res => {
             console.log(res)
+            alert('Certificado cargado correctamente')
+            var element = <HTMLInputElement> document.getElementById("btnCertificado");
+            this.contadorHabilitarBtnMensura += 1
+            element.disabled = true;
           },
           err => console.error(err)
         )
@@ -182,6 +219,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         this.mensuraInyectada.guardarCitacionColindantesPDF(formdata).subscribe(
           res => {
             console.log(res)
+            alert('Citacion cargada correctamente')
+            var element = <HTMLInputElement> document.getElementById("btnCitacion");
+            this.contadorHabilitarBtnMensura += 1
+            element.disabled = true;
           },
           err => console.error(err)
         )
@@ -203,6 +244,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         this.mensuraInyectada.guardarCopiaEscrituraPDF(formdata).subscribe(
           res => {
             console.log(res)
+            alert('Copia escritura cargada correctamente')
+            var element = <HTMLInputElement> document.getElementById("btnCopEscritura");
+            this.contadorHabilitarBtnMensura += 1
+            element.disabled = true;
           },
           err => console.error(err)
         )
@@ -216,6 +261,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
       res => {
         console.log(res)
         this.id.id_estado_cuenta = Object.values(res)[1].id
+        alert('Estado de cuenta cargado correctamente')
+        var element = <HTMLInputElement> document.getElementById("btnEstado");
+        this.contadorHabilitarBtnMensura += 1
+        element.disabled = true;
       },
       err => console.error(err)
     )
@@ -226,6 +275,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
       res => {
         console.log(res)
         this.id.id_memoria_descriptiva = Object.values(res)[1].id
+        alert('Memoria descriptiva cargada correctamente')
+        var element = <HTMLInputElement> document.getElementById("btnMemoria");
+        this.contadorHabilitarBtnMensura += 1
+            element.disabled = true;
       },
       err => console.error(err)
     )
@@ -245,6 +298,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         this.mensuraInyectada.guardarNotificacionesPDF(formdata).subscribe(
           res => {
             console.log(res)
+            alert('Notificacion cargada correctamente')
+            var element = <HTMLInputElement> document.getElementById("btnNotificaciones");
+            this.contadorHabilitarBtnMensura += 1
+            element.disabled = true;
           },
           err => console.error(err)
         )
@@ -267,6 +324,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         this.mensuraInyectada.guardarPlanoDigitalPDF(formdata).subscribe(
           res => {
             console.log(res)
+            alert('Plano digital cargado correctamente')
+            var element = <HTMLInputElement> document.getElementById("btnPlanoDigital");
+            this.contadorHabilitarBtnMensura += 1
+            element.disabled = true;
           },
           err => console.error(err)
         )
@@ -289,6 +350,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         this.mensuraInyectada.guardarPlanoProyectoObrasPDF(formdata).subscribe(
           res => {
             console.log(res)
+            alert('Plano proyecto obra cargado correctamente')
+            var element = <HTMLInputElement> document.getElementById("btnPlanoProyecto");
+            this.contadorHabilitarBtnMensura += 1
+            element.disabled = true;
           },
           err => console.error(err)
         )
@@ -310,6 +375,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         this.mensuraInyectada.guardarSubsistenciaPDF(formdata).subscribe(
           res => {
             console.log(res)
+            alert('Subsistencia agregada correctamente')
+            var element = <HTMLInputElement> document.getElementById("btnSubsistencia");
+            this.contadorHabilitarBtnMensura += 1
+            element.disabled = true;
           },
           err => console.error(err)
         )
@@ -317,6 +386,29 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
       err => console.error(err)
     )
 
+  }
+
+  elegirOpcionVisacion(event){
+    this.visacionA.tipo = event.target.value
+
+  }
+
+  elegirOpcionEstadoCuenta(event){
+    this.estadoCuenta.db_nodb = event.target.value
+    var element = <HTMLInputElement> document.getElementById(this.nombreBtn);
+    element.disabled = false;
+    this.comprobarSiSon12()
+  }
+
+  elegirOpcionMemoria(event){
+    this.memoriaD.db_nodbmem = event.target.value
+    var element = <HTMLInputElement> document.getElementById(this.nombreBtn);
+    element.disabled = false;
+    this.comprobarSiSon12()
+  }
+
+  agregarVisacionAgrimensor(){
+    console.log('Enviar tocado', this.visacionA)
   }
 
   agregarVisacionAgrimensores(){
@@ -332,6 +424,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         this.mensuraInyectada.guardarVisacionAgrimensoresPDF(formdata).subscribe(
           res => {
             console.log(res)
+            alert('Visacion agrimensores cargada correctamente')
+            var element = <HTMLInputElement> document.getElementById("btnVisacionA");
+            this.contadorHabilitarBtnMensura += 1
+            element.disabled = true;
           },
           err => console.error(err)
         )
@@ -353,6 +449,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         this.mensuraInyectada.guardarVisacionMunicipalPDF(formdata).subscribe(
           res => {
             console.log(res)
+            alert('Visacion municipal cargada correctamente')
+            var element = <HTMLInputElement> document.getElementById("btnVisacionM");
+            this.contadorHabilitarBtnMensura += 1
+            element.disabled = true;
           },
           err => console.error(err)
         )
@@ -375,7 +475,7 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         this.updateCitacionColindante(this.id.id_citacion_colindante)
         this.updateCopiaEscritura(this.id.id_copia_escritura)
         this.updateEstadoCuenta(this.id.id_estado_cuenta)
-        //this.updateMemoriaDescriptiva(this.id.id_memoria_descriptiva)
+        this.updateMemoriaDescriptiva(this.id.id_memoria_descriptiva)
         this.updateNotificacion(this.id.id_notificacion)
         this.updatePlanoDigital(this.id.id_planoDigital)
         this.updatePlanoProyectoObra(this.id.id_plano_proyecto_obra)
@@ -389,6 +489,9 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         this.historialInyectado.guardarHistorial(this.historial).subscribe(
           res =>{
             console.log(res)
+            alert('Mensura generada correctamente')
+            var element = <HTMLInputElement> document.getElementById("btnGenerarCaratula");
+            element.disabled = true;
           },
           err => console.error(err)
         )       

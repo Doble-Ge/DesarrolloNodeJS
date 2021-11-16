@@ -23,7 +23,7 @@ export class DownloadService {
     const options = {
       params: param
     };
-    return this.http.get(this.API_URL + 'Aprobacion_agrimensuraPDF/download', {...options, responseType: 'blob'});
+    return this.http.get(this.API_URL + 'aprobacion_agrimensuraPDF/download', {...options, responseType: 'blob'});
   }
 
   downloadCeritificado(x: string): Observable<any>{
