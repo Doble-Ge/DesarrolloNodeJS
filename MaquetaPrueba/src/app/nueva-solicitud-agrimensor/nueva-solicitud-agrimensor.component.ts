@@ -12,6 +12,7 @@ import { MensuraService } from '../services/mensura.service';
   styleUrls: ['./nueva-solicitud-agrimensor.component.scss']
 })
 export class NuevaSolicitudAgrimensorComponent implements OnInit {
+  
   stringNombreArchivo: string
   historial: Historial = new Historial()
   tipoFormulario: string;
@@ -32,10 +33,9 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
   visacionM: VisacionMunicipal = new VisacionMunicipal()
   caratula: Caratula = new Caratula()
   id: id_Mensuras = new id_Mensuras()
-
   id_mensura: any 
 
-  FechaHora: Date = new Date()
+  
   pdf
   constructor(private mensuraInyectada: MensuraService, private caratulaInyectada: CaratulasService,
               private historialInyectado: HistorialService) { }
@@ -108,9 +108,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
 
   agregarActaConformidad(){
     const formdata = new FormData()
-    formdata.append("myFile",this.pdf)
-    const nombreArchivo = `${this.FechaHora.getDate()}-${this.FechaHora.getMonth()}-${this.FechaHora.getHours()}-${this.FechaHora.getMinutes()}_${this.stringNombreArchivo.substring(12)}`
-    this.acta.pdf_acta += nombreArchivo
+    formdata.append("acta",this.pdf)
+    let FechaHora: Date = new Date()
+    let nombreArchivo = `acta_${FechaHora.getDate()}-${FechaHora.getMonth()+1}-${FechaHora.getFullYear()}_${FechaHora.getHours()}-${FechaHora.getMinutes()}_${this.stringNombreArchivo.substring(12)}`
+    this.acta.pdf_acta = nombreArchivo
     this.mensuraInyectada.guardarActaConformidad(this.acta).subscribe(
       res => {
         console.log(res)
@@ -128,7 +129,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
 
   agregarAprobacionAgrimensura(){
     const formdata = new FormData()
-    formdata.append("myFile",this.pdf)
+    formdata.append("aprobacion_agrimensura",this.pdf)
+    let FechaHora: Date = new Date()
+    let nombreArchivo = `aprobacion_agrimensura_${FechaHora.getDate()}-${FechaHora.getMonth()+1}-${FechaHora.getFullYear()}_${FechaHora.getHours()}-${FechaHora.getMinutes()}_${this.stringNombreArchivo.substring(12)}`
+    this.aprobacion.pdf_aprobacion_agrimensura = nombreArchivo
     this.mensuraInyectada.guardarAprobacionAgrimensura(this.aprobacion).subscribe(
       res => {
         console.log(res)
@@ -146,7 +150,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
 
   agregarCertificado(){
     const formdata = new FormData()
-    formdata.append("myFile",this.pdf)
+    formdata.append("certificado",this.pdf)
+    let FechaHora: Date = new Date()
+    let nombreArchivo = `certificado_${FechaHora.getDate()}-${FechaHora.getMonth()+1}-${FechaHora.getFullYear()}_${FechaHora.getHours()}-${FechaHora.getMinutes()}_${this.stringNombreArchivo.substring(12)}`
+    this.certificado.pdf_certificado = nombreArchivo
     this.mensuraInyectada.guardarCertificados(this.certificado).subscribe(
       res => {
         console.log(res)
@@ -164,7 +171,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
 
   agregarCitacionColindante(){
     const formdata = new FormData()
-    formdata.append("myFile",this.pdf)
+    formdata.append("citacion_colindante",this.pdf)
+    let FechaHora: Date = new Date()
+    let nombreArchivo = `citacion_colindante_${FechaHora.getDate()}-${FechaHora.getMonth()+1}-${FechaHora.getFullYear()}_${FechaHora.getHours()}-${FechaHora.getMinutes()}_${this.stringNombreArchivo.substring(12)}`
+    this.citacion.pdf_citacion = nombreArchivo
     this.mensuraInyectada.guardarCitacionColindantes(this.citacion).subscribe(
       res => {
         console.log(res)
@@ -182,7 +192,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
 
   agregarCopiaEscritura(){
     const formdata = new FormData()
-    formdata.append("myFile",this.pdf)
+    formdata.append("copia_escritura",this.pdf)
+    let FechaHora: Date = new Date()
+    let nombreArchivo = `copia_escritura_${FechaHora.getDate()}-${FechaHora.getMonth()+1}-${FechaHora.getFullYear()}_${FechaHora.getHours()}-${FechaHora.getMinutes()}_${this.stringNombreArchivo.substring(12)}`
+    this.copia.pdf_escritura = nombreArchivo
     this.mensuraInyectada.guardarCopiaEscritura(this.copia).subscribe(
       res => {
         console.log(res)
@@ -221,7 +234,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
 
   agregarNotificaciones(){
     const formdata = new FormData()
-    formdata.append("myFile",this.pdf)
+    formdata.append("notificacion",this.pdf)
+    let FechaHora: Date = new Date()
+    let nombreArchivo = `notificacion_${FechaHora.getDate()}-${FechaHora.getMonth()+1}-${FechaHora.getFullYear()}_${FechaHora.getHours()}-${FechaHora.getMinutes()}_${this.stringNombreArchivo.substring(12)}`
+    this.notificacion.pdf_notificacion = nombreArchivo
     this.mensuraInyectada.guardarNotificaciones(this.notificacion).subscribe(
       res => {
         console.log(res)
@@ -240,7 +256,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
 
   agregarPlanoDigital(){
     const formdata = new FormData()
-    formdata.append("myFile",this.pdf)
+    formdata.append("plano_digital",this.pdf)
+    let FechaHora: Date = new Date()
+    let nombreArchivo = `plano_digital_${FechaHora.getDate()}-${FechaHora.getMonth()+1}-${FechaHora.getFullYear()}_${FechaHora.getHours()}-${FechaHora.getMinutes()}_${this.stringNombreArchivo.substring(12)}`
+    this.planoDigital.pdf_plano_digital = nombreArchivo
     this.mensuraInyectada.guardarPlanoDigital(this.planoDigital).subscribe(
       res => {
         console.log(res)
@@ -259,7 +278,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
 
   agregarPlanoProyectoObras(){
     const formdata = new FormData()
-    formdata.append("myFile",this.pdf)
+    formdata.append("plano_proyecto_obra",this.pdf)
+    let FechaHora: Date = new Date()
+    let nombreArchivo = `plano_proyecto_obra_${FechaHora.getDate()}-${FechaHora.getMonth()+1}-${FechaHora.getFullYear()}_${FechaHora.getHours()}-${FechaHora.getMinutes()}_${this.stringNombreArchivo.substring(12)}`
+    this.planoProyectoObras.pdf_proyecto_obra = nombreArchivo
     this.mensuraInyectada.guardarPlanoProyectoObras(this.planoProyectoObras).subscribe(
       res => {
         console.log(res)
@@ -277,7 +299,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
 
   agregarSubsistencia(){
     const formdata = new FormData()
-    formdata.append("myFile",this.pdf)
+    formdata.append("subsistencia",this.pdf)
+    let FechaHora: Date = new Date()
+    let nombreArchivo = `subsistencia_${FechaHora.getDate()}-${FechaHora.getMonth()+1}-${FechaHora.getFullYear()}_${FechaHora.getHours()}-${FechaHora.getMinutes()}_${this.stringNombreArchivo.substring(12)}`
+    this.susbsitencia.pdf_subsistencia = nombreArchivo
     this.mensuraInyectada.guardarSubsistencia(this.susbsitencia).subscribe(
       res => {
         console.log(res)
@@ -296,7 +321,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
 
   agregarVisacionAgrimensores(){
     const formdata = new FormData()
-    formdata.append("myFile",this.pdf)
+    formdata.append("visacion_agrimensores",this.pdf)
+    let FechaHora: Date = new Date()
+    let nombreArchivo = `visacion_agrimensores_${FechaHora.getDate()}-${FechaHora.getMonth()+1}-${FechaHora.getFullYear()}_${FechaHora.getHours()}-${FechaHora.getMinutes()}_${this.stringNombreArchivo.substring(12)}`
+    this.visacionA.pdf_visado_agrimensores = nombreArchivo
     this.mensuraInyectada.guardarVisacionAgrimensores(this.visacionA).subscribe(
       res => {
         console.log(res)
@@ -314,7 +342,10 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
 
   agregarVisacionMunicipal(){
     const formdata = new FormData()
-    formdata.append("myFile",this.pdf)
+    formdata.append("visacion_municipal",this.pdf)
+    let FechaHora: Date = new Date()
+    let nombreArchivo = `visacion_municipal_${FechaHora.getDate()}-${FechaHora.getMonth()+1}-${FechaHora.getFullYear()}_${FechaHora.getHours()}-${FechaHora.getMinutes()}_${this.stringNombreArchivo.substring(12)}`
+    this.visacionM.pdf_visacion_municipal = nombreArchivo
     this.mensuraInyectada.guardarVisacionMunicipal(this.visacionM).subscribe(
       res => {
         console.log(res)
@@ -336,7 +367,7 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         console.log(res)
         this.id_mensura = Object.values(res)[1].id
         console.log(this.id_mensura)
-        
+        const FechaHora: Date = new Date()
         this.updateSubsistencia(this.id.id_subsistencia)
         this.updateActaConformidad(this.id.id_acta_conformidad)
         this.updateAprobacionAgrimensura(this.id.id_aprobacion_agrimensura)
@@ -350,7 +381,7 @@ export class NuevaSolicitudAgrimensorComponent implements OnInit {
         this.updatePlanoProyectoObra(this.id.id_plano_proyecto_obra)
         this.updateVisacionAgrimensores(this.id.id_visacion_agrimensores)
         this.updateVisacionMunicipal(this.id.id_visacion_municipal)
-        this.historial.fechahora = `${this.FechaHora.getDate()}/${this.FechaHora.getMonth()}/${this.FechaHora.getFullYear()}  ${this.FechaHora.getHours()}:${this.FechaHora.getMinutes()}`
+        this.historial.fechahora = `${FechaHora.getDate()}/${FechaHora.getMonth()+1}/${FechaHora.getFullYear()}  ${FechaHora.getHours()}:${FechaHora.getMinutes()}`
         console.log(this.historial.fechahora)
         this.historial.mensura_id = this.id_mensura
         console.log(this.historial)

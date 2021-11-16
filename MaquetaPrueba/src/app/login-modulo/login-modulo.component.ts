@@ -15,7 +15,7 @@ export class LoginModuloComponent implements OnInit {
   usuario: Usuario = new Usuario()
   usuarioDesdeBase: any
   data
-  fileName = 'myFile-1636916929801Acta-conformidad_Matias-Fuentes.pdf'
+  fileName = 'acta_15-11-2021_21-29_Acta-conformidad_Matias-Fuentes.pdf'
 
   constructor(private usuarioInyectado: UsuarioService, private Ruta: Router, private donwloadService: DownloadService) { }
 

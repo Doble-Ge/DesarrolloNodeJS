@@ -1,11 +1,6 @@
 const multer = require('multer')
 
-let date = new Date()
-let day = date.getDate()
-let mes = date.getMonth()+1
-let anio = date.getFullYear()
-let horas = date.getHours()
-let minutos = date.getMinutes()
+
 const storage = multer.diskStorage({
 
     
@@ -14,6 +9,12 @@ const storage = multer.diskStorage({
     },
     filename: function (req, file, cb){
     //    console.log(file);
+    let date = new Date()
+    let day = date.getDate()
+    let mes = date.getMonth()+1
+    let anio = date.getFullYear()
+    let horas = date.getHours()
+    let minutos = date.getMinutes() 
 
  cb(null, file.fieldname + '_' + day +'-' + mes + '-' + anio + '_'+ horas +'-' + minutos +'_'+file.originalname)
 
