@@ -34,6 +34,9 @@ export class SolicitudesMensuraComponent implements OnInit {
     this.historialSeleccionado.estado = historial.estado
     this.historialSeleccionado.usuario = historial.usuario
     this.historialSeleccionado.fechahora = historial.fechahora
+    this.historialSeleccionado.area = historial.area
+    this.historialSeleccionado.id = historial.id
+    this.historialSeleccionado.mail_user = historial.mail_user
     this.historialInyectado.historial = this.historialSeleccionado
     this.Ruta.navigateByUrl('/controlMensura')
   }

@@ -3,7 +3,33 @@
         <h1>Solicitud de Mensura</h1>
         <button class="btn btn-outline-danger botonCabecera">Volver</button>
         <button class="btn btn-outline-danger botonCabecera">Guardar Borrador</button>
-        <button id="btnPresentar" class="btn btn-danger">Presentar y Pegar</button>
+        <label for="">Cambiar estado:</label>
+        <select (change) = 'seleccionarEstado($event)'>
+            <option selected disabled hidden style='display: none' value=''></option>
+            <option value="Pendiente">Pendiente</option>
+            <option value="Observado">Observado</option>
+            <option value="Listo">Listo</option>
+        </select>
+        <button (click) = 'updateEstadoHistorial()' class='btn btn-danger'>Actualizar</button>
+        <label for="">Enviar a:</label>
+        <select (change) = 'seleccionarArea($event)'>
+            <option selected disabled hidden style='display: none' value=''></option>
+            <option value="Dirección">Dirección</option>
+            <option value="Mesa de entrada">Mesa de Entrada</option>
+            <option value="Legales">Legales</option>
+            <option value="Agrimensura">Agrimensura</option>
+            <option value="Sistemas">Sistemas</option>
+            <option value="Secretaria">Secretaria</option>
+            <option value="Disposiciones">Disposiciones</option>
+            <option value="Archivos">Archivos</option>
+            <option value="Valuaciones">Valuaciones</option>
+        </select>
+        <button (click) = 'updateAreaHistorial()' class='btn btn-danger'>Enviar</button>
+        <button (click) = 'enviarCorreo()' class="btn btn-danger">Enviar observaciones</button>
+        <br>
+        <label for="">Estado actual: {{ estadoHistorial }}  </label>
+        <br>
+        <label>Area actual: {{ areaHistorial }} </label>
     </div>
     
     
@@ -42,7 +68,8 @@
                     <br>
                     <div class="form-group">
                         <label for="observaciones">Observaciones</label>
-                        <input type="text" name="observaciones" class="form-control"> 
+                        <input [(ngModel)]= 'subsistencia.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button class= 'btn btn-danger' (click) = 'updateSubsistencia()'>Agregar observacion</button>
                     </div>
                 </form>
             </div> 
@@ -53,7 +80,8 @@
                     <br>
                     <div class="form-group">
                         <label for="observaciones">Observaciones</label>
-                        <input type="text" name="observaciones" class="form-control"> 
+                        <input [(ngModel)] = 'certificado.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updateCertificado()' class= 'btn btn-danger'>Agregar observacion</button>
                     </div>
                 </form>
             </div>
@@ -63,7 +91,8 @@
                     <br>
                     <div class="form-group">
                         <label for="observaciones">Observaciones</label>
-                        <input type="text" name="observaciones" class="form-control"> 
+                        <input [(ngModel)] = 'estadoCuenta.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button  (click) = 'updateEstadoCuenta()' class= 'btn btn-danger'>Agregar observacion</button>
                     </div>
                 </form>
             </div>
@@ -73,7 +102,8 @@
                     <br>
                     <div class="form-group">
                         <label for="observaciones">Observaciones</label>
-                        <input type="text" name="observaciones" class="form-control"> 
+                        <input [(ngModel)] = 'copiaEscritura.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updateCopiaEscrituras()' class= 'btn btn-danger'>Agregar observacion</button>
                     </div>
                 </form>
             </div>
@@ -84,7 +114,8 @@
                     <br>
                     <div class="form-group">
                         <label for="observaciones">Observaciones</label>
-                        <input type="text" name="observaciones" class="form-control"> 
+                        <input [(ngModel)] = 'visacionAgrimensores.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updateVisacionAgrimensores()' class= 'btn btn-danger'>Agregar observacion</button>
                     </div>
                 </form>
             </div>
@@ -94,7 +125,8 @@
                     <br>
                     <div class="form-group">
                         <label for="observaciones">Observaciones</label>
-                        <input type="text" name="observaciones" class="form-control"> 
+                        <input [(ngModel)] = 'notificacion.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updateNotificacion()' class= 'btn btn-danger'>Agregar observacion</button>
                     </div>
                 </form>
             </div>
@@ -104,7 +136,8 @@
                     <br>
                     <div class="form-group">
                         <label for="observaciones">Observaciones</label>
-                        <input type="text" name="observaciones" class="form-control"> 
+                        <input [(ngModel)] = 'citacionColindante.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updateCitacion()' class= 'btn btn-danger'>Agregar observacion</button>
                     </div>
                 </form>
             </div>
@@ -114,7 +147,8 @@
                     <br>
                     <div class="form-group">
                         <label for="observaciones">Observaciones</label>
-                        <input type="text" name="observaciones" class="form-control"> 
+                        <input [(ngModel)] = 'actaConformidad.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updateActaConformidad()' class= 'btn btn-danger'>Agregar observacion</button>
                     </div>
                 </form>
             </div>
@@ -125,7 +159,8 @@
                     <br>
                     <div class="form-group">
                         <label for="observaciones">Observaciones</label>
-                        <input type="text" name="observaciones" class="form-control"> 
+                        <input [(ngModel)] = 'memoriaDescriptiva.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updateMemoria()' class= 'btn btn-danger'>Agregar observacion</button>
                     </div>
                 </form>
             </div>
@@ -135,7 +170,8 @@
                     <br>
                     <div class="form-group">
                         <label for="observaciones">Observaciones</label>
-                        <input type="text" name="observaciones" class="form-control"> 
+                        <input [(ngModel)] = 'visacionMunicipal.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updateVisacionMunicipal()' class= 'btn btn-danger'>Agregar observacion</button>
                     </div>
                 </form>
             </div>
@@ -145,7 +181,8 @@
                     <br>
                     <div class="form-group">
                         <label for="observaciones">Observaciones</label>
-                        <input type="text" name="observaciones" class="form-control"> 
+                        <input [(ngModel)] = 'planoProyecto.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updatePlanoProyecto()' class= 'btn btn-danger'>Agregar observacion</button>
                     </div>
                 </form>
             </div>
@@ -155,7 +192,8 @@
                     <br>
                     <div class="form-group">
                         <label for="observaciones">Observaciones</label>
-                        <input type="text" name="observaciones" class="form-control"> 
+                        <input [(ngModel)] = 'aprobacionAgrimensura.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updateAprobacion()' class= 'btn btn-danger'>Agregar observacion</button>
                     </div>
                 </form>
             </div>
@@ -165,7 +203,8 @@
                     <br>
                     <div class="form-group">
                         <label for="observaciones">Observaciones</label>
-                        <input type="text" name="observaciones" class="form-control"> 
+                        <input [(ngModel)] = 'planoDigital.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updatePlanoDigital()' class= 'btn btn-danger'>Agregar observacion</button>
                     </div>
                 </form>
             </div>

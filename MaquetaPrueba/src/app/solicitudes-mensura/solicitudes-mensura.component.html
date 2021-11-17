@@ -23,18 +23,18 @@
             <th scope="col">Estado</th>
             <th scope="col">Usuario</th>
             <th scope="col">Fecha y Hora</th>
-            <th scope="col">Prioridad</th>
+            <th scope="col">Area</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor = 'let historiales of arr'>
+          <tr (click)='pasarHistorial(historiales)' *ngFor = 'let historiales of arr'>
            
-                <th scope="row" (click)='pasarHistorial(historiales)'> {{ historiales.id }} </th>
+                <th scope="row" > {{ historiales.id }} </th>
                 <td> {{ historiales.mensura_id }} </td>
                 <td> {{ historiales.estado}} </td>
                 <td> {{ historiales.usuario }} </td>
                 <td> {{ historiales.fechahora }} </td>
-                <td> {{ prioridad }} </td>
+                <td> {{ historiales.area }} </td>
           
       
           </tr>

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { ChildActivationStart } from '@angular/router';
+import { CorreoObservacion } from 'src/app/models/correoObservacion';
+import { Historial } from 'src/app/models/historial';
 import { ActaConformidad, AprobacionAgrimensura, Certificados, CitacionColindantes, CopiaEscritura, EstadoCuenta, MemoriaDescriptivas, Notificaciones, PlanoDigital, PlanoProyectoObras, Subsistencia, VisacionAgrimensores, VisacionMunicipal } from 'src/app/models/mensura';
+import { CorreoClaveService } from 'src/app/services/correo-clave.service';
 import { DownloadService } from 'src/app/services/download.service';
 import { HistorialService } from 'src/app/services/historial.service';
 import { MensuraService } from 'src/app/services/mensura.service';
@@ -10,6 +14,10 @@ import { MensuraService } from 'src/app/services/mensura.service';
   styleUrls: ['./nueva-solicitud.component.scss']
 })
 export class NuevaSolicitudComponent implements OnInit {
+  mailEnvio: CorreoObservacion = new CorreoObservacion()
+  estadoHistorial: string
+  areaHistorial: string
+  id_historial: number
   nroBtn: number
   actaConformidad: ActaConformidad = new ActaConformidad()
   aprobacionAgrimensura: AprobacionAgrimensura = new AprobacionAgrimensura()
@@ -24,11 +32,17 @@ export class NuevaSolicitudComponent implements OnInit {
   subsistencia: Subsistencia = new Subsistencia()
   visacionAgrimensores: VisacionAgrimensores = new VisacionAgrimensores()
   visacionMunicipal: VisacionMunicipal = new VisacionMunicipal()
+  historialLocal: Historial = new Historial()
   constructor(private mensuraInyectada: MensuraService, private historialIny: HistorialService,
-              private descargaService: DownloadService) { }
+              private descargaService: DownloadService, private mailInyectado: CorreoClaveService) { }
 
   ngOnInit(): void {
     console.log(this.historialIny.historial)
+    this.historialLocal = this.historialIny.historial
+    this.id_historial = this.historialLocal.id
+    this.estadoHistorial = this.historialLocal.estado
+    this.areaHistorial = this.historialLocal.area
+    this.mailEnvio.mensaje += this.historialLocal.mensura_id + ':\n'
     this.obtenerActa()
     this.obtenerAprobacion()
     this.obtenerCitacion()
@@ -89,8 +103,6 @@ export class NuevaSolicitudComponent implements OnInit {
       res => {
         const data = Object.values(res)
         this.actaConformidad = data[0]
-
-        console.log(this.actaConformidad)
       },
       err => console.error(err)
     )
@@ -101,7 +113,6 @@ export class NuevaSolicitudComponent implements OnInit {
       res => {
         const data = Object.values(res)
         this.aprobacionAgrimensura = data[0]
-        console.log(this.aprobacionAgrimensura)
       },
       err => console.error(err)
     )
@@ -152,7 +163,6 @@ export class NuevaSolicitudComponent implements OnInit {
      res => {
        const data = Object.values(res)
        this.memoriaDescriptiva = data[0]
-       console.log("Res:", data[0], "MEMORIA: ", this.memoriaDescriptiva  )
      },
      err => console.error(err)
    )
@@ -320,5 +330,245 @@ export class NuevaSolicitudComponent implements OnInit {
         window.open(url)
       }
     })
+  }
+
+  updateSubsistencia(){
+    const id = this.subsistencia.id
+    delete this.subsistencia.id
+    delete this.subsistencia.mensura_id
+    delete this.subsistencia.pdf_subsistencia
+    delete this.subsistencia.titulo_subsistencia
+    this.mailEnvio.mensaje += 'Subsistencia: ' + this.subsistencia.observacion + '\n'
+    this.mensuraInyectada.updateSubsistencia(id, this.subsistencia).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
+  }
+
+  updateCertificado(){
+    const id = this.certificado.id
+    delete this.certificado.informe_catastral
+    delete this.certificado.mensura_id
+    delete this.certificado.pdf_certificado
+    this.mailEnvio.mensaje += 'Certificado: ' + this.certificado.observacion + '\n'
+    this.mensuraInyectada.updateCertificados(id, this.certificado).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
+  }
+
+  updateEstadoCuenta(){
+    const id = this.estadoCuenta.id
+    delete this.estadoCuenta.db_nodb
+    delete this.estadoCuenta.id
+    delete this.estadoCuenta.mensura_id
+    this.mailEnvio.mensaje += 'Estado cuenta: ' + this.estadoCuenta.observacion + '\n'
+    this.mensuraInyectada.updateEstadoCuenta(id, this.estadoCuenta).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
+  }
+  
+  updateCopiaEscrituras(){
+    const id = this.copiaEscritura.id
+    delete this.copiaEscritura.id
+    delete this.copiaEscritura.mensura_id
+    delete this.copiaEscritura.pdf_escritura
+    this.mailEnvio.mensaje += 'Copia escrituras: ' + this.copiaEscritura.observacion + '\n'
+    this.mensuraInyectada.updateCopiaEscritura(id, this.estadoCuenta).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
+  }
+
+  updateVisacionAgrimensores(){
+    const id = this.visacionAgrimensores.id 
+    delete this.visacionAgrimensores.id
+    delete this.visacionAgrimensores.mensura_id
+    delete this.visacionAgrimensores.pdf_visado_agrimensores
+    delete this.visacionAgrimensores.tipo
+    this.mailEnvio.mensaje += 'Visacion Agrimensores: ' + this.visacionAgrimensores.observacion + '\n'
+    this.mensuraInyectada.updateVisacionAgrimensores(id, this.visacionAgrimensores).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
+  }
+
+  updateNotificacion(){
+    const id = this.notificacion.id
+    delete this.notificacion.id
+    delete this.notificacion.mensura_id
+    delete this.notificacion.pdf_notificacion
+    this.mailEnvio.mensaje += 'Notificacion: ' + this.notificacion.observacion + '\n'
+    this.mensuraInyectada.updateNotificaciones(id, this.notificacion).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
+  }
+
+  updateCitacion(){
+    const id = this.citacionColindante.id
+    delete this.citacionColindante.id
+    delete this.citacionColindante.mensura_id
+    delete this.citacionColindante.pdf_citacion
+    this.mailEnvio.mensaje += 'Citacion: ' + this.citacionColindante.observacion + '\n'
+    this.mensuraInyectada.updateCitacionColindante(id, this.citacionColindante).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
+  }
+
+  updateActaConformidad(){
+    const id = this.actaConformidad.id
+    delete this.actaConformidad.id
+    delete this.actaConformidad.mensura_id
+    delete this.actaConformidad.pdf_acta
+    this.mailEnvio.mensaje += 'Acta conformidad: ' + this.actaConformidad.observacion + '\n'
+    this.mensuraInyectada.updateActaConformidad(id, this.actaConformidad).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
+  }
+
+  updateMemoria(){
+    const id = this.memoriaDescriptiva.id
+    delete this.memoriaDescriptiva.id
+    delete this.memoriaDescriptiva.db_nodbmem
+    delete this.memoriaDescriptiva.cantidad
+    delete this.memoriaDescriptiva.mensura_id
+    this.mailEnvio.mensaje += 'Memoria descriptiva: ' + this.memoriaDescriptiva.observacion + '\n'
+    this.mensuraInyectada.updateMemoriasDescriptivas(id, this.memoriaDescriptiva).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
+  }
+
+  updateVisacionMunicipal(){
+    const id = this.visacionMunicipal.id
+    delete this.visacionMunicipal.id
+    delete this.visacionMunicipal.pdf_visacion_municipal
+    delete this.visacionMunicipal.mensura_id
+    this.mailEnvio.mensaje += 'Visacion municipal: ' + this.memoriaDescriptiva.observacion + '\n'
+    this.mensuraInyectada.updateVisacionMunicipal(id, this.visacionMunicipal).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
+  }
+
+  updatePlanoProyecto(){
+    const id = this.planoProyecto.id
+    delete this.planoProyecto.id
+    delete this.planoProyecto.pdf_proyecto_obra
+    delete this.planoProyecto.mensura_id
+    this.mailEnvio.mensaje += 'Plano proyecto obra: ' + this.planoProyecto.observacion + '\n'
+    this.mensuraInyectada.updatePlanoProyectoObras(id, this.planoProyecto).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
+  }
+
+  updateAprobacion(){
+    const id = this.aprobacionAgrimensura.id
+    delete this.aprobacionAgrimensura.id
+    delete this.aprobacionAgrimensura.mensura_id
+    delete this.aprobacionAgrimensura.pdf_aprobacion_agrimensura
+    this.mailEnvio.mensaje += 'Aprobacion: ' + this.aprobacionAgrimensura.observacion + '\n'
+    this.mensuraInyectada.updateAprobacionAgrimensura(id, this.aprobacionAgrimensura).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
+  }
+
+  updatePlanoDigital(){
+    const id = this.planoDigital.id
+    delete this.planoDigital.id
+    delete this.planoDigital.mensura_id
+    delete this.planoDigital.pdf_plano_digital
+    this.mailEnvio.mensaje += 'Plano digital: ' + this.planoDigital.observacion + '\n'
+    this.mensuraInyectada.updatePlanoDigital(id, this.planoDigital).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
+  }
+
+  seleccionarEstado(event: any){
+    this.historialLocal.estado = event.target.value 
+  }
+
+  seleccionarArea(event: any) {
+    this.historialLocal.area = event.target.value
+    console.log(this.historialLocal.area)
+  }
+
+  updateEstadoHistorial(){
+    delete this.historialLocal.id
+    delete this.historialLocal.area
+    delete this.historialLocal.fechahora
+    delete this.historialLocal.mensura_id
+    delete this.historialLocal.usuario
+    this.historialIny.updateHistorial(this.id_historial, this.historialLocal).subscribe(
+      res => {
+        console.log(res)
+        this.estadoHistorial = this.historialLocal.estado
+        alert('Se ha actualizado el estado con éxito.')
+      },
+      err => console.log(err)
+    )
+  }
+
+  updateAreaHistorial(){
+    delete this.historialLocal.id
+    delete this.historialLocal.estado
+    delete this.historialLocal.fechahora
+    delete this.historialLocal.mensura_id
+    delete this.historialLocal.usuario
+    console.log(this.historialLocal.area)
+    this.historialIny.updateHistorial(this.id_historial, this.historialLocal).subscribe(
+      res => {
+        console.log(res)
+        this.areaHistorial = this.historialLocal.area
+        alert('Se ha actualizado el área con éxito')
+      },
+      err => console.log(err)
+    )
+  }
+
+  enviarCorreo(){
+    this.mailEnvio.email = this.historialLocal.mail_user
+    
+    this.mailEnvio.asunto += this.historialLocal.usuario
+    this.mailInyectado.postMail(this.mailEnvio).subscribe(
+      res => {
+        console.log(res)
+      },
+      err => console.error(err)
+    )
+
   }
 }
