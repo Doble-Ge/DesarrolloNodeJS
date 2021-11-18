@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PlatformLocation } from '@angular/common';
 import { Router } from '@angular/router';
 import { Caratula } from '../models/caratula';
 import { CaratulaExterno } from '../models/caratulaExterno';
@@ -20,8 +21,10 @@ export class ConsultaCaratulasComponent implements OnInit {
   data
   index = 0
   tipoCaratula:string
-  constructor(private caratulaInyectada: CaratulasService, private Ruta: Router) {
-
+  constructor(private caratulaInyectada: CaratulasService, private Ruta: Router, location: PlatformLocation) {
+      location.onPopState(()=>{
+        this.caratulaInyectada.imprimirCaratula = false
+      })
    }
 
   ngOnInit(): void {
@@ -69,21 +72,25 @@ export class ConsultaCaratulasComponent implements OnInit {
   }
 
   verCaratulaNota(caratula: CaratulaNota){
+    this.caratulaInyectada.imprimirCaratula = true
     this.caratulaInyectada.caratulaNota = caratula
     this.Ruta.navigateByUrl('/caratulaNotaImprimir')
   }
 
   verCaratulaMensura(caratula: Caratula) {
+    this.caratulaInyectada.imprimirCaratula = true
     this.caratulaInyectada.caratulaExp = caratula
     this.Ruta.navigateByUrl("/caratulaImprimir")
   }
 
   verCaratulaOficio(caratula: CaratulaOficio) {
+    this.caratulaInyectada.imprimirCaratula = true
     this.caratulaInyectada.caratulaOficio = caratula
     this.Ruta.navigateByUrl("/caratulaOficiosImprimir")
   }
 
   verCaratulaExterno(caratula: CaratulaExterno) {
+    this.caratulaInyectada.imprimirCaratula = true
     this.caratulaInyectada.caratulaExterno = caratula
     this.Ruta.navigateByUrl("/caratulaExternoImprimir")
   }

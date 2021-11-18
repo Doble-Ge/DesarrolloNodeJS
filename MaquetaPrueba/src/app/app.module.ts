@@ -32,6 +32,7 @@ import { ListadoConsultasContactosComponent } from './listado-consultas-contacto
 import { RecuperarClaveComponent } from './recuperar-clave/recuperar-clave.component';
 import { GenerarCaratulaMensuraComponent } from './generar-caratula-mensura/generar-caratula-mensura.component';
 import { CaratulaProbarComponent } from './caratula-probar/caratula-probar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { CaratulaProbarComponent } from './caratula-probar/caratula-probar.compo
     FormsModule,
     NgxQRCodeModule,
     HttpClientModule,
+    NgbModule,
  
   ],
   providers: [
