@@ -10,6 +10,14 @@ export class DownloadService {
 
   constructor(private http: HttpClient) { }
 
+  downloadNotaExp(x: string): Observable<any> {
+    const param = new HttpParams().set('filename', x);
+    const options = {
+      params: param
+    };
+    return this.http.get(this.API_URL + 'notasExpPDF/download', {...options, responseType: 'blob'})
+  }
+
   downloadActaConformidad(x: string): Observable<any>{
     const param = new HttpParams().set('filename', x);
     const options = {

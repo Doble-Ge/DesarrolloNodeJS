@@ -5,10 +5,12 @@ import { CaratulaExternoImprimirComponent } from './caratula-externo-imprimir/ca
 import { CaratulaMensuraImprimirComponent } from './caratula-mensura-imprimir/caratula-mensura-imprimir.component';
 import { CaratulaNotaImprimirComponent } from './caratula-nota-imprimir/caratula-nota-imprimir.component';
 import { CaratulaOficiosImprimirComponent } from './caratula-oficios-imprimir/caratula-oficios-imprimir.component';
+import { CaratulaProbarComponent } from './caratula-probar/caratula-probar.component';
 import { ConsultaCaratulasComponent } from './consulta-caratulas/consulta-caratulas.component';
 import { ConsultarNotasComponent } from './consultar-notas/consultar-notas.component';
 import { ContactoModuloComponent } from './contacto-modulo/contacto-modulo.component';
 import { ExpedienteMensuraComponent } from './expediente-mensura/expediente-mensura.component';
+import { GenerarCaratulaMensuraComponent } from './generar-caratula-mensura/generar-caratula-mensura.component';
 import { GenerarNotasComponent } from './generar-notas/generar-notas.component';
 import { ListadoConsultasContactosComponent } from './listado-consultas-contactos/listado-consultas-contactos.component';
 import { ListadoSolicitudesNuevosUsuariosComponent } from './listado-solicitudes-nuevos-usuarios/listado-solicitudes-nuevos-usuarios.component';
@@ -70,6 +72,9 @@ const routes: Routes = [
     path: 'listadoSolicitudesUsuarios', component: ListadoSolicitudesNuevosUsuariosComponent
   },
   {
+    path: 'generarCaratulaMensura', component: GenerarCaratulaMensuraComponent
+  },
+  {
     path: 'cambioContrasena', component: CambioContrasenaComponent
   },
   {
@@ -83,6 +88,9 @@ const routes: Routes = [
   },
   {
     path: 'recuperarClave', component: RecuperarClaveComponent
+  },
+  {
+    path: 'caratulaProbar', component: CaratulaProbarComponent
   },
   {
     path: '**', component: PaginaErrorComponent

@@ -1,5 +1,6 @@
+import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
-import { ChildActivationStart } from '@angular/router';
+import { ChildActivationStart, Router } from '@angular/router';
 import { CorreoObservacion } from 'src/app/models/correoObservacion';
 import { Historial } from 'src/app/models/historial';
 import { ActaConformidad, AprobacionAgrimensura, Certificados, CitacionColindantes, CopiaEscritura, EstadoCuenta, MemoriaDescriptivas, Notificaciones, PlanoDigital, PlanoProyectoObras, Subsistencia, VisacionAgrimensores, VisacionMunicipal } from 'src/app/models/mensura';
@@ -18,6 +19,7 @@ export class NuevaSolicitudComponent implements OnInit {
   estadoHistorial: string
   areaHistorial: string
   id_historial: number
+  id_mensura: number
   nroBtn: number
   actaConformidad: ActaConformidad = new ActaConformidad()
   aprobacionAgrimensura: AprobacionAgrimensura = new AprobacionAgrimensura()
@@ -34,12 +36,14 @@ export class NuevaSolicitudComponent implements OnInit {
   visacionMunicipal: VisacionMunicipal = new VisacionMunicipal()
   historialLocal: Historial = new Historial()
   constructor(private mensuraInyectada: MensuraService, private historialIny: HistorialService,
-              private descargaService: DownloadService, private mailInyectado: CorreoClaveService) { }
+              private descargaService: DownloadService, private mailInyectado: CorreoClaveService,
+              private Ruta: Router) { }
 
   ngOnInit(): void {
     console.log(this.historialIny.historial)
     this.historialLocal = this.historialIny.historial
     this.id_historial = this.historialLocal.id
+    this.id_mensura = this.historialLocal.mensura_id
     this.estadoHistorial = this.historialLocal.estado
     this.areaHistorial = this.historialLocal.area
     this.mailEnvio.mensaje += this.historialLocal.mensura_id + ':\n'
@@ -570,5 +574,9 @@ export class NuevaSolicitudComponent implements OnInit {
       err => console.error(err)
     )
 
+  }
+
+  pasarHistorial(){
+    this.Ruta.navigateByUrl('/generarCaratulaMensura')
   }
 }

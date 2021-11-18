@@ -1,4 +1,3 @@
-<br>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -11,7 +10,7 @@
 			<div class="col-2">
 				<div class="center">
 					<div class="col-2">
-						<img src="http://190.112.64.77:32819/tierras/tierras/expediente_catastro/img/LRescudo.png">
+						<img src="./img/LRescudo.png">
 						<p class="larioja">LA RIOJA</p>
 						<p class="subtitulo">Dirección General de Catastro</p>
 						<p class="subtitulo"><span>LEY 3.778</span></p>
@@ -25,15 +24,15 @@
 				<div class="center">
 					<div class="col-75p">
 						<div class="border-l-2 border-b-2"><span>NÚMERO</span></div>
-						<div class="border-l-2 border-b-2 renglon-1 ci"><span> <b>{{caratula.numeroInterno}}</b> </span></div>
+						<div class="border-l-2 border-b-2 renglon-1 ci"><span> <b>999999999999</b> </span></div>
 					</div>
 					<div class="col-4">
 						<div class="border-l-2 border-b-2"><span>AÑO</span></div>
-						<div class="border-l-2 border-b-2 renglon-1 ci"><span> <b>{{caratula.anio}}</b> </span></div>
+						<div class="border-l-2 border-b-2 renglon-1 ci"><span> <b>2021</b> </span></div>
 					</div>
 					<div class="col-1">
 						<div class="border-l-2 border-b-2"><span>NÚMERO DE ORIGEN</span></div>
-						<div class="border-l-2 border-b-2 renglon-1 ci"><span> <b>{{caratula.numOrigen}}</b> </span></div>
+						<div class="border-l-2 border-b-2 renglon-1 ci"><span> <b>999999999999999999999999999</b> </span></div>
 					</div>
 					<div class="col-1">
 						<div><h1 class="h1-alternativo">EXPEDIENTE DE MENSURA</h1></div>
@@ -50,27 +49,19 @@
 				<div class="col-8">
 					<div class="border-l-1">
 						<div class="border-b-1 item"><span>URBANO</span></div>
-						<div class="valor"> 
-							<div *ngIf="caratula.tipoParcela == 'urbano'">
-								<img src='http://190.112.64.77:32819/tierras/tierras/expediente_catastro/img/tick.png' width='20px;' />
-							</div> 
-						</div>
+						<div class="valor"> <img src='./img/tick.png' width='20px;' /> </div>
 					</div>
 				</div>
 				<div class="col-8">
 					<div class="border-l-1">
 						<div class="border-b-1 item"><span>RURAL</span></div>
-						<div class="valor"> 
-							<div *ngIf="caratula.tipoParcela == 'rural'">
-								<img src='http://190.112.64.77:32819/tierras/tierras/expediente_catastro/img/tick.png' width='20px;' /> 
-							</div>
-						</div>
+						<div class="valor">  </div>
 					</div>
 				</div>
 				<div class="col-2">
 					<div class="border-l-1">
 						<div class="border-b-1 item"><span>DEPARTAMENTO</span></div>
-						<div class="valor"><span> <b>{{caratula.departamento}}</b> </span></div>
+						<div class="valor"><span> <b>Capital</b> </span></div>
 					</div>
 				</div>
 				<div class="clearfix"></div>
@@ -80,16 +71,16 @@
 			<div>
 				<div class="col-1">
 					<div class="border-b-1 title">Carátula</div>
-					<div class="renglon-2 border-b-1 relative"><span class="">PLANO DE: <b>{{caratula.planoDe}}</b> </span></div>
+					<div class="renglon-2 border-b-1 relative"><span class="">PLANO DE: <b>99999999999999999</b> </span></div>
 				</div>
 				<div class="col-75p">
-					<div class="renglon-1 border-b-1 border-r-1 relative"><span class="">PROFESIONAL: <b>{{caratula.profesional}}</b> </span></div>
+					<div class="renglon-1 border-b-1 border-r-1 relative"><span class="">PROFESIONAL: <b>9999999999999</b> </span></div>
 				</div>
 				<div class="col-4">
-					<div class="renglon-1 border-b-1 relative"><span class="">MATRICULA N°: <b>{{caratula.matricula}}</b> </span></div>
+					<div class="renglon-1 border-b-1 relative"><span class="">MATRICULA N°: <b>999999999</b> </span></div>
 				</div>
 				<div class="col-1">
-					<div class="renglon-2 border-b-1 relative"><span class="">COMITENTE: <b>{{caratula.comitente}}</b> </span></div>
+					<div class="renglon-2 border-b-1 relative"><span class="">COMITENTE: <b>999999999999999</b> </span></div>
 				</div>
 				<div class="col-1">
 					<div class="renglon-1 border-b-1 relative center"><span class="">DISPOSICIÓN PROVISORIA</span></div>
@@ -105,16 +96,16 @@
 				</div>
 				<div class="col-2 center">
 					<div class="renglon-1 border-r-1 relative"><span class="">DISPOSICIÓN DEFINITIVA N°:</span></div>
-					<div class="renglon-1 border-r-1 relative"> <b>{{caratula.disposicionDef}}</b> </div>
+					<div class="renglon-1 border-r-1 relative"> <b></b> </div>
 				</div>
 				<div class="col-2 center">
 					<div class="col-75p">
 						<div class="renglon-1 border-r-1 relative"><span class="">ARCHIVO N°:</span></div>
-						<div class="renglon-1 border-r-1 relative"> <b>{{caratula.numeroArchivo}}</b> </div>
+						<div class="renglon-1 border-r-1 relative"> <b>99999999999999</b> </div>
 					</div>
 					<div class="col-4">
 						<div class="renglon-1 relative"><span class="">FOLIOS</span></div>
-						<div class="renglon-1 relative"> <b>{{caratula.folios}}</b> </div>
+						<div class="renglon-1 relative"> <b>9999</b> </div>
 					</div>
 				</div>
 				
@@ -156,6 +147,7 @@
 				<div class="col-4">
 					<div class="renglon-1 center"><span>CONTROL DEL AGENTE ADM.</span></div>
 				</div>
+				
 						<div class="col-4">
 							<div class="renglon-1 border-r-1 border-t-1"></div>
 						</div>
@@ -289,12 +281,12 @@
 		<div class="fila">
 			<div class="col-1">
 				<div class="border-b-1 title">Observaciones</div>
-				<div class="renglon-2" style="padding: 5px;"><pre>{{caratula.detalle_observacion}}</pre></div>
+				<div class="renglon-2" style="padding: 5px;"><pre>999999999999999999999999</pre></div>
 				<div class="col-2">
 					<div class="renglon-1"></div>
 				</div>
 				<div class="col-2">
-					<div class="">CANTIDAD DE PARCELAS: <b>{{caratula.cantidadParcelas}}</b> </div>
+					<div class="">CANTIDAD DE PARCELAS: <b>1000</b> </div>
 				</div>
 				<!--<div class="renglon-1 border-b-1"><div style="position: relative; width: 300px; display: inline-block; left: 550px;">CANTIDAD DE PARCELAS:</div></div>-->
 			</div>
@@ -310,18 +302,10 @@
 					RETIRADO POR (Firma y aclaración)
 				</div>
 			</div>
-			<div class="col-2"><div class="renglon-1 border-r-1 border-t-1"><span style="padding: 5px;"> <b>{{caratula.fechaIngreso}}  {{caratula.hora}}:{{caratula.minuto}} </b> </span></div></div>
-			<div class="col-2"><div class="renglon-1 border-l-1 border-t-1">
-			</div></div>
+			<div class="col-2"><div class="renglon-1 border-r-1 border-t-1"><span style="padding: 5px;"> <b>28/05/2022  21:44</b> </span></div></div>
+			<div class="col-2"><div class="renglon-1 border-l-1 border-t-1"></div></div>
 			<div class="clearfix"></div>
 		</div>
 	</div>
-<!--	<ngx-qrcode
-		[elementType] = "elementType"
-		[value] = "value"
-		cssClass = "aclass"
-		[errorCorrectionLevel] = "errorCorrectionLevel">
-	</ngx-qrcode>
--->	
 </body>
 </html>

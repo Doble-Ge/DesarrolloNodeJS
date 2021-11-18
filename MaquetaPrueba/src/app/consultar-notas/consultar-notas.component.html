@@ -1,4 +1,5 @@
 <div class="container">
+  <br>
     <table class="table table-striped table-hover table-bordered">
         <thead class="table">
           <tr>
@@ -10,13 +11,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor = 'let notas of arr'>
+          <tr  *ngFor = 'let notas of arr'>
            
                 <th scope="row" > {{ notas.id }} </th>
                 <td> {{ notas.nombreCompleto }} </td>
                 <td> {{ notas.cuil }} </td>
                 <td> {{ notas.descripcion }} </td>
-                <td>  </td>
+                <td><button class = 'btn btn-light' (click) = 'descargarNotaPDF(notas.pdf_notasExp)'>Abrir PDF</button>  </td>
           
       
           </tr>

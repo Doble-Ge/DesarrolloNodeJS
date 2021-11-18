@@ -28,9 +28,10 @@ import { ListadoSolicitudesNuevosUsuariosComponent } from './listado-solicitudes
 import { CambioContrasenaComponent } from './cambio-contrasena/cambio-contrasena.component';
 import { GenerarNotasComponent } from './generar-notas/generar-notas.component';
 import { ConsultarNotasComponent } from './consultar-notas/consultar-notas.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListadoConsultasContactosComponent } from './listado-consultas-contactos/listado-consultas-contactos.component';
 import { RecuperarClaveComponent } from './recuperar-clave/recuperar-clave.component';
+import { GenerarCaratulaMensuraComponent } from './generar-caratula-mensura/generar-caratula-mensura.component';
+import { CaratulaProbarComponent } from './caratula-probar/caratula-probar.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,9 @@ import { RecuperarClaveComponent } from './recuperar-clave/recuperar-clave.compo
     GenerarNotasComponent,
     ConsultarNotasComponent,
     ListadoConsultasContactosComponent,
-    RecuperarClaveComponent
+    RecuperarClaveComponent,
+    GenerarCaratulaMensuraComponent,
+    CaratulaProbarComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +67,7 @@ import { RecuperarClaveComponent } from './recuperar-clave/recuperar-clave.compo
     FormsModule,
     NgxQRCodeModule,
     HttpClientModule,
-    NgbModule
+ 
   ],
   providers: [
     CaratulasService,

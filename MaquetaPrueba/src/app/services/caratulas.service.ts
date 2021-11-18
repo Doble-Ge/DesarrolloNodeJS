@@ -56,4 +56,12 @@ export class CaratulasService {
    listarCaratulaMensura(): Observable<Caratula[]> {
     return this.http.get<Caratula[]>(this.API_URL + '/mensura')
    }
+   
+   getCaratulaMensura(id): Observable<Caratula> {
+     return this.http.get<Caratula>(this.API_URL + '/mensura/' + id)
+   }
+
+   updateCaratulaMensura(id: any, caratula: Caratula): Observable<Caratula> {
+     return this.http.put<Caratula>(this.API_URL + '/mensura/' + id, caratula)
+   }
 }
