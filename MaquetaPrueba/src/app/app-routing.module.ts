@@ -26,7 +26,7 @@ import { SolicitudesMensuraComponent } from './solicitudes-mensura/solicitudes-m
 
 const routes: Routes = [
   {
-    path: '', component: LoginModuloComponent
+    path: 'login', component: LoginModuloComponent
   },
   {
     path: 'registro', component: ModuloRegistroComponent
@@ -54,7 +54,7 @@ const routes: Routes = [
     //NuevaSolicitudComponent
   },
   {
-    path: 'paginaInicio', component: PaginaInicioComponent
+    path: '', component: PaginaInicioComponent
   },
   {
     path: 'controlMensura', component: NuevaSolicitudComponent
