@@ -15,7 +15,7 @@ export class LoginModuloComponent implements OnInit {
   usuario: Usuario = new Usuario()
   usuarioDesdeBase: any
   data
-  fileName = 'myFile-1636916929801Acta-conformidad_Matias-Fuentes.pdf'
+  fileName = 'acta_15-11-2021_21-29_Acta-conformidad_Matias-Fuentes.pdf'
 
   constructor(private usuarioInyectado: UsuarioService, private Ruta: Router, private donwloadService: DownloadService) { }
 
@@ -31,11 +31,17 @@ export class LoginModuloComponent implements OnInit {
         this.usuarioInyectado.comprobacionUsuario(this.data[0]).subscribe(
           res => {
             this.usuarioInyectado.usuarioLogeado = this.data[0]
+            this.usuarioInyectado.loginCorrecto = 1
+            localStorage.setItem('nombre', this.usuarioInyectado.usuarioLogeado.nombre)
+            localStorage.setItem('apellido', this.usuarioInyectado.usuarioLogeado.apellido)
+            localStorage.setItem('mail', this.usuarioInyectado.usuarioLogeado.email )
+            localStorage.setItem('perfil_id', this.usuarioInyectado.usuarioLogeado.perfila_id.toString())
+            localStorage.setItem('logeado', this.usuarioInyectado.loginCorrecto.toString())
             if(this.data[0].primerLogin == true){
               alert("Por ser el primer inicio de sesion, debe cambiar la contraseña")
               this.Ruta.navigateByUrl("/cambioContrasena")
             }else{
-              this.Ruta.navigateByUrl("/paginaInicio")
+              this.Ruta.navigateByUrl("#")
             }
           },
           err => alert("Contraseña incorrecta")
@@ -61,17 +67,4 @@ export class LoginModuloComponent implements OnInit {
     )
   }
 
-  returnBlob(res): Blob {
-    console.log('file download!')
-    return new Blob([res], { type: 'application/pdf'})
-  }
-
-  download() {
-    this.donwloadService.downloadActaConformidad(this.fileName).subscribe(res => {
-      if (res) {
-        const url =window.URL.createObjectURL(this.returnBlob(res));
-        window.open(url)
-      }
-    })
-  }
 }

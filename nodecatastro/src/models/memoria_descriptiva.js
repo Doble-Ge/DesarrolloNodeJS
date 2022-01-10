@@ -7,13 +7,16 @@ const Memoria_descriptiva = sequelize.define('memoria_descriptiva', {
         primaryKey: true
     },
     db_nodbmem: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.TEXT
     },
     cantidad: {
         type: Sequelize.TEXT
     },
     mensura_id: {
         type: Sequelize.INTEGER
+    },
+    observacion: {
+        type: Sequelize.TEXT
     }
 }, {
     timestamps: false

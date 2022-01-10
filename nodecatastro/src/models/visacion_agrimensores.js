@@ -11,6 +11,12 @@ const Visacion_agrimensores = sequelize.define('visacion_agrimensores', {
     },
     mensura_id: {
         type: Sequelize.INTEGER
+    },
+    tipo: {
+        type: Sequelize.TEXT
+    },
+    observacion: {
+        type: Sequelize.TEXT
     }
 }, {
     timestamps: false

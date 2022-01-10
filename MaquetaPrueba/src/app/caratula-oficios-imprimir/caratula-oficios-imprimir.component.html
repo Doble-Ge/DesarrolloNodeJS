@@ -272,31 +272,33 @@
 		<div class="fila">
 			<div class="col-1">
 				<div class="border-b-1 title">Observaciones</div>
-				<div class="renglon-3" style="padding: 5px;"><pre>{{caratulaOficios.detalle_observacion}}</pre></div>
+				<div class="renglon-obs" style="padding: 5px;"><pre>{{caratulaOficios.detalle_observacion}}</pre>
+					<ngx-qrcode
+						[elementType] = "elementType"
+						[value] = "value"
+						cssClass = "aclass"
+						[errorCorrectionLevel] = "errorCorrectionLevel">
+					</ngx-qrcode>
+				</div>
 			</div>
 	
 			<div class="col-2">
 				<div class="firma border-r-1 border-t-1"></div>
-				<div class="firma-descripcion border-r-1 center pb-5">
+				<div class="firma-descripcion border-r-1  pb-5">
 					MESA DE ENTRADA
 				</div>
 			</div>
 			<div class="col-2">
 				<div class="firma border-l-1 border-t-1"></div>
-				<div class="firma-descripcion border-l-1 center pb-5">
+				<div class="firma-descripcion border-l-1  pb-5">
 					RETIRADO POR (Firma y aclaración)
 				</div>
 			</div>
-			<div class="col-2"><div class="renglon-1 border-r-1 border-t-1"><span style="padding: 5px;"> <b>{{caratulaOficios.fecha}}  {{caratulaOficios.hora}}:{{caratulaOficios.minuto}}</b> </span></div></div>
+			<div class="col-2"><div class="renglon-1 border-r-1 border-t-1"><span style="padding: 5px;"> <b>{{caratulaOficios.fecha}}</b> </span></div></div>
 			<div class="col-2"><div class="renglon-1 border-l-1 border-t-1"></div></div>
 			<div class="clearfix"></div>
 		</div>
 	</div>
-	<ngx-qrcode
-		[elementType] = "elementType"
-		[value] = "value"
-		cssClass = "aclass"
-		[errorCorrectionLevel] = "errorCorrectionLevel">
-	</ngx-qrcode>
+	
 </body>
 </html>

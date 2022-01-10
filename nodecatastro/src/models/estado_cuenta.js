@@ -11,6 +11,9 @@ const Estado_cuenta = sequelize.define('estado_cuenta', {
     },
     mensura_id: {
         type: Sequelize.INTEGER
+    },
+    observacion: {
+        type: Sequelize.TEXT
     }
 }, {
     timestamps: false

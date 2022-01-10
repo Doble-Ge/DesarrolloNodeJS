@@ -15,14 +15,15 @@ export async function getCertificado(req,res) {
 } 
 
 export async function crearCertificado(req, res) {
-    const {informe_catastral,pdf_certificado} = req.body;
+    const {informe_catastral,pdf_certificado, observacion} = req.body;
     try {
 
         let nuevoCertificado = await Certificado.create({
             informe_catastral,
-            pdf_certificado
+            pdf_certificado, 
+            observacion
         }, {
-            fields:['informe_catastral','pdf_certificado']
+            fields:['informe_catastral','pdf_certificado', 'observacion']
         });
         if (nuevoCertificado) {
             return res.json({
@@ -43,10 +44,10 @@ export async function crearCertificado(req, res) {
 export async function updateCertificado(req,res){
     try{
         const {id} = req.params;
-    const {informe_catastral, pdf_certificado, mensura_id} = req.body;
+    const {informe_catastral, pdf_certificado, mensura_id, observacion} = req.body;
     
     const certificado = await Certificado.findAll({
-        attributes: ['id', 'informe_catastral', 'pdf_certificado', 'mensura_id'],
+        attributes: ['id', 'informe_catastral', 'pdf_certificado', 'mensura_id', 'observacion'],
         where: {
             id: id
         }
@@ -57,7 +58,8 @@ export async function updateCertificado(req,res){
             await certificado.update({
                 informe_catastral,
                 pdf_certificado,
-                mensura_id
+                mensura_id,
+                observacion
             })
             
         });

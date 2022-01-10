@@ -8,7 +8,5 @@ export class Correo {
         this.email = this.email
         this.asunto = 'Recuperacion de clave'
         this.mensaje = this.mensaje
-        
-        
     }
 }

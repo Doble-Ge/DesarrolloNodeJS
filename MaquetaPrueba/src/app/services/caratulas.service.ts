@@ -10,7 +10,7 @@ import { CaratulaOficio } from '../models/caratulaOficios';
   providedIn: 'root'
 })
 export class CaratulasService {
-
+  imprimirCaratula: boolean = false
   API_URL: string = 'http://localhost:3000/api'
   caratulaExp: Caratula = new Caratula()
   caratulaExterno: CaratulaExterno = new CaratulaExterno()
@@ -55,5 +55,13 @@ export class CaratulasService {
    }
    listarCaratulaMensura(): Observable<Caratula[]> {
     return this.http.get<Caratula[]>(this.API_URL + '/mensura')
+   }
+   
+   getCaratulaMensura(id): Observable<Caratula> {
+     return this.http.get<Caratula>(this.API_URL + '/mensura/' + id)
+   }
+
+   updateCaratulaMensura(id: any, caratula: Caratula): Observable<Caratula> {
+     return this.http.put<Caratula>(this.API_URL + '/mensura/' + id, caratula)
    }
 }

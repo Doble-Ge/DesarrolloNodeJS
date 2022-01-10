@@ -7,7 +7,7 @@ import { crearEstado_cuenta, getEstadoCuentaMensuraID, getEstado_cuenta, updateE
 router.post('/',crearEstado_cuenta);
 router.get('/', getEstado_cuenta);
 router.put('/:id', updateEstado_Cuenta);
-router.get(':/mensura_id', getEstadoCuentaMensuraID);
+router.get('/:mensura_id', getEstadoCuentaMensuraID);
 // /api/usuario/usuarioaID
 
 

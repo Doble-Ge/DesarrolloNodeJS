@@ -15,13 +15,14 @@ export async function getAprobacion_agrimensura(req,res) {
 } 
 
 export async function crearAprobacion_agrimensura(req, res) {
-    const {pdf_aprobacion_agrimensura} = req.body;
+    const {pdf_aprobacion_agrimensura, observacion} = req.body;
     try {
 
         let nuevaAprobacion_agrimensura = await Aprobacion_agrimensura.create({
-            pdf_aprobacion_agrimensura
+            pdf_aprobacion_agrimensura,
+            observacion
         }, {
-            fields:['pdf_aprobacion_agrimensura']
+            fields:['pdf_aprobacion_agrimensura', 'observacion']
         });
         if (nuevaAprobacion_agrimensura) {
             return res.json({
@@ -42,10 +43,10 @@ export async function crearAprobacion_agrimensura(req, res) {
 export async function updateAprobacion_Agrimensura(req,res){
     try{
         const {id} = req.params;
-    const {pdf_aprobacion_agrimensura, mensura_id} = req.body;
+    const {pdf_aprobacion_agrimensura, mensura_id, observacion} = req.body;
     
     const aprobacion_agrimensura = await Aprobacion_agrimensura.findAll({
-        attributes: ['id', 'pdf_aprobacion_agrimensura', 'mensura_id'],
+        attributes: ['id', 'pdf_aprobacion_agrimensura', 'mensura_id', 'observacion'],
         where: {
             id: id
         }
@@ -55,7 +56,8 @@ export async function updateAprobacion_Agrimensura(req,res){
         aprobacion_agrimensura.forEach(async aprobacion_agrimensura => {
             await aprobacion_agrimensura.update({
                 pdf_aprobacion_agrimensura,
-                mensura_id
+                mensura_id,
+                observacion
             })
             
         });

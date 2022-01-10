@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { UsuarioService } from '../services/usuario.service';
 
 @Component({
@@ -10,9 +11,17 @@ import { UsuarioService } from '../services/usuario.service';
 export class EncabezadoComponent implements OnInit {
   login = 0
   texto: string
+  esExterno: boolean = false
   constructor(public UsuarioInyectado: UsuarioService, private Ruta: Router) { }
 
   ngOnInit(): void {
+    this.UsuarioInyectado.usuarioLogeado.nombre = localStorage.getItem('nombre')
+    this.UsuarioInyectado.usuarioLogeado.apellido = localStorage.getItem('apellido')
+    this.UsuarioInyectado.usuarioLogeado.perfila_id = parseInt(localStorage.getItem('perfil_id'))
+    this.UsuarioInyectado.usuarioLogeado.email = localStorage.getItem('email')
+    this.UsuarioInyectado.loginCorrecto = parseInt(localStorage.getItem('logeado'))
+    console.log(this.UsuarioInyectado.usuarioLogeado)
+    console.log(this.UsuarioInyectado.loginCorrecto)
   }
 
   cerrarSesion(){
@@ -26,6 +35,11 @@ export class EncabezadoComponent implements OnInit {
     this.UsuarioInyectado.usuarioLogeado.cuil = null
     this.UsuarioInyectado.usuarioLogeado.perfila_id = null
     this.UsuarioInyectado.usuarioLogeado.primerLogin = null
-    this.Ruta.navigateByUrl("/paginaInicio")
+    localStorage.removeItem('nombre')
+    localStorage.removeItem('apellido')
+    localStorage.removeItem('mail')
+    localStorage.removeItem('perfil_id')
+    localStorage.removeItem('logeado')
+    this.Ruta.navigateByUrl("#")
   }
 }

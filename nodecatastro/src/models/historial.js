@@ -20,6 +20,12 @@ const Historial = sequelize.define('historial', {
     },
     usuario: {
         type: Sequelize.TEXT
+    },
+    area: {
+        type: Sequelize.TEXT
+    },
+    mail_user: {
+        type: Sequelize.TEXT
     }    
 }, {
     timestamps: false

@@ -12,6 +12,9 @@ const Citacion_colindante = sequelize.define('citacion_colindante', {
    
     mensura_id: {
         type: Sequelize.INTEGER
+    },
+    observacion: {
+        type: Sequelize.TEXT
     }
 }, {
     timestamps: false

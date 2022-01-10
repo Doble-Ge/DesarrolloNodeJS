@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-danger position-relative">
     <div class="container-fluid">
-        <a href="/paginaInicio"><img id="logoCatastro" src="https://minvivienda.larioja.gob.ar/images/2020/03/31/dgclr1.png"></a>
+        <a href="#"><img id="logoCatastro" src="https://minvivienda.larioja.gob.ar/images/2020/03/31/dgclr1.png"></a>
         <a class="navbar-brand" href="#">CATASTRO - LA RIOJA</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -9,16 +9,33 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
             <!--PARA LAS SECCIONES QUE AUN NO EXISTEN-->
-            <a class="nav-link" routerLink="/paginaInicio" routerLinkActive="active">Inicio</a>
+            <a class="nav-link" href="#" routerLinkActive="active">Inicio</a>
             <a class="nav-link" href= "http://www.catastrolr.com.ar/home.php" target="_blank">Solicitudes - Catastro</a>
             
             <span *ngIf = "UsuarioInyectado.loginCorrecto == 1" ><a class="nav-link" routerLink="/soliMensura" routerLinkActive="active">Solicitudes de Mensura</a></span> 
-            <span *ngIf = "UsuarioInyectado.loginCorrecto == 1" ><a class="nav-link" routerLink="/listadoContacto" routerLinkActive="active">Contactos</a></span> 
-            <span *ngIf = "UsuarioInyectado.usuarioLogeado.perfila_id == 1 || UsuarioInyectado.usuarioLogeado.perfila_id == 5"><a class="nav-link" routerLink="/registro" routerLinkActive="active">Registro de Usuarios</a></span>
+            <span *ngIf = "UsuarioInyectado.usuarioLogeado.perfila_id == 1 || UsuarioInyectado.usuarioLogeado.perfila_id == 2 || UsuarioInyectado.usuarioLogeado.perfila_id == 3
+            ||  UsuarioInyectado.usuarioLogeado.perfila_id == 4 || UsuarioInyectado.usuarioLogeado.perfila_id == 5 || UsuarioInyectado.usuarioLogeado.perfila_id == 6
+            || UsuarioInyectado.usuarioLogeado.perfila_id == 7 || UsuarioInyectado.usuarioLogeado.perfila_id == 8 || UsuarioInyectado.usuarioLogeado.perfila_id == 9">
+            <a class="nav-link" routerLink="/listadoContacto" routerLinkActive="active">Contactos</a>
+        </span> 
+            
+            
+            <span *ngIf = "UsuarioInyectado.usuarioLogeado.perfila_id == 1 || UsuarioInyectado.usuarioLogeado.perfila_id == 2 || UsuarioInyectado.usuarioLogeado.perfila_id == 3
+            ||  UsuarioInyectado.usuarioLogeado.perfila_id == 4 || UsuarioInyectado.usuarioLogeado.perfila_id == 5 || UsuarioInyectado.usuarioLogeado.perfila_id == 6
+            || UsuarioInyectado.usuarioLogeado.perfila_id == 7 || UsuarioInyectado.usuarioLogeado.perfila_id == 8 || UsuarioInyectado.usuarioLogeado.perfila_id == 9">
+                <a class="nav-link" routerLink="/registro" routerLinkActive="active">Registro de Usuarios</a>
+            </span>
             <span *ngIf = "UsuarioInyectado.usuarioLogeado.perfila_id == 1 || UsuarioInyectado.usuarioLogeado.perfila_id == 5"><a class="nav-link" routerLink="/listadoSolicitudesUsuarios" routerLinkActive="active">Lista de solicitudes</a>
             </span>
-            <a class="nav-link" routerLink="/generarNotas" routerLinkActive="active">Generar Nota</a>    
-            <a class="nav-link" routerLink="/consultarNotas" routerLinkActive="active">Consultar Nota</a>   
+            <span *ngIf = 'this.UsuarioInyectado.usuarioLogeado.perfila_id == 10 || this.UsuarioInyectado.usuarioLogeado.perfila_id == 11 || this.UsuarioInyectado.usuarioLogeado.perfila_id == 12'> 
+                <a class="nav-link" routerLink="/generarNotas" routerLinkActive="active">Generar Nota</a>
+            </span>    
+            <span *ngIf = "UsuarioInyectado.usuarioLogeado.perfila_id == 1 || UsuarioInyectado.usuarioLogeado.perfila_id == 2 || UsuarioInyectado.usuarioLogeado.perfila_id == 3
+            ||  UsuarioInyectado.usuarioLogeado.perfila_id == 4 || UsuarioInyectado.usuarioLogeado.perfila_id == 5 || UsuarioInyectado.usuarioLogeado.perfila_id == 6
+            || UsuarioInyectado.usuarioLogeado.perfila_id == 7 || UsuarioInyectado.usuarioLogeado.perfila_id == 8 || UsuarioInyectado.usuarioLogeado.perfila_id == 9">
+             <a class="nav-link" routerLink="/consultarNotas" routerLinkActive="active">Consultar Nota</a>  
+            </span>
+            
             <span *ngIf = "UsuarioInyectado.loginCorrecto != 1"><a class="nav-link" routerLink="/contacto" routerLinkActive="active">Contacto</a> </span>
                 <div *ngIf = "UsuarioInyectado.loginCorrecto == 1" class="dropdown">
                     <button class="btn btn-danger dropdown-toggle " type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -32,5 +49,8 @@
             
         </div>
         </div>
+        <span *ngIf = "UsuarioInyectado.loginCorrecto != 1">
+            <a class="navbar-brand" routerLink="/login" routerLinkActive="active">Iniciar Sesion</a>
+        </span>
     </div>
     </nav>

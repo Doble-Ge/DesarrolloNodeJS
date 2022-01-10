@@ -3,7 +3,35 @@
         <h1>Solicitud de Mensura</h1>
         <button class="btn btn-outline-danger botonCabecera">Volver</button>
         <button class="btn btn-outline-danger botonCabecera">Guardar Borrador</button>
-        <button id="btnPresentar" class="btn btn-danger">Presentar y Pegar</button>
+        <label for="">Cambiar estado:</label>
+        <select (change) = 'seleccionarEstado($event)'>
+            <option selected disabled hidden style='display: none' value=''></option>
+            <option value="Pendiente">Pendiente</option>
+            <option value="Observado">Observado</option>
+            <option value="Listo">Listo</option>
+        </select>
+        <button (click) = 'updateEstadoHistorial()' class='btn btn-danger'>Actualizar</button>
+        <label for="">Enviar a:</label>
+        <select (change) = 'seleccionarArea($event)'>
+            <option selected disabled hidden style='display: none' value=''></option>
+            <option value="Dirección">Dirección</option>
+            <option value="Mesa de entrada">Mesa de Entrada</option>
+            <option value="Legales">Legales</option>
+            <option value="Agrimensura">Agrimensura</option>
+            <option value="Sistemas">Sistemas</option>
+            <option value="Secretaria">Secretaria</option>
+            <option value="Disposiciones">Disposiciones</option>
+            <option value="Archivos">Archivos</option>
+            <option value="Valuaciones">Valuaciones</option>
+        </select>
+        <button (click) = 'updateAreaHistorial()' class='btn btn-danger'>Enviar</button>
+        <button (click) = 'enviarCorreo()' class="btn btn-danger">Enviar observaciones</button>
+        <br>
+        <label for="">Estado actual: {{ estadoHistorial }}  </label>
+        <br>
+        <label>Area actual: {{ areaHistorial }} </label>
+        <br>
+        <button (click) = 'pasarHistorial()' class = 'btn btn-danger'>Generar Caratula</button>
     </div>
     
     
@@ -38,22 +66,147 @@
         <div class="container">
             <div *ngIf = "nroBtn==1">
                 <form action="">
-                    <button>LEER PDF </button>
+                    <button (click) = 'descargaSubsistenciaPDF(subsistencia.pdf_subsistencia)'>LEER PDF </button>
                     <br>
                     <div class="form-group">
                         <label for="observaciones">Observaciones</label>
-                        <input type="text" name="observaciones" class="form-control"> 
+                        <input [(ngModel)]= 'subsistencia.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button class= 'btn btn-danger' (click) = 'updateSubsistencia()'>Agregar observacion</button>
                     </div>
                 </form>
             </div> 
             <div *ngIf = "nroBtn==2">
                 <form action="">
                     <label>Informe Catastral: {{ certificado.informe_catastral }}</label>
-                    <button>LEER PDF </button>
+                    <button (click)= 'descargaCertificadoPDF(certificado.pdf_certificado)'>LEER PDF </button>
                     <br>
                     <div class="form-group">
                         <label for="observaciones">Observaciones</label>
-                        <input type="text" name="observaciones" class="form-control"> 
+                        <input [(ngModel)] = 'certificado.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updateCertificado()' class= 'btn btn-danger'>Agregar observacion</button>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==3">
+                <form action="">
+                    <label>Estado: {{ estadoCuenta.db_nodb }}</label>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input [(ngModel)] = 'estadoCuenta.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button  (click) = 'updateEstadoCuenta()' class= 'btn btn-danger'>Agregar observacion</button>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==4">
+                <form action="">
+                    <button (click) = 'descargaCopiaEscrituraPDF(copiaEscritura.pdf_escritura)'>LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input [(ngModel)] = 'copiaEscritura.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updateCopiaEscrituras()' class= 'btn btn-danger'>Agregar observacion</button>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==5">
+                <form action="">
+                    <label for="">Tipo: {{ visacionAgrimensores.tipo }}</label>
+                    <button (click) = 'descargaVisacionAgrimensoresPDF(visacionAgrimensores.pdf_visado_agrimensores)'>LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input [(ngModel)] = 'visacionAgrimensores.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updateVisacionAgrimensores()' class= 'btn btn-danger'>Agregar observacion</button>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==6">
+                <form action="">
+                    <button (click) = 'descargaNotificacionPDF(notificacion.pdf_notificacion)'>LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input [(ngModel)] = 'notificacion.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updateNotificacion()' class= 'btn btn-danger'>Agregar observacion</button>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==7">
+                <form action="">
+                    <button (click) = 'descargaCitacionPDF(citacionColindante.pdf_citacion)'>LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input [(ngModel)] = 'citacionColindante.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updateCitacion()' class= 'btn btn-danger'>Agregar observacion</button>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==8">
+                <form action="">
+                    <button (click) = 'descargaActaPDF(actaConformidad.pdf_acta)'>LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input [(ngModel)] = 'actaConformidad.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updateActaConformidad()' class= 'btn btn-danger'>Agregar observacion</button>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==9">
+                <form action="">
+                    <label>Estado: {{ memoriaDescriptiva.db_nodbmem }}  </label>
+                    <label>Cantidad: {{ memoriaDescriptiva.cantidad }} </label>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input [(ngModel)] = 'memoriaDescriptiva.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updateMemoria()' class= 'btn btn-danger'>Agregar observacion</button>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==10">
+                <form action="">
+                    <button (click) = 'descargaVisacionMunicipalPDF(visacionMunicipal.pdf_visacion_municipal)'>LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input [(ngModel)] = 'visacionMunicipal.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updateVisacionMunicipal()' class= 'btn btn-danger'>Agregar observacion</button>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==11">
+                <form action="">
+                    <button (click) = 'descargaPlanoProyectoPDF(planoProyecto.pdf_proyecto_obra)' >LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input [(ngModel)] = 'planoProyecto.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updatePlanoProyecto()' class= 'btn btn-danger'>Agregar observacion</button>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==12">
+                <form action="">
+                    <button (click) = 'descargaAprobacionPDF(aprobacionAgrimensura.pdf_aprobacion_agrimensura)'>LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input [(ngModel)] = 'aprobacionAgrimensura.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updateAprobacion()' class= 'btn btn-danger'>Agregar observacion</button>
+                    </div>
+                </form>
+            </div>
+            <div *ngIf = "nroBtn==13">
+                <form action="">
+                    <button (click) = 'descargaPlanoDigitalPDF(planoDigital.pdf_plano_digital)'>LEER PDF </button>
+                    <br>
+                    <div class="form-group">
+                        <label for="observaciones">Observaciones</label>
+                        <input [(ngModel)] = 'planoDigital.observacion' type="text" name="observaciones" class="form-control"> 
+                        <button (click) = 'updatePlanoDigital()' class= 'btn btn-danger'>Agregar observacion</button>
                     </div>
                 </form>
             </div>

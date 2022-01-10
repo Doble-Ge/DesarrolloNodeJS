@@ -2,13 +2,14 @@ export class ActaConformidad {
     id: number
     pdf_acta: string
     mensura_id: number
+    observacion: string
 
 
     constructor(){
         this.id = this.id
-        this.pdf_acta = '/nodecatastro/uploads/acta_conformidad/'
+        this.pdf_acta = this.pdf_acta
         this.mensura_id = this.mensura_id
-        
+        this.observacion = this.observacion
     }
 }
 
@@ -16,11 +17,13 @@ export class AprobacionAgrimensura {
     id: number
     pdf_aprobacion_agrimensura: string
     mensura_id: number
+    observacion: string
 
     constructor(){
         this.id = this.id
-        this.pdf_aprobacion_agrimensura = '/nodecatastro/uploads/aprobacion_agrimensura/'
+        this.pdf_aprobacion_agrimensura = this.pdf_aprobacion_agrimensura
         this.mensura_id = this.mensura_id
+        this.observacion = this.observacion
     }
 }
 
@@ -29,12 +32,14 @@ export class Certificados {
     informe_catastral: string
     pdf_certificado: string
     mensura_id: number
+    observacion: string
 
     constructor(){
         this.id = this.id
         this.informe_catastral = this.informe_catastral
-        this.pdf_certificado = '/nodecatastro/uploads/certificado/'
+        this.pdf_certificado = this.pdf_certificado
         this.mensura_id = this.mensura_id
+        this.observacion = this.observacion
     }
 }
 
@@ -42,11 +47,13 @@ export class CitacionColindantes {
     id: number
     pdf_citacion: string
     mensura_id: number
+    observacion: string
 
     constructor(){
         this.id = this.id
-        this.pdf_citacion = '/nodecatastro/uploads/citacion_colindante/'
+        this.pdf_citacion = this.pdf_citacion
         this.mensura_id = this.mensura_id
+        this.observacion = this.observacion
     }
 }
 
@@ -54,11 +61,13 @@ export class CopiaEscritura {
     id: number
     pdf_escritura: string
     mensura_id: number
+    observacion: string
 
     constructor(){
         this.id = this.id
-        this.pdf_escritura = '/nodecatastro/uploads/copia_escritura/'
+        this.pdf_escritura = this.pdf_escritura
         this.mensura_id = this.mensura_id
+        this.observacion = this.observacion
     }
 }
 
@@ -66,25 +75,29 @@ export class EstadoCuenta {
     id: number
     db_nodb: string
     mensura_id: number
+    observacion: string
 
     constructor(){
         this.id = this.id
-        this.db_nodb = this.db_nodb
+        this.db_nodb = "Debe"
         this.mensura_id = this.mensura_id
+        this.observacion = this.observacion
     }
 }
 
 export class MemoriaDescriptivas {
     id: number
-    db_nodbmem: boolean
+    db_nodbmem: string
     cantidad: string
     mensura_id: number
+    observacion: string
 
     constructor(){
         this.id = this.id
-        this.db_nodbmem = this.db_nodbmem
+        this.db_nodbmem = "Debe"
         this.cantidad = this.cantidad
         this.mensura_id = this.mensura_id
+        this.observacion = this.observacion
     }
 }
 
@@ -92,11 +105,13 @@ export class Notificaciones {
     id: number
     pdf_notificacion: string
     mensura_id: number
+    observacion: string
 
     constructor(){
         this.id = this.id
-        this.pdf_notificacion = '/nodecatastro/uploads/notificacion/'
+        this.pdf_notificacion = this.pdf_notificacion
         this.mensura_id = this.mensura_id
+        this.observacion = this.observacion
     }
 }
 
@@ -105,11 +120,13 @@ export class PlanoDigital {
     id: number
     pdf_plano_digital: string
     mensura_id: number
+    observacion: string
 
     constructor(){
         this.id= this.id
-        this.pdf_plano_digital = '/nodecatastro/uploads/plano_digital/'
+        this.pdf_plano_digital = this.pdf_plano_digital
         this.mensura_id = this.mensura_id
+        this.observacion = this.observacion
     }
 
 }
@@ -118,11 +135,13 @@ export class PlanoProyectoObras {
     id: number
     pdf_proyecto_obra: string
     mensura_id: number
+    observacion: string
 
     constructor(){
         this.id = this.id
-        this.pdf_proyecto_obra = '/nodecatastro/uploads/plano_proyecto_obra/'
+        this.pdf_proyecto_obra = this.pdf_proyecto_obra
         this.mensura_id = this.mensura_id
+        this.observacion = this.observacion
     }
 }
 
@@ -131,25 +150,30 @@ export class Subsistencia {
     titulo_subsistencia: string
     pdf_subsistencia: string
     mensura_id: number
+    observacion: string
 
     constructor(){
         this.id = this.id
         this.titulo_subsistencia = this.titulo_subsistencia
-        this.pdf_subsistencia = '/nodecatastro/uploads/subsistencia/'
+        this.pdf_subsistencia = this.pdf_subsistencia
         this.mensura_id = this.mensura_id
+        this.observacion = this.observacion
     }
 }
 
 export class VisacionAgrimensores {
     id: number
     pdf_visado_agrimensores: string
+    tipo: string
     mensura_id: number
-
+    observacion: string
 
     constructor(){
         this.id = this.id
-        this.pdf_visado_agrimensores = '/nodecatastro/uploads/visacion_agrimensores/'
+        this.pdf_visado_agrimensores = this.pdf_visado_agrimensores
         this.mensura_id = this.mensura_id
+        this.tipo = 'Agrimensor'
+        this.observacion = this.observacion
     }
 }
 
@@ -158,11 +182,13 @@ export class VisacionMunicipal {
     id: number
     pdf_visacion_municipal: string
     mensura_id: number
+    observacion: string
 
     constructor(){
         this.id = this.id
-        this.pdf_visacion_municipal = '/nodecatastro/uploads/visacion_municipal/'
+        this.pdf_visacion_municipal = this.pdf_visacion_municipal
         this.mensura_id = this.mensura_id
+        this.observacion = this.observacion
     }
 
 }

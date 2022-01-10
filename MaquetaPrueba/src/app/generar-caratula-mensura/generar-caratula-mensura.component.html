@@ -1,0 +1,125 @@
+<div class = 'container'>
+    <h1>Carga Mensura</h1>
+    <form action="">
+        <div class='form-group'>
+            <label>Numero Interno:</label>
+            <input [(ngModel)] = 'caratulaMensura.numeroInterno' type="text" name="numeroInterno"  class = "form-control">
+        </div>
+        <br>
+        <div class='form-group'>
+            <label>Año:</label>
+            <input [(ngModel)] = 'caratulaMensura.anio' type="number" name="año" class = "form-control"  placeholder="Año*">
+        </div>
+        <br>
+        <div class='form-group'>
+            <label>Agente Intervinente:</label>
+            <input [(ngModel)] = 'caratulaMensura.agenteInterviniente' type="text" name="agenteInterviniente" class = "form-control"  placeholder="Agente Interviniente">
+        </div>
+        <br>
+        <div class='form-group'>
+            <label>Caratula/Asunto/Comitente:</label>
+            <input [(ngModel)] = 'caratulaMensura.caratula_asunto' type="text" name="caratula_asunto" class = "form-control"  placeholder="Caratula/Asunto/Comitente">
+        </div>
+        <br>
+        <div class='form-group'>
+            <label>Detalle/Observacion:</label>
+            <input [(ngModel)] = 'caratulaMensura.detalle_observacion' type="text" name="detalle" class = "form-control"  placeholder="Detalle/Observacion">
+        </div>
+        <br>
+        <div class='form-group'>
+            <label>Fecha de Ingreso:</label>
+            <input [(ngModel)] = 'caratulaMensura.fechaIngreso' type="date" name="fecha" class = "form-control"  placeholder="fecha">
+        </div>
+        <br>
+        <h6>*Campos Obligatorios</h6>
+        <div class='form-group'>
+            <label>N° de Origen:</label>
+            <input [(ngModel)] = 'caratulaMensura.numOrigen' type="text" name="numOrigen" class = "form-control"  placeholder="N° de Origen">
+        </div>
+        <br>
+        <div class='form-group'>
+            <label>Tipo de parcela</label>
+            <select class="form-select" name="tipoParcela" [(ngModel)] = 'caratulaMensura.tipoParcela' >
+                <option value="Urbano">Urbano</option>
+                <option value="Rural">Rural</option>
+            </select>
+        </div>
+        <br>
+        <div class='form-group'>
+            <label>Departamento:</label>
+            <select class="form-select" name="dpto" [(ngModel)] = 'caratulaMensura.departamento'>
+                <option value="Capital">1-Capital</option>
+                <option value="Sanagasta">2-Sanagasta</option>
+                <option value="Castro Barros">3-Castro Barros</option>
+                <option value="Arauco">4-Arauco</option>
+                <option value="San Blas de Los Sauces">5-San Blas de Los Sauces</option>
+                <option value="Famatina">6-Famatina</option>
+                <option value="Chilecito">7-Chilecito</option>
+                <option value="Villa Union">8-Villa Unión</option>
+                <option value="Gral. Lamadrid">9-Gral. Lamadrid</option>
+                <option value="Vinchina">10-Vinchina</option>
+                <option value="Independencia">11-Independencia</option>
+                <option value="Chamical">12-Chamical</option>
+                <option value="Gral. Belgrano">13-Gral. Belgrano</option>
+                <option value="Gral. Ortiz de Ocampo">14-Gral. Ortiz de Ocampo</option>
+                <option value="Rosario Vera Peñaloza">15-Rosario Vera Peñaloza</option>
+                <option value="Gral. San Martin">16-Gral. San Martin</option>
+                <option value="Gral. Juan Facundo Quiroga">17-Gral. Juan Facundo Quiroga</option>
+                <option value="Gral. Angel Vicente Peñaloza">18-Gral. Angel Vicente Peñaloza</option>
+            </select>
+        </div>
+        <br>
+        <div class='form-group'>
+            <label>Plano de:</label>
+            <input type="text" name="planoDe" class = "form-control" [(ngModel)] = 'caratulaMensura.caratula_asunto'>
+        </div>
+        <br>
+        <div class='form-group'>
+            <label>Profesional:</label>
+            <input [(ngModel)] = 'caratulaMensura.profesional' type="text" name="profesional" class = "form-control">
+        </div>
+        <br>
+        <div class='form-group'>
+            <label>Matricula:</label>
+            <input [(ngModel)] = 'caratulaMensura.matricula' type="text" name="matricula" class = "form-control">
+        </div>
+        <br>
+        <div class='form-group'>
+            <label>Comitente:</label>
+            <input [(ngModel)] = 'caratulaMensura.comitente' type="text" name="comitente" class = "form-control">
+        </div>
+        <br>
+        <div class='form-group'>
+            <label>Disposición Provisoria</label>
+            <label>N°</label>
+            <input type="text" name="numProvUno" class = "form-control">
+            <label>N°</label>
+            <input type="text" name="numProvDos" class = "form-control">
+            <label>N°</label>
+            <input type="text" name="numProvTres" class = "form-control">
+        </div>
+        <br>
+        <div class='form-group'>
+            <label>Disposición definitiva:</label>
+            <input [(ngModel)] = 'caratulaMensura.disposicionDef' type="text" name="dispDefinitiva" class = "form-control">
+        </div>
+        <br>
+        <div class='form-group'>
+            <label>Archivo N°</label>
+            <input [(ngModel)] = 'caratulaMensura.numeroArchivo' type="number" name="archivonumero" class = "form-control">
+        </div>
+        <br>
+        <div class='form-group'>
+            <label>Folios:</label>
+            <input [(ngModel)] = 'caratulaMensura.folios' type="text" name="folios" class = "form-control">
+        </div>
+        <br>
+        <div class='form-group'>
+            <label>Cantidad de parcelas:</label>
+            <input [(ngModel)] = 'caratulaMensura.cantidadParcelas' type="number" name="cantidadParcelas" class = "form-control">
+        </div>
+        <br>
+        <button (click) = 'generarCaratula()' class="btn btn-danger" target="_blank">Generar</button>
+        <button (click)="imprimirCaratula(caratulaMensura)" class="btn btn-danger" target="_blank">Imprimir</button>
+    </form>
+</div>

@@ -3,10 +3,12 @@
         <h1>Solicitud de Mensura</h1>
         <button class="btn btn-outline-danger botonCabecera">Volver</button>
         <button class="btn btn-outline-danger botonCabecera">Guardar Borrador</button>
-        <button id="btnPresentar" class="btn btn-danger" (click)="generarCaratula()">Presentar y Pegar</button>
+        <button id="btnPresentar" class="btn btn-danger" (click)="generarCaratula()" id = 'btnGenerarCaratula' disabled>Presentar y Pegar</button>
         <br>
         <br>
         <input type="text" name="cuil" class="form-control w-25" placeholder="Ingrese su nombre" [(ngModel)] = historial.usuario>
+        <br>
+        <input type="text" class = 'form-control w-25' placeholder="Ingrese su email" [(ngModel)] = historial.mail_user>
         <br>
     </div>
     
@@ -52,7 +54,7 @@
                     <div class="form-group">
                         <label for="observaciones">Adjuntar archivo</label>
                         <input type="file" id="archivo" (change)="validacion($event)" name="observaciones" class="form-control w-25">
-                        <button class="btn btn-danger" (click) = "agregarSubsistencia()">Enviar</button> 
+                        <button class="btn btn-danger" (click) = "agregarSubsistencia()" id = 'btnSubsistencia' disabled>Enviar</button> 
                     </div>
                     
                 </form>
@@ -68,7 +70,7 @@
                     <div class="form-group">
                         <label for="adjunto">Adjuntar archivo</label>
                         <input type="file" id="archivo" (change)="validacion($event)" name="adjunto" class="form-control w-25">
-                        <button class="btn btn-danger" (click) = "agregarCertificado()">Enviar</button> 
+                        <button class="btn btn-danger" (click) = "agregarCertificado()" id = 'btnCertificado' disabled>Enviar</button> 
                     </div>
                     
                 </form>
@@ -76,9 +78,13 @@
             <div class= "container border-danger border-3" *ngIf = "nroBtn==3">
                 <form action="">
                     <div class="form-group">
-                        <label for="Estado de cuenta">Estado de cuenta (Debe/No debe):</label>
-                        <input [(ngModel)] = 'estadoCuenta.db_nodb' type="text"  name="estadoCuenta" class="form-control w-25">
-                        <button class="btn btn-danger" (click) = "agregarEstadoCuenta()">Enviar</button>
+                        <label for="Estado de cuenta">Estado de cuenta:</label>
+                        <select (change) = 'elegirOpcionEstadoCuenta($event)'>
+                            <option selected disabled hidden style='display: none' value=''></option>
+                            <option value = "Debe">Debe</option>
+                            <option value = "No debe">No debe</option>
+                        </select>
+                        <button class="btn btn-danger" (click) = "agregarEstadoCuenta()" id = 'btnEstado' disabled>Enviar</button>
                     </div>  
                 </form>
             </div>
@@ -91,7 +97,7 @@
                     <div class="form-group">
                         <label for="adjunto">Adjuntar archivo</label>
                         <input type="file" id="archivo" (change)="validacion($event)" name="adjunto" class="form-control w-25">
-                        <button class="btn btn-danger" (click) = "agregarCopiaEscritura()">Enviar</button> 
+                        <button class="btn btn-danger" (click) = "agregarCopiaEscritura()" id = 'btnCopEscritura' disabled>Enviar</button> 
                     </div>
                     
                 </form>
@@ -99,10 +105,14 @@
             <div class= "container border-danger border-3" *ngIf = "nroBtn==5">
                 <form action="">
                     <div class="form-group">
-                        <select>
-                            <option value = "agrimensor">Agrimensor</option>
-                            <option value = "particular">Particular</option>
+                        <select (change) = 'elegirOpcionVisacion($event)'>
+                            <option selected disabled hidden style='display: none' value=''></option>
+                            <option value = "Agrimensor">Agrimensor</option>
+                            <option value = "Particular">Particular</option>
                         </select>
+                        <label for="adjunto">Adjuntar archivo</label>
+                        <input type="file" id="archivo" (change)="validacion($event)" name="adjunto" class="form-control w-25">
+                        <button class = 'btn btn-danger' (click) = 'agregarVisacionAgrimensores()' id = 'btnVisacionA' disabled>Enviar</button>
                     </div>  
                     </form>
             </div>
@@ -111,7 +121,7 @@
                     <div class="form-group">
                         <label for="">Adjuntar</label>
                         <input type="file" id="archivo" (change)="validacion($event)" name="adjuntar" class="form-control w-25">
-                        <button class="btn btn-danger" (click) = "agregarNotificaciones()">Enviar</button>
+                        <button class="btn btn-danger" (click) = "agregarNotificaciones()" id = 'btnNotificaciones' disabled>Enviar</button>
                     </div>  
                 </form>
             </div>
@@ -120,7 +130,7 @@
                     <div class="form-group">
                         <label for="Ligado">Ligados:</label>
                         <input type="file" id="archivo" (change)="validacion($event)"  name="Ligados" class="form-control w-25">
-                        <button class="btn btn-danger" (click) = "agregarCitacionColindante()">Enviar</button>
+                        <button class="btn btn-danger" (click) = "agregarCitacionColindante()" id = 'btnCitacion' disabled>Enviar</button>
                     </div>  
                 </form>
             </div>
@@ -129,7 +139,7 @@
                 <form action="">
                     <div class="form-group">
                         <input type="file" id="archivo" (change)="validacion($event)"  name="actaConformidad" class="form-control w-25">
-                        <button class="btn btn-danger" (click) = "agregarActaConformidad()">Enviar</button>
+                        <button class="btn btn-danger" (click) = "agregarActaConformidad()" id = 'btnActa' disabled>Enviar</button>
                     </div>  
                 </form>
             </div>
@@ -138,13 +148,14 @@
                 <form action="">
                     <div class="form-group">
                         <label for="Estado de cuenta">Estado de cuenta (Debe/No debe): </label>
-                        <select>
-                            <option>Debe</option>
-                            <option>No debe</option>
+                        <select (change) = 'elegirOpcionMemoria($event)'>
+                            <option selected disabled hidden style='display: none' value=''></option>
+                            <option value = "Debe">Debe</option>
+                            <option value = "No debe">No debe</option>
                         </select>
-                        <label>Cuanto</label>
-                        <input type="text" name="estadoCuenta" class="form-control w-25">
-                        <button class="btn btn-danger" (click) = "agregarMemoriasDescriptivas()">Enviar</button>
+                        <label>Cantidad:</label>
+                        <input [(ngModel)] = 'memoriaD.cantidad' type="text" name="estadoCuenta" class="form-control w-25">
+                        <button class="btn btn-danger" (click) = "agregarMemoriasDescriptivas()" id = 'btnMemoria' disabled>Enviar</button>
                     </div>
                 </form>
             </div>
@@ -154,7 +165,7 @@
                     <div class="form-group">
                     <label for="datoAdjuntar">Adjunto</label>
                     <input type="file" id="archivo" (change)="validacion($event)" name="datoAdjuntar" class="form-control w-25">
-                    <button class="btn btn-danger" (click) = "agregarVisacionMunicipal()">Enviar</button>
+                    <button class="btn btn-danger" (click) = "agregarVisacionMunicipal()" id = 'btnVisacionM' disabled>Enviar</button>
                       </div>  
                     </form>
 
@@ -164,7 +175,7 @@
                     <div class="form-group">
                         <label for="datoAdjuntar">Adjunto</label>
                         <input type="file" id="archivo" (change)="validacion($event)" name="datoAdjuntar" class="form-control w-25">
-                        <button class="btn btn-danger" (click) = "agregarPlanoProyectoObras()">Enviar</button>
+                        <button class="btn btn-danger" (click) = "agregarPlanoProyectoObras()" id = 'btnPlanoProyecto' disabled>Enviar</button>
                     </div>  
                 </form>
 
@@ -175,7 +186,7 @@
                     <div class="form-group">
                         <label for="datoAdjuntar">Adjunto</label>
                         <input type="file" id="archivo" (change)="validacion($event)" name="datoAdjuntar" class="form-control w-25">
-                        <button class="btn btn-danger" (click) = "agregarAprobacionAgrimensura()">Enviar</button>
+                        <button class="btn btn-danger" (click) = "agregarAprobacionAgrimensura()" id = 'btnAprobA' disabled>Enviar</button>
                     </div>  
                 </form>
             </div>
@@ -185,7 +196,7 @@
                     <div class="form-group">
                         <label for="datoAdjuntar">Adjunto</label>
                         <input type="file" id="archivo" (change)="validacion($event)" name="datoAdjuntar" class="form-control w-25">
-                        <button class="btn btn-danger" (click) = "agregarPlanoDigital()">Enviar</button>
+                        <button class="btn btn-danger" (click) = "agregarPlanoDigital()" id = 'btnPlanoDigital' disabled>Enviar</button>
                     </div>  
                 </form>
             </div>

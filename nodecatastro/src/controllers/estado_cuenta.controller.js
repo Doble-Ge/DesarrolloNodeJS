@@ -15,13 +15,14 @@ export async function getEstado_cuenta(req,res) {
 } 
 
 export async function crearEstado_cuenta(req, res) {
-    const {db_nodb} = req.body;
+    const {db_nodb, observacion} = req.body;
     try {
 
         let nuevoEstado_cuenta= await Estado_cuenta.create({
-           db_nodb
+           db_nodb,
+           observacion
         }, {
-            fields:['db_nodb']
+            fields:['db_nodb', 'observacion']
         });
         if (nuevoEstado_cuenta) {
             return res.json({
@@ -43,10 +44,10 @@ export async function crearEstado_cuenta(req, res) {
 export async function updateEstado_Cuenta(req,res){
     try{
         const {id} = req.params;
-    const {db_nodb, mensura_id} = req.body;
+    const {db_nodb, mensura_id, observacion} = req.body;
     
     const estado_cuenta = await Estado_cuenta.findAll({
-        attributes: ['id', 'db_nodb', 'mensura_id'],
+        attributes: ['id', 'db_nodb', 'mensura_id', 'observacion'],
         where: {
             id: id
         }
@@ -56,7 +57,8 @@ export async function updateEstado_Cuenta(req,res){
         estado_cuenta.forEach(async estado_cuenta => {
             await estado_cuenta.update({
                 db_nodb,
-                mensura_id
+                mensura_id,
+                observacion
             })
             
         });

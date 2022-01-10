@@ -11,6 +11,9 @@ const Plano_digital = sequelize.define('plano_digital', {
     },
     mensura_id: {
         type: Sequelize.INTEGER
+    },
+    observacion: {
+        type: Sequelize.TEXT
     }
 }, {
     timestamps: false

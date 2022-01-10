@@ -11,6 +11,9 @@ const Acta_conformidad = sequelize.define('acta_conformidad', {
     },
     mensura_id: {
         type: Sequelize.INTEGER
+    },
+    observacion: {
+        type: Sequelize.TEXT
     }
 }, {
     timestamps: false

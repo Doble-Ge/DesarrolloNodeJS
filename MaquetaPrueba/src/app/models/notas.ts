@@ -11,7 +11,7 @@ export class Notas {
         this.nombreCompleto = this.nombreCompleto
         this.cuil = this.cuil
         this.descripcion = this.descripcion
-        this.pdf_notasExp = '..../nodecatastro/uploads/notasExpedientesExternos'
+        this.pdf_notasExp = this.pdf_notasExp
         
         
     }
